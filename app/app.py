@@ -1,37 +1,10 @@
-import discord
-from discord.ext import commands
+from config import bot, tree, discord,  logger, TOKEN, EMBED_COLOR_RED, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT
 from discord import app_commands
-from dotenv import load_dotenv
-import os
-import pandas as pd
-import logging
 
-from race import visualisation_pronos_course_logic, pronos_course_logic, modify_course
 from qualif import pronos_qualif_logic, visualisation_pronos_qualif_logic, modify_qualif_logic
+from race import pronos_course_logic, visualisation_pronos_course_logic, modify_course
 
-LOG_LEVEL = logging.INFO
-logger = logging.getLogger(__name__)
-logger.setLevel(LOG_LEVEL)
 
-file_handler = logging.FileHandler("../log/app.log", mode="a", encoding="utf-8")
-file_handler.setLevel(LOG_LEVEL)
-
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-file_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-
-load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN_F1F")
-
-# Activer les intents (obligatoire)
-intents = discord.Intents.default()
-intents.message_content = True  # Nécessaire pour lire les messages
-
-#Commande de préfix
-bot = commands.Bot(command_prefix="/", intents=intents)
-
-tree = bot.tree 
 
 @bot.event
 async def on_ready():
@@ -84,7 +57,7 @@ async def help(interaction: discord.Interaction):
     embed = discord.Embed(
         title="📜 Help - Liste des commandes",
         description=f"Salut {interaction.user.mention} ! Voici les commandes que tu peux utiliser :",
-        color=discord.Color.red()
+        color=EMBED_COLOR_RED
     )
     
     embed.add_field(name="/ping", value="Répond avec Pong ! 🏓", inline=False)
@@ -94,7 +67,7 @@ async def help(interaction: discord.Interaction):
     embed.add_field(name="/pronos_qualifs", value="Enregistre ton pronostique pour les qualifications", inline=False)
     embed.add_field(name="/pronos_course", value="Enregistre ton pronostique pour les qualifications",inline=False)
     
-    embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png?ex=6871ac52&is=68705ad2&hm=a63fd375a9f30130247df80b936c43e1d93b3a5b16c3415f7a63cac72614058e&")
+    embed.set_footer(text= EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
     embed.set_thumbnail(url=interaction.user.display_avatar.url)
     
     await interaction.response.send_message(embed=embed, ephemeral=True)
