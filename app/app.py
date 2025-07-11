@@ -2,10 +2,12 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 from dotenv import load_dotenv
-from datetime import datetime
 import os
 import pandas as pd
 import logging
+
+from race import visualisation_pronos_course_logic, pronos_course_logic, modify_course
+from qualif import pronos_qualif_logic, visualisation_pronos_qualif_logic, modify_qualif_logic
 
 LOG_LEVEL = logging.INFO
 logger = logging.getLogger(__name__)
@@ -27,7 +29,7 @@ intents = discord.Intents.default()
 intents.message_content = True  # Nécessaire pour lire les messages
 
 #Commande de préfix
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="/", intents=intents)
 
 tree = bot.tree 
 
@@ -100,325 +102,36 @@ async def help(interaction: discord.Interaction):
     logger.info(f"{interaction.user.name} à demander help dans le salon {interaction.channel.name}")
     
 #_______________________________________________________________________________________________________________________________
-
-@tree.command(name="pronos_qualifs", description="Pronostiques Qualification de Formule 1")
-@app_commands.describe(premier = "Le premier", deuxieme = "Le deuxième", troisieme = "Le troisième")
-async def pronos_qualif(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
-    
-    data = []
-    tab = {}
-    
-    file_path = "../data/Result_Course_Pronos_F1F_DEMO.xlsx"
-    df = pd.read_excel(file_path)
-    
-    # Le pseudo que tu veux chercher — ici je suppose que c'est le pseudo Discord
-    pseudo_recherche = str(interaction.user)  # par exemple pour chercher avec le pseudo Discord exact
-    
-    # Filtrer la DataFrame pour la ligne où la colonne 'Pseudo' correspond au pseudo recherché
-    resultat = df[df['Pseudo'] == pseudo_recherche]
-    
-    if resultat.empty:
-        embed = discord.Embed(
-            title = f"🐐 Merci pour vos pronos {interaction.user} !",
-            description="Voici tes pronostiques : ",
-            color=discord.Color.red()
-        )
-        
-        embed.add_field(name="Premier 🥇 :", value=f"{premier}", inline=False)
-        embed.add_field(name="Deuxième 🥈 :", value=f"{deuxieme}", inline=False)
-        embed.add_field(name="Troisème 🥉 :", value=f"{troisieme}", inline=False)
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png?ex=6871ac52&is=68705ad2&hm=a63fd375a9f30130247df80b936c43e1d93b3a5b16c3415f7a63cac72614058e&")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png?ex=68719910&is=68704790&hm=46bd1e4a625f33cc26d5e029888bef5c265732b842de241daa62662206f13885&")
-
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-        
-        tab["Pseudo"] = interaction.user
-        tab["Premier"] = premier
-        tab["Deuxième"] = deuxieme
-        tab["Troisième"] = troisieme
-        
-        data.append(tab)
-        
-        table = pd.DataFrame(data)
-        table.iloc[0]
-        file_path = "../data/Result_Qualif_Pronos_F1F_DEMO.xlsx"
-
-        if os.path.exists(file_path):
-            # Lire les anciennes données
-            old_data = pd.read_excel(file_path)
-            # Ajouter les nouvelles lignes
-            combined_data = pd.concat([old_data, table], ignore_index=True)
-        else:
-            # Si fichier n'existe pas, créer juste avec les nouvelles données
-            combined_data = table
-
-        # Écrire dans le fichier Excel (remplace l'ancien)
-        combined_data.to_excel(file_path, index=False)
-        
-        logger.info(f"{interaction.user.name} à fais ses pronos qualifs")
-    else:
-        embed = discord.Embed(
-            title = f"Désolé {interaction.user} !",
-            description="On dirait que tu as deja fait un pronostique si tu veux le modifier utilise la fonction /modify",
-            color=discord.Color.red()
-        )
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-        
-        logger.info(f"{interaction.user.name} à tenter de réutiliser la commandes pronos qualifs")
-    
- #_______________________________________________________________________________________________________________________________
-   
 @tree.command(name="pronos_course", description="Pronostiques Course de Formule 1")
 @app_commands.describe(premier = "Le premier", deuxieme = "Le deuxième", troisieme = "Le troisième", meilleur_tour = "Meilleur Tour")
-async def pronos_course(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, meilleur_tour: str):
-    
-    data = []
-    tab = {}
-    
-    file_path = "../data/Result_Course_Pronos_F1F_DEMO.xlsx"
-    
-    colonnes = ["Pseudo", "Premier", "Deuxième", "Troisième", "MT"]
-    
-    if not os.path.exists(file_path):
-        # Création d'un DataFrame vide avec les colonnes attendues
-        df = pd.DataFrame(columns=colonnes)
-        df.to_excel(file_path, index=False)
-    else:
-        df = pd.read_excel(file_path)
-        
-    df = pd.read_excel(file_path)
-    
-    # Le pseudo que tu veux chercher — ici je suppose que c'est le pseudo Discord
-    pseudo_recherche = str(interaction.user)  # par exemple pour chercher avec le pseudo Discord exact
-    
-    # Filtrer la DataFrame pour la ligne où la colonne 'Pseudo' correspond au pseudo recherché
-    resultat = df[df['Pseudo'] == pseudo_recherche]
-    
-    if resultat.empty:
-        embed = discord.Embed(
-            title = f"🐐 Merci pour vos pronos {interaction.user} !",
-            description="Voici tes pronostiques : ",
-            color=discord.Color.red()
-        )
-        
-        embed.add_field(name="Premier 🥇 :", value=f"{premier}", inline=False)
-        embed.add_field(name="Deuxième 🥈 :", value=f"{deuxieme}", inline=False)
-        embed.add_field(name="Troisème 🥉 :", value=f"{troisieme}", inline=False)
-        embed.add_field(name="Meilleur Tour ⏱️ :", value=f"{meilleur_tour}", inline=False) 
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png?ex=6871ac52&is=68705ad2&hm=a63fd375a9f30130247df80b936c43e1d93b3a5b16c3415f7a63cac72614058e&")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png?ex=68719910&is=68704790&hm=46bd1e4a625f33cc26d5e029888bef5c265732b842de241daa62662206f13885&")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-        
-        tab["Pseudo"] = interaction.user
-        tab["Premier"] = premier
-        tab["Deuxième"] = deuxieme
-        tab["Troisième"] = troisieme
-        tab["MT"] = meilleur_tour
-        
-        data.append(tab)
-        
-        table = pd.DataFrame(data)
-        table.iloc[0]
-        file_path = "../data/Result_Course_Pronos_F1F_DEMO.xlsx"
-
-        if os.path.exists(file_path):
-            # Lire les anciennes données
-            old_data = pd.read_excel(file_path)
-            # Ajouter les nouvelles lignes
-            combined_data = pd.concat([old_data, table], ignore_index=True)
-        else:
-            # Si fichier n'existe pas, créer juste avec les nouvelles données
-            combined_data = table
-
-        # Écrire dans le fichier Excel (remplace l'ancien)
-        combined_data.to_excel(file_path, index=False)
-        
-        logger.info(f"{interaction.user.name} à fais ses pronos courses")
-        
-    else:
-        embed = discord.Embed(
-            title = f"Désolé {interaction.user} !",
-            description="On dirait que tu as deja fait un pronostique si tu veux le modifier utilise la fonction /modify",
-            color=discord.Color.red()
-        )
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-        
-        logger.info(f"{interaction.user.name} à tenter de réutiliser la commandes pronos course")
+async def prono_race(interaction: discord.Interaction,premier: str, deuxieme: str, troisieme: str, meilleur_tour: str):
+    await pronos_course_logic(interaction, premier, deuxieme, troisieme, meilleur_tour)
  
 #_______________________________________________________________________________________________________________________________
-   
+@tree.command(name="pronos_qualifs", description="Pronostiques Qualification de Formule 1")
+@app_commands.describe(premier = "Le premier", deuxieme = "Le deuxième", troisieme = "Le troisième")
+async def pronostique_qualification(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
+    await pronos_qualif_logic(interaction, premier, deuxieme, troisieme)
+#_______________________________________________________________________________________________________________________________
 @tree.command(name="visualisation_pronos_course", description="Voir mon pronostique de course")
-async def visualisation_pronos_course(interaction: discord.Interaction):
-    
-    file_path = "../data/Result_Course_Pronos_F1F_DEMO.xlsx"
-    df = pd.read_excel(file_path)
-    
-    # Le pseudo que tu veux chercher — ici je suppose que c'est le pseudo Discord
-    pseudo_recherche = str(interaction.user)  # par exemple pour chercher avec le pseudo Discord exact
-    
-    # Filtrer la DataFrame pour la ligne où la colonne 'Pseudo' correspond au pseudo recherché
-    resultat = df[df['Pseudo'] == pseudo_recherche]
-    
-    if not resultat.empty:
-        ligne = resultat.iloc[0]  # OK, il y a au moins une ligne
-        
-        premier = ligne['Premier']
-        deuxieme = ligne['Deuxième']
-        troisieme = ligne['Troisième']
-        meilleur_tour = ligne['MT']
-
-        embed = discord.Embed(
-            title = f"🐐 Merci pour vos pronos {interaction.user} !",
-            description="Voici tes pronostiques : ",
-            color=discord.Color.red()
-        )
-        
-        embed.add_field(name="Ton Premier 🥇 :", value=f"{premier}", inline=False)
-        embed.add_field(name="Ton Deuxième 🥈 :", value=f"{deuxieme}", inline=False)
-        embed.add_field(name="Ton Troisième 🥉 :", value=f"{troisieme}", inline=False)
-        embed.add_field(name="Ton Meilleur Tour ⏱️ :", value=f"{meilleur_tour}", inline=False) 
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)  
-    else:
-        embed = discord.Embed(
-            title = f"Désolé {interaction.user} !",
-            description="On dirait que tu n'as pas encore fait de pronostique",
-            color=discord.Color.red()
-        )
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-   
-#_______________________________________________________________________________________________________________________________
-     
+async def voir_pronos_course(interaction: discord.Interaction):
+    await visualisation_pronos_course_logic(interaction) 
+#_______________________________________________________________________________________________________________________________ 
 @tree.command(name="visualisation_pronos_qualif", description="Voir mon pronostique de qualif")
-async def visualisation_pronos_qualif(interaction: discord.Interaction):
-    
-    
-    file_path = "../data/Result_Qualif_Pronos_F1F_DEMO.xlsx"
-    df = pd.read_excel(file_path)
-    
-    # Le pseudo que tu veux chercher — ici je suppose que c'est le pseudo Discord
-    pseudo_recherche = str(interaction.user)  # par exemple pour chercher avec le pseudo Discord exact
-    
-    # Filtrer la DataFrame pour la ligne où la colonne 'Pseudo' correspond au pseudo recherché
-    resultat = df[df['Pseudo'] == pseudo_recherche]
-    
-    if not resultat.empty:
-        ligne = resultat.iloc[0]  # OK, il y a au moins une ligne
-        
-        premier = ligne['Premier']
-        deuxieme = ligne['Deuxième']
-        troisieme = ligne['Troisième']
-        
-        embed = discord.Embed(
-            title = f"🐐 Merci pour vos pronos {interaction.user} !",
-            description="Voici tes pronostiques : ",
-            color=discord.Color.red()
-        )
-        
-        embed.add_field(name="Ton Premier 🥇 :", value=f"{premier}", inline=False)
-        embed.add_field(name="Ton Deuxième 🥈 :", value=f"{deuxieme}", inline=False)
-        embed.add_field(name="Ton Troisième 🥉 :", value=f"{troisieme}", inline=False)
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)  
-    else:
-        embed = discord.Embed(
-            title = f"Désolé {interaction.user} !",
-            description="On dirait que tu n'as pas encore fait de pronostique",
-            color=discord.Color.red()
-        )
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-        
+async def voir_pronos_qualif(interaction: discord.Interaction):
+    await visualisation_pronos_qualif_logic(interaction)
 
 #_______________________________________________________________________________________________________________________________
-
 @tree.command(name="modify_course", description="Modifie ton pronostique pour la course")
 @app_commands.describe(premier = "Le premier", deuxieme = "Le deuxième", troisieme = "Le troisième", meilleur_tour = "Meilleur Tour")
-async def modify_course(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, meilleur_tour: str):
-    
-    file_path = "../data/Result_Course_Pronos_F1F_DEMO.xlsx"
-    df = pd.read_excel(file_path)
-    
-    # Le pseudo que tu veux chercher — ici je suppose que c'est le pseudo Discord
-    pseudo_recherche = str(interaction.user)  # par exemple pour chercher avec le pseudo Discord exact
-    
-    # Filtrer la DataFrame pour la ligne où la colonne 'Pseudo' correspond au pseudo recherché
-    resultat = df[df['Pseudo'] == pseudo_recherche].index
-    
-    if resultat.empty:
-        embed = discord.Embed(
-            title = f"Désolé {interaction.user} !",
-            description="On dirait que tu n'as pas encore fait de pronostique",
-            color=discord.Color.red()
-        )
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-    else:
-        embed = discord.Embed(
-            title = f"🐐 Merci pour vos pronos {interaction.user} !",
-            description="Voici tes pronostiques : ",
-            color=discord.Color.red()
-        )
-        
-        embed.add_field(name="Premier 🥇 :", value=f"{premier}", inline=False)
-        embed.add_field(name="Deuxième 🥈 :", value=f"{deuxieme}", inline=False)
-        embed.add_field(name="Troisème 🥉 :", value=f"{troisieme}", inline=False)
-        embed.add_field(name="Meilleur Tour ⏱️ :", value=f"{meilleur_tour}", inline=False) 
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png?ex=6871ac52&is=68705ad2&hm=a63fd375a9f30130247df80b936c43e1d93b3a5b16c3415f7a63cac72614058e&")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png?ex=68719910&is=68704790&hm=46bd1e4a625f33cc26d5e029888bef5c265732b842de241daa62662206f13885&")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-        
-        i = resultat[0]
-        
-        df.at[i, "Pseudo"] = interaction.user
-        df.at[i, "Premier"] = premier
-        df.at[i, "Deuxième"] = deuxieme
-        df.at[i, "Troisième"] = troisieme
-        df.at[i, "MT"] = meilleur_tour
-        
-        df.to_excel(file_path, index=False)
+async def modifier_pronos(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, meilleur_tour: str):
+    await modify_course(interaction, premier, deuxieme, troisieme, meilleur_tour)  # 👈 Appel ici
 
-        
+#_______________________________________________________________________________________________________________
+@tree.command(name="modify_qualif", description="Modifie ton pronostique pour la qualification")
+@app_commands.describe(premier = "Le premier", deuxieme = "Le deuxième", troisieme = "Le troisième")
+async def modifier_qualif(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
+    await modify_qualif_logic(interaction, premier, deuxieme, troisieme)
 
 bot.run(TOKEN)
 
