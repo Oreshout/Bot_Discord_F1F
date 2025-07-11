@@ -3,6 +3,7 @@ from discord import app_commands
 
 from qualif import pronos_qualif_logic, visualisation_pronos_qualif_logic, modify_qualif_logic
 from race import pronos_course_logic, visualisation_pronos_course_logic, modify_course
+from tools import help, clear_slash
 
 
 
@@ -28,7 +29,6 @@ async def say_slash(interaction: discord.Interaction, message: str):
  #_______________________________________________________________________________________________________________________________
    
 @tree.command(name="salut", description="Salue quelqu’un")
-#@app_commands.describe(user_name="Le nom à saluer (facultatif)")
 async def salut_slash(interaction: discord.Interaction):
     await interaction.response.send_message(f"👋 Salut {interaction.user.mention} !")
 
@@ -36,43 +36,13 @@ async def salut_slash(interaction: discord.Interaction):
   
 @tree.command(name="clear", description="Supprime des messages (admin uniquement)")
 @app_commands.describe(nombre="Nombre de messages à supprimer")
-async def clear_slash(interaction: discord.Interaction, nombre: int):
-    if not interaction.user.guild_permissions.manage_messages:
-        await interaction.response.send_message("🚫 Tu n’as pas la permission.", ephemeral=True)
-        return
-
-    await interaction.response.defer(ephemeral=True)  # On indique qu'on va répondre plus tard
-
-    deleted = await interaction.channel.purge(limit=nombre + 1)
-    
-    await interaction.followup.send(f"🧹 {len(deleted)} messages supprimés !", ephemeral=True)
-    
-    logger.info(f"{interaction.user.name} à clear {nombre} lignes dans {interaction.channel.name}")
-
+async def clearing_tool(interaction: discord.Interaction, nombre: int):
+    await clear_slash(interaction, nombre)
 #_______________________________________________________________________________________________________________________________
  
 @tree.command(name="help", description="Gives you all the commands you can use with this bot")
-#@app_commands.describe(nombre="Commande Help de Base")
-async def help(interaction: discord.Interaction):
-    embed = discord.Embed(
-        title="📜 Help - Liste des commandes",
-        description=f"Salut {interaction.user.mention} ! Voici les commandes que tu peux utiliser :",
-        color=EMBED_COLOR_RED
-    )
-    
-    embed.add_field(name="/ping", value="Répond avec Pong ! 🏓", inline=False)
-    embed.add_field(name="/say", value="Répète ton message 💬", inline=False)
-    embed.add_field(name="/salut", value="Salue quelqu’un 👋", inline=False)
-    embed.add_field(name="/clear", value="Supprime des messages (admin uniquement) 🧹", inline=False)
-    embed.add_field(name="/pronos_qualifs", value="Enregistre ton pronostique pour les qualifications", inline=False)
-    embed.add_field(name="/pronos_course", value="Enregistre ton pronostique pour les qualifications",inline=False)
-    
-    embed.set_footer(text= EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
-    embed.set_thumbnail(url=interaction.user.display_avatar.url)
-    
-    await interaction.response.send_message(embed=embed, ephemeral=True)
-    
-    logger.info(f"{interaction.user.name} à demander help dans le salon {interaction.channel.name}")
+async def helping_tools(interaction: discord.Interaction):
+    await help(interaction)
     
 #_______________________________________________________________________________________________________________________________
 @tree.command(name="pronos_course", description="Pronostiques Course de Formule 1")
