@@ -1,7 +1,6 @@
 import os
 import logging
 import discord
-import pandas as pd
 from dotenv import load_dotenv
 from discord.ext import commands
 
