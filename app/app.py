@@ -143,6 +143,8 @@ async def recup_valeur_qualif(interaction: discord.Interaction):
 @tree.command(name="classement", description="Affiche le classement des pronostics")
 async def classement(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
+    
+    output_file_path = "../data/Classement_Qualif.xlsx"
 
     resultats = read_the_docs(interaction, "../data/resultats_qualif.json")
     pronostics = read_the_docs(
@@ -152,8 +154,10 @@ async def classement(interaction: discord.Interaction):
         await interaction.followup.send("Erreur : Fichier(s) manquant(s)", ephemeral=True)
         return
 
-    classement = calculer_classement(resultats, pronostics)
+    classement_df = calculer_classement(resultats, pronostics, output_file_path)
+    classement = classement_df.values.tolist()  # convertit en liste de tuples
     embed = embed_classement(classement)
+
     await interaction.followup.send(embed=embed, ephemeral=True)
 
 

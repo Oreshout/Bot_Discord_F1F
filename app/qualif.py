@@ -10,6 +10,16 @@ async def pronos_qualif_logic(interaction: discord.Interaction, premier: str, de
     tab = {}
 
     file_path = "../data/Result_Course_Pronos_F1F_DEMO.xlsx"
+    
+    colonnes = ["Pseudo", "Premier", "Deuxième", "Troisième"]
+
+    if not os.path.exists(file_path):
+        # Création d'un DataFrame vide avec les colonnes attendues
+        df = pd.DataFrame(columns=colonnes)
+        df.to_excel(file_path, index=False)
+    else:
+        df = pd.read_excel(file_path)
+        
     df = pd.read_excel(file_path)
 
     # Le pseudo que tu veux chercher — ici je suppose que c'est le pseudo Discord
