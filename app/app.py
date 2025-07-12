@@ -3,7 +3,7 @@ from discord import app_commands
 from config import bot, tree,logger, discord, TOKEN
 from qualif import pronos_qualif_logic, visualisation_pronos_qualif_logic, modify_qualif_logic
 from race import pronos_course_logic, visualisation_pronos_course_logic, modify_course
-from scrapping_result import scrapping_result_course
+from scrapping_result import scrapping_result_course, scrapping_result_qualif
 from tools import help, clear_slash
 from error_embed import chat_you_dont_have_perm
 
@@ -74,7 +74,7 @@ async def modifier_qualif(interaction: discord.Interaction, premier: str, deuxie
     await modify_qualif_logic(interaction, premier, deuxieme, troisieme)
 
 #_______________________________________________________________________________________________________________
-@tree.command(name="admin_result_reasearch", description="AC-001")
+@tree.command(name="admin_result_reasearch_course", description="AC-001")
 async def recup_valeur(interaction: discord.Interaction):
     if interaction.user.guild_permissions.administrator:
         await interaction.response.defer(ephemeral=True)
@@ -90,6 +90,26 @@ async def recup_valeur(interaction: discord.Interaction):
             )
     else:
         await chat_you_dont_have_perm(interaction)
+        
+#_______________________________________________________________________________________________________________
+@tree.command(name="admin_result_reasearch_qualif", description="AC-002")
+async def recup_valeur_qualif(interaction: discord.Interaction):
+    if interaction.user.guild_permissions.administrator:
+        await interaction.response.defer(ephemeral=True)
+
+        try:
+            embed = await scrapping_result_qualif(interaction)
+            await interaction.followup.send(embed=embed, ephemeral=True)
+        except Exception as e:
+            logger.error(f"Erreur pendant le scraping : {e}")
+            await interaction.followup.send(
+                content="❌ Une erreur est survenue lors de la récupération des résultats.",
+                ephemeral=True
+            )
+    else:
+        await chat_you_dont_have_perm(interaction)
+
+
 
 bot.run(TOKEN)
 

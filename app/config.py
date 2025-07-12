@@ -54,4 +54,5 @@ EMBED_FOOTER_ICON = EMBED_THUMBNAIL
 CLASS_NAME = 'a'
 
 URL_BASE = "https://fr.motorsport.com/"
-URL_RESULT = "https://fr.motorsport.com/f1/results/2025"
+URL_RESULT_COURSE = "https://fr.motorsport.com/f1/results/2025"
+URL_RESULT_QUALIF = "https://fr.motorsport.com/f1/results/2025/gp-de-grande-bretagne-653245/?st=Q3"
