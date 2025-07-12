@@ -1,9 +1,11 @@
-from config import bot, tree, discord,  logger, TOKEN, EMBED_COLOR_RED, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT
 from discord import app_commands
 
+from config import bot, tree,logger, discord, TOKEN
 from qualif import pronos_qualif_logic, visualisation_pronos_qualif_logic, modify_qualif_logic
 from race import pronos_course_logic, visualisation_pronos_course_logic, modify_course
+from scrapping_result import scrapping_result_course
 from tools import help, clear_slash
+from error_embed import chat_you_dont_have_perm
 
 
 
@@ -14,32 +16,27 @@ async def on_ready():
     logger.info("BOT LANCER")
  
 #_______________________________________________________________________________________________________________________________
-   
 @tree.command(name="ping", description="Répond avec Pong !")
 async def ping_slash(interaction: discord.Interaction):
     await interaction.response.send_message("🏓 Pong !")
     
-#_______________________________________________________________________________________________________________________________
-   
+#_______________________________________________________________________________________________________________________________  
 @tree.command(name="say", description="Répète ton message")
 @app_commands.describe(message="Le message à répéter")
 async def say_slash(interaction: discord.Interaction, message: str):
     await interaction.response.send_message(f"💬 {message}")
     
- #_______________________________________________________________________________________________________________________________
-   
+#_______________________________________________________________________________________________________________________________  
 @tree.command(name="salut", description="Salue quelqu’un")
 async def salut_slash(interaction: discord.Interaction):
     await interaction.response.send_message(f"👋 Salut {interaction.user.mention} !")
 
-#_______________________________________________________________________________________________________________________________
-  
+#_______________________________________________________________________________________________________________________________ 
 @tree.command(name="clear", description="Supprime des messages (admin uniquement)")
 @app_commands.describe(nombre="Nombre de messages à supprimer")
 async def clearing_tool(interaction: discord.Interaction, nombre: int):
     await clear_slash(interaction, nombre)
 #_______________________________________________________________________________________________________________________________
- 
 @tree.command(name="help", description="Gives you all the commands you can use with this bot")
 async def helping_tools(interaction: discord.Interaction):
     await help(interaction)
@@ -75,6 +72,24 @@ async def modifier_pronos(interaction: discord.Interaction, premier: str, deuxie
 @app_commands.describe(premier = "Le premier", deuxieme = "Le deuxième", troisieme = "Le troisième")
 async def modifier_qualif(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
     await modify_qualif_logic(interaction, premier, deuxieme, troisieme)
+
+#_______________________________________________________________________________________________________________
+@tree.command(name="admin_result_reasearch", description="AC-001")
+async def recup_valeur(interaction: discord.Interaction):
+    if interaction.user.guild_permissions.administrator:
+        await interaction.response.defer(ephemeral=True)
+
+        try:
+            embed = await scrapping_result_course(interaction)
+            await interaction.followup.send(embed=embed, ephemeral=True)
+        except Exception as e:
+            logger.error(f"Erreur pendant le scraping : {e}")
+            await interaction.followup.send(
+                content="❌ Une erreur est survenue lors de la récupération des résultats.",
+                ephemeral=True
+            )
+    else:
+        await chat_you_dont_have_perm(interaction)
 
 bot.run(TOKEN)
 

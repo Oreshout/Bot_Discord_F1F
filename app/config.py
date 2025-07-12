@@ -47,3 +47,11 @@ EMBED_IMAGE = "https://cdn.discordapp.com/attachments/1339299411360088226/136854
 
 EMBED_FOOTER_TEXT = "Bot créé par F1F Team"
 EMBED_FOOTER_ICON = EMBED_THUMBNAIL
+
+
+# === Scrapping devices ===
+
+CLASS_NAME = 'a'
+
+URL_BASE = "https://fr.motorsport.com/"
+URL_RESULT = "https://fr.motorsport.com/f1/results/2025"
