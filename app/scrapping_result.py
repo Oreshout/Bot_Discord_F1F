@@ -6,8 +6,9 @@ from selenium.webdriver.support import expected_conditions as EC
 import json
 from config import discord, EMBED_COLOR_RED, EMBED_IMAGE, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, URL_RESULT_COURSE, URL_RESULT_QUALIF, logger
 
+
 async def scrapping_result_course(interaction: discord.Interaction):
-    
+
     options = uc.ChromeOptions()
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-blink-features=AutomationControlled')
@@ -42,8 +43,12 @@ async def scrapping_result_course(interaction: discord.Interaction):
                 raw_name = raw_name.replace(team, "")
             name = raw_name.strip()
 
-            positions_noms.append((pos, name))
+            # Vérifie que la position est un chiffre
+            if pos.isdigit():
+                positions_noms.append((int(pos), name))
 
+            # Ne garder que les 3 premiers classés
+            positions_noms = sorted(positions_noms, key=lambda x: x[0])[:3]
 
     driver.quit()
 
@@ -53,9 +58,9 @@ async def scrapping_result_course(interaction: discord.Interaction):
     # Optionnel : sauvegarder dans un fichier
     with open("../data/resultats_course.json", "w", encoding="utf-8") as f:
         f.write(json_data)
-    
+
     logger.info("Récupération des résultats courses.")
-    
+
     if not positions_noms:
         description = (
             "On dirait que tu as déjà fait un pronostique. "
@@ -77,10 +82,11 @@ async def scrapping_result_course(interaction: discord.Interaction):
 
     return embed  # ✅ On retourne l'embed sans l'envoyer
 
-#_______________________________________________________________________________________________________________
+# _______________________________________________________________________________________________________________
+
 
 async def scrapping_result_qualif(interaction: discord.Interaction):
-    
+
     options = uc.ChromeOptions()
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-blink-features=AutomationControlled')
@@ -115,8 +121,12 @@ async def scrapping_result_qualif(interaction: discord.Interaction):
                 raw_name = raw_name.replace(team, "")
             name = raw_name.strip()
 
-            positions_noms.append((pos, name))
+            # Vérifie que la position est un chiffre
+            if pos.isdigit():
+                positions_noms.append((int(pos), name))
 
+            # Ne garder que les 3 premiers classés
+            positions_noms = sorted(positions_noms, key=lambda x: x[0])[:3]
 
     driver.quit()
 
@@ -126,9 +136,9 @@ async def scrapping_result_qualif(interaction: discord.Interaction):
     # Optionnel : sauvegarder dans un fichier
     with open("../data/resultats_qualif.json", "w", encoding="utf-8") as f:
         f.write(json_data)
-    
+
     logger.info("Récupération des résultats qualif.")
-    
+
     if not positions_noms:
         description = (
             "On dirait que tu as déjà fait un pronostique. "

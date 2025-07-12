@@ -85,3 +85,21 @@ BOT LANCER 11/07/2025 15:47:38
 2025-07-12 10:22:41,364 - INFO - Driver has been initialized.
 2025-07-12 10:22:45,424 - INFO - Récupération des résultats qualif.
 2025-07-12 11:08:17,924 - INFO - BOT LANCER
+2025-07-12 12:00:49,545 - INFO - BOT LANCER
+2025-07-12 12:12:37,410 - INFO - BOT LANCER
+2025-07-12 12:12:49,396 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_course.json
+2025-07-12 12:12:49,397 - ERROR - [matt_karting] Erreur lors de la lecture du fichier ../data/pronostics_course.xlsx : [Errno 2] No such file or directory: '../data/pronostics_course.xlsx'
+2025-07-12 12:13:55,431 - INFO - BOT LANCER
+2025-07-12 12:14:03,240 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_course.json
+2025-07-12 12:14:04,004 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Course_Pronos_F1F_DEMO.xlsx
+2025-07-12 12:18:00,168 - INFO - BOT LANCER
+2025-07-12 12:18:18,671 - INFO - Driver has been initialized.
+2025-07-12 12:18:27,969 - INFO - Récupération des résultats courses.
+2025-07-12 12:19:08,008 - INFO - BOT LANCER
+2025-07-12 12:19:18,988 - INFO - Driver has been initialized.
+2025-07-12 12:19:28,360 - INFO - Récupération des résultats qualif.
+2025-07-12 12:20:14,321 - INFO - BOT LANCER
+2025-07-12 12:20:19,336 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
+2025-07-12 12:20:19,522 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx
+2025-07-12 12:22:22,077 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
+2025-07-12 12:22:22,084 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx

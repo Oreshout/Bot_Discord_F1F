@@ -27,7 +27,8 @@ logger = logging.getLogger("F1F_Bot")
 logger.setLevel(LOG_LEVEL)
 
 log_path = "../log/app.log"
-os.makedirs(os.path.dirname(log_path), exist_ok=True)  # Crée le dossier si nécessaire
+# Crée le dossier si nécessaire
+os.makedirs(os.path.dirname(log_path), exist_ok=True)
 
 file_handler = logging.FileHandler(log_path, mode="a", encoding="utf-8")
 file_handler.setLevel(LOG_LEVEL)
