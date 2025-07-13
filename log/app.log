@@ -126,3 +126,26 @@ BOT LANCER 11/07/2025 15:47:38
 2025-07-12 14:00:17,336 - INFO - BOT LANCER
 2025-07-12 14:00:23,077 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
 2025-07-12 14:00:23,269 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx
+2025-07-12 14:02:23,588 - INFO - BOT LANCER
+2025-07-12 14:02:29,122 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
+2025-07-12 14:02:29,294 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx
+2025-07-12 14:02:29,303 - INFO - ✅ Classement sauvegardé dans : ../data/Classement_Qualif.xlsx
+2025-07-12 14:03:07,500 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
+2025-07-12 14:03:07,511 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx
+2025-07-12 14:03:07,524 - INFO - ✅ Classement sauvegardé dans : ../data/Classement_Qualif.xlsx
+2025-07-12 14:05:36,562 - INFO - sf211921 à fais ses pronos qualifs
+2025-07-12 14:05:44,544 - INFO - [sf211921] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
+2025-07-12 14:05:44,553 - INFO - [sf211921] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx
+2025-07-12 14:05:44,565 - INFO - ✅ Classement sauvegardé dans : ../data/Classement_Qualif.xlsx
+2025-07-12 14:06:38,433 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
+2025-07-12 14:06:38,443 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx
+2025-07-12 14:06:38,457 - INFO - ✅ Classement sauvegardé dans : ../data/Classement_Qualif.xlsx
+2025-07-12 14:44:43,406 - INFO - BOT LANCER
+2025-07-12 16:12:21,126 - INFO - BOT LANCER
+2025-07-12 20:22:15,714 - INFO - BOT LANCER
+2025-07-12 20:22:47,668 - INFO - BOT LANCER
+2025-07-12 20:22:54,704 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
+2025-07-12 20:22:55,849 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx
+2025-07-12 20:22:55,887 - INFO - ✅ Classement sauvegardé dans : ../data/Classement_Qualif.xlsx
+2025-07-12 20:23:00,740 - INFO - matt_karting a tenter de regarder ses pronos course alors qu'il n'en avais pas fais
+2025-07-12 20:23:07,657 - INFO - matt_karting a regarder ses pronos qualif

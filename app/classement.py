@@ -1,7 +1,7 @@
 import discord
-import os
 from config import logger, EMBED_COLOR_RED, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, EMBED_IMAGE
 import pandas as pd
+
 
 def calculer_classement(resultats, pronostics_df, output_file_path):
     classement = []
@@ -17,7 +17,8 @@ def calculer_classement(resultats, pronostics_df, output_file_path):
         if (
             row.get("Premier", "").strip().lower() == resultats_dict.get(1, "").strip().lower() and
             row.get("Deuxième", "").strip().lower() == resultats_dict.get(2, "").strip().lower() and
-            row.get("Troisième", "").strip().lower() == resultats_dict.get(3, "").strip().lower()
+            row.get("Troisième", "").strip().lower(
+            ) == resultats_dict.get(3, "").strip().lower()
         ):
             score += 5
         else:
@@ -26,7 +27,8 @@ def calculer_classement(resultats, pronostics_df, output_file_path):
                 if row["Premier"].strip().lower() == resultats_dict[1].strip().lower():
                     score += 1
                 elif row["Premier"].strip().lower() in [
-                    resultats_dict[2].strip().lower(), resultats_dict[3].strip().lower()
+                    resultats_dict[2].strip().lower(
+                    ), resultats_dict[3].strip().lower()
                 ]:
                     score += 0.5
 
@@ -35,7 +37,8 @@ def calculer_classement(resultats, pronostics_df, output_file_path):
                 if row["Deuxième"].strip().lower() == resultats_dict[2].strip().lower():
                     score += 1
                 elif row["Deuxième"].strip().lower() in [
-                    resultats_dict[1].strip().lower(), resultats_dict[3].strip().lower()
+                    resultats_dict[1].strip().lower(
+                    ), resultats_dict[3].strip().lower()
                 ]:
                     score += 0.5
 
@@ -44,7 +47,8 @@ def calculer_classement(resultats, pronostics_df, output_file_path):
                 if row["Troisième"].strip().lower() == resultats_dict[3].strip().lower():
                     score += 1
                 elif row["Troisième"].strip().lower() in [
-                    resultats_dict[1].strip().lower(), resultats_dict[2].strip().lower()
+                    resultats_dict[1].strip().lower(
+                    ), resultats_dict[2].strip().lower()
                 ]:
                     score += 0.5
 
