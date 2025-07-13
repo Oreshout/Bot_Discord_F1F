@@ -24,6 +24,16 @@
 </p>
 
 
+# Overview
+
+The F1F Discord Bot is a collaborative project designed to enhance Formula 1 communities on Discord by offering an interactive and intelligent prediction system. Developed in Python 3.13.5, the bot allows users to submit race predictions, track their performance, and engage with real-time F1 data in a fun and competitive way.
+
+The core of the bot is built using the `discord.py` library, with `pandas` handling data analysis and user statistics. For gathering up-to-date information from F1 websites, the project makes use of web scraping tools such as `BeautifulSoup`, `Selenium`, and `requests`. The documentation and testing process is supported by tools like Sphinx and Jupyter, while Git and GitHub ensure a clean and collaborative development workflow.
+
+This project is particularly suited for beginner developers or anyone interested in learning how Discord bots work—from backend logic to data scraping and community engagement. That said, experienced contributors are also very welcome to help expand the project’s scope. Whether you’re passionate about coding, motorsport, or both, the F1F Bot is an exciting opportunity to grow your skills in a real-world project while having fun with a dynamic team.
+
+
+# Installation 
 
 | 📦 `pip install`          | 💻 `import` Python                                     | 🧠 Rôle principal                                           | 🧩 Catégorie                |
 | ------------------------- | ------------------------------------------------------ | ----------------------------------------------------------- | --------------------------- |
