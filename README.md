@@ -53,6 +53,8 @@ This project is particularly suited for beginner developers or anyone interested
 | `aiohttp` *(optional)*   | `import aiohttp`                                       | Asynchronous HTTP requests (more efficient than `requests`) | 🔴 Async Programming    |
 | `schedule` *(optional)*  | `import schedule`                                      | Scheduling tasks at regular intervals                       | 🔁 Scheduled Tasks      |
 
+### How to install all these librairies
+
 ```console
 pip install -U discord.py pandas beautifulsoup4 selenium requests sphinx notebook python-dotenv
 ```
