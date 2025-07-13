@@ -35,23 +35,23 @@ This project is particularly suited for beginner developers or anyone interested
 
 # Installation 
 
-| 📦 `pip install`          | 💻 `import` Python                                     | 🧠 Rôle principal                                           | 🧩 Catégorie                |
-| ------------------------- | ------------------------------------------------------ | ----------------------------------------------------------- | --------------------------- |
-| `discord.py`              | `import discord`<br>`from discord.ext import commands` | Gérer l’interface Discord (messages, événements, commandes) | 🟣 Bot Discord              |
-| `pandas`                  | `import pandas as pd`                                  | Analyse et manipulation de données (tableaux, CSV, etc.)    | 🔵 Traitement de données    |
-| `beautifulsoup4`          | `from bs4 import BeautifulSoup`                        | Parsing HTML pour extraire des données                      | 🟠 Web scraping             |
-| `selenium`                | `from selenium import webdriver`                       | Automatisation de navigateur (scraping avancé)              | 🟠 Web scraping             |
-| `requests`                | `import requests`                                      | Requêtes HTTP vers des API ou des sites web                 | 🟠 Web scraping             |
-| `lxml` *(ou `html5lib`)*  | *(utilisé par BeautifulSoup)*                          | Parser HTML/XML rapide et robuste                           | ⚙️ Dépendance parsing       |
-| `sphinx`                  | *(pas nécessaire dans le code directement)*            | Génération automatique de documentation                     | 🟡 Documentation            |
-| `jupyter` *(notebook)*    | *(lancé via interface, pas importé)*                   | Notebooks interactifs pour tester/analyser du code          | 🟡 Documentation / Démo     |
-| `asyncio`                 | `import asyncio`                                       | Gestion des tâches asynchrones                              | 🔴 Programmation asynchrone |
-| `typing` *(builtin)*      | `from typing import List, Optional, Dict`              | Typage statique et annotations de fonctions                 | ⚪ Utilitaire                |
-| `os` *(builtin)*          | `import os`                                            | Accès au système de fichiers / variables d’environnement    | ⚪ Utilitaire                |
-| `dotenv` *(optionnel)*    | `from dotenv import load_dotenv`                       | Charger des variables d’environnement (.env)                | ⚪ Sécurité / Config         |
-| `gitpython` *(optionnel)* | `import git`                                           | Intégration Git dans le script                              | ⚫ DevOps / Git              |
-| `aiohttp` *(optionnel)*   | `import aiohttp`                                       | Requêtes HTTP asynchrones (plus efficace que requests)      | 🔴 Asynchrone               |
-| `schedule` *(optionnel)*  | `import schedule`                                      | Planification de tâches à intervalles réguliers             | 🔁 Tâches programmées       |
+| 📦 `pip install`         | 💻 Python `import`                                     | 🧠 Main Purpose                                             | 🧩 Category             |
+| ------------------------ | ------------------------------------------------------ | ----------------------------------------------------------- | ----------------------- |
+| `discord.py`             | `import discord`<br>`from discord.ext import commands` | Manage the Discord interface (messages, events, commands)   | 🟣 Discord Bot          |
+| `pandas`                 | `import pandas as pd`                                  | Data analysis and manipulation (tables, CSV, etc.)          | 🔵 Data Processing      |
+| `beautifulsoup4`         | `from bs4 import BeautifulSoup`                        | HTML parsing to extract data                                | 🟠 Web Scraping         |
+| `selenium`               | `from selenium import webdriver`                       | Browser automation (advanced scraping)                      | 🟠 Web Scraping         |
+| `requests`               | `import requests`                                      | HTTP requests to APIs or websites                           | 🟠 Web Scraping         |
+| `lxml` *(or `html5lib`)* | *(used by BeautifulSoup)*                              | Fast and robust HTML/XML parser                             | ⚙️ Parsing Dependency   |
+| `sphinx`                 | *(not required directly in code)*                      | Automatic documentation generation                          | 🟡 Documentation        |
+| `jupyter` *(notebook)*   | *(launched via interface, not imported)*               | Interactive notebooks for testing and code demos            | 🟡 Documentation / Demo |
+| `asyncio`                | `import asyncio`                                       | Asynchronous task management                                | 🔴 Async Programming    |
+| `typing` *(builtin)*     | `from typing import List, Optional, Dict`              | Static typing and function annotations                      | ⚪ Utility               |
+| `os` *(builtin)*         | `import os`                                            | Access to file system / environment variables               | ⚪ Utility               |
+| `dotenv` *(optional)*    | `from dotenv import load_dotenv`                       | Load environment variables from a `.env` file               | ⚪ Security / Config     |
+| `gitpython` *(optional)* | `import git`                                           | Git integration within the script                           | ⚫ DevOps / Git          |
+| `aiohttp` *(optional)*   | `import aiohttp`                                       | Asynchronous HTTP requests (more efficient than `requests`) | 🔴 Async Programming    |
+| `schedule` *(optional)*  | `import schedule`                                      | Scheduling tasks at regular intervals                       | 🔁 Scheduled Tasks      |
 
 ```console
 pip install -U discord.py pandas beautifulsoup4 selenium requests sphinx notebook python-dotenv
