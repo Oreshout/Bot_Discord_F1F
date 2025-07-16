@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://discord.gg/89ENkYSCWE">
-    <img src="/sprites/Discord-logo.png" alt="Discord Server" width="70" height="45">
+    <img src="/sprites/discord-logo.png" alt="Discord Server" width="70" height="45">
   </a>
  
  <p align="center">
