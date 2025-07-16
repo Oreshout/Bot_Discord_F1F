@@ -38,10 +38,10 @@ html_css_files = [
     'custom.css',
 ]
 
-locale_dirs = ['locales/']  # Où sont stockées les traductions
+locale_dirs = ['/locales']  # Où sont stockées les traductions
 gettext_compact = False
 
-language = 'French'
+language = 'fr'
 
 # -- Options for HTML output -------------------------------------------------
 

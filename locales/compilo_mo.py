@@ -1,15 +1,22 @@
 import polib
 import os
 
-po_files = [
-    'locales/pot/get_started.po',
-    'locales/pot/index.po',
-    'locales/pot/terms_of_service.po',
-    'locales/pot/privacy_policy.po'
-]
+# Dossier source = tes .po
+input_dir = "pot"
+# Dossier destination = les .mo compilés
+output_dir = "mo"
 
-for po_file in po_files:
-    mo_file = os.path.splitext(po_file)[0] + '.mo'
-    po = polib.pofile(po_file)
-    po.save_as_mofile(mo_file)
-    print(f"✅ Compiled {po_file} -> {mo_file}")
+# Création du dossier mo/ s’il n’existe pas
+os.makedirs(output_dir, exist_ok=True)
+
+# Compilation
+for filename in os.listdir(input_dir):
+    if filename.endswith(".po"):
+        po_path = os.path.join(input_dir, filename)
+        mo_path = os.path.join(output_dir, os.path.splitext(filename)[0] + ".mo")
+        try:
+            po = polib.pofile(po_path)
+            po.save_as_mofile(mo_path)
+            print(f"✅ {filename} compilé en {mo_path}")
+        except Exception as e:
+            print(f"❌ Erreur dans {filename} : {e}")
