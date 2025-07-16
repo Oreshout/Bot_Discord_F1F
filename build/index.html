@@ -3,13 +3,14 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Recherche" href="search.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Recherche" href="search.html" /><link rel="next" title="Get Started" href="get_started.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
-        <title>Documentation Bot_F1F 1.0.1</title>
+    <link rel="shortcut icon" href="_static/F1F-logo.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Documentation Bot_F1F 1.0.3</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ba99f87c" />
     
     
 
@@ -166,7 +167,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">Documentation Bot_F1F 1.0.1</div></a>
+      <a href="#"><div class="brand">Documentation Bot_F1F 1.0.3</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -178,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -189,8 +190,11 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
   
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/F1F-logo.png" alt="Logo"/>
+  </div>
   
-  <span class="sidebar-brand-text">Documentation Bot_F1F 1.0.1</span>
+  <span class="sidebar-brand-text">Documentation Bot_F1F 1.0.3</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Recherche" name="q" aria-label="Recherche">
@@ -198,7 +202,11 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  
+  <p class="caption" role="heading"><span class="caption-text">Navigation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a></li>
+</ul>
+
 </div>
 </div>
 
@@ -231,19 +239,89 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="bot-f1f-documentation">
-<h1>BOT_F1F documentation<a class="headerlink" href="#bot-f1f-documentation" title="Lien vers cette rubrique">¶</a></h1>
-<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
-documentation for details.</p>
+          <section id="f1f-discord-bot-documentation">
+<h1>F1F Discord Bot Documentation<a class="headerlink" href="#f1f-discord-bot-documentation" title="Lien vers cette rubrique">¶</a></h1>
+<p>Welcome to the documentation of the <strong>F1F Bot</strong>, a Discord bot designed to support Formula 1 France community predictions and automation.</p>
+<p>Discord link : <a class="reference external" href="https://discord.gg/89ENkYSCWE">https://discord.gg/89ENkYSCWE</a></p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien vers cette rubrique">¶</a></h2>
+<p>Welcome to the official documentation of the <strong>F1F Discord Bot</strong>, a custom-built assistant created to serve the Formula 1 France community on Discord.
+This bot is designed to bring automation, accuracy, and interactivity to your server, improving both user experience and community management.</p>
+</section>
+<section id="why-build-this-bot">
+<h2>Why Build This Bot?<a class="headerlink" href="#why-build-this-bot" title="Lien vers cette rubrique">¶</a></h2>
+<p>Formula 1 fans thrive on fast, reliable information and a space to share predictions, opinions, and results. Managing such a community manually can be time-consuming and prone to errors.</p>
+<p>The F1F Bot was developed to:</p>
+<ul class="simple">
+<li><p><strong>Automate repetitive tasks:</strong> such as posting race schedules, results, and reminders.</p></li>
+<li><p><strong>Ensure real-time updates:</strong> by scraping and processing live race data.</p></li>
+<li><p><strong>Engage the community:</strong> through interactive prediction games and commands.</p></li>
+<li><p><strong>Support moderators:</strong> by handling routine administrative tasks, freeing up human effort for more meaningful interactions.</p></li>
+</ul>
+</section>
+<section id="core-features">
+<h2>Core Features<a class="headerlink" href="#core-features" title="Lien vers cette rubrique">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>Race Predictions System</strong></p>
+<p>Members can submit predictions for upcoming Grand Prix events via bot commands. The bot stores these predictions securely and can later retrieve, compare, and display them.</p>
+</li>
+<li><p><strong>Automated Data Scraping and Updates</strong></p>
+<p>Using libraries like <cite>BeautifulSoup</cite> and <cite>Selenium</cite>, the bot extracts live race results and relevant statistics from official websites or trusted sources, ensuring the community stays up-to-date.</p>
+</li>
+<li><p><strong>Scheduled Announcements</strong></p>
+<p>The bot schedules reminders, race start notifications, and result postings automatically, maintaining a dynamic and engaging server atmosphere without manual input.</p>
+</li>
+<li><p><strong>Interactive Commands</strong></p>
+<p>A rich set of commands allows users to interact seamlessly with the bot, from checking race calendars to viewing leaderboard standings.</p>
+</li>
+<li><p><strong>Community and Moderation Tools</strong></p>
+<p>The bot helps moderators by monitoring chats, managing permissions, and automating common administrative duties, enhancing overall server health and safety.</p>
+</li>
+</ol>
+</section>
+<section id="technical-overview">
+<h2>Technical Overview<a class="headerlink" href="#technical-overview" title="Lien vers cette rubrique">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Language and Libraries:</strong> Written in Python, leveraging <cite>discord.py</cite> for Discord API interaction.</p></li>
+<li><p><strong>Web Scraping:</strong> Utilizes <cite>BeautifulSoup</cite>, <cite>Selenium</cite>, and <cite>requests</cite> for fetching and parsing web data.</p></li>
+<li><p><strong>Asynchronous Programming:</strong> Uses Python’s <cite>asyncio</cite> to handle multiple concurrent tasks efficiently.</p></li>
+<li><p><strong>Configuration:</strong> Environment variables (stored in <cite>.env</cite> files) manage sensitive data such as bot tokens and server IDs.</p></li>
+<li><p><strong>Extensibility:</strong> Modular design with easily extendable components to add new features or integrate third-party services.</p></li>
+</ul>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Lien vers cette rubrique">¶</a></h2>
+<p>To get the bot up and running on your server, the documentation provides detailed instructions on:</p>
+<ul class="simple">
+<li><p>Installing dependencies and setting up the Python environment.</p></li>
+<li><p>Configuring authentication tokens and server settings.</p></li>
+<li><p>Running the bot locally or deploying it on a server.</p></li>
+<li><p>Customizing features to suit your community’s unique needs.</p></li>
+</ul>
+</section>
+<section id="contributing-and-support">
+<h2>Contributing and Support<a class="headerlink" href="#contributing-and-support" title="Lien vers cette rubrique">¶</a></h2>
+<p>The F1F Bot is an open project developed by the Formula 1 France community. Contributions, feature requests, and bug reports are welcome through our GitHub repository and Discord server.
+Whether you are a developer, F1 fan, or community manager, your participation helps improve the bot for everyone.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Lien vers cette rubrique">¶</a></h2>
+<p>This project is distributed under the MIT License, promoting free use, modification, and distribution.</p>
+<p>---</p>
+<p>Thank you for supporting the Formula 1 France community with the F1F Bot — your go-to assistant for all things F1 on Discord!</p>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Navigation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a></li>
+</ul>
 </div>
+</section>
 </section>
 
         </article>
@@ -251,7 +329,15 @@ documentation for details.</p>
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="get_started.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Get Started</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           
         </div>
         <div class="bottom-of-page">
@@ -271,13 +357,38 @@ documentation for details.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">F1F Discord Bot Documentation</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#why-build-this-bot">Why Build This Bot?</a></li>
+<li><a class="reference internal" href="#core-features">Core Features</a></li>
+<li><a class="reference internal" href="#technical-overview">Technical Overview</a></li>
+<li><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li><a class="reference internal" href="#contributing-and-support">Contributing and Support</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=5b512726"></script>
+</div><script src="_static/documentation_options.js?v=7ac05feb"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>

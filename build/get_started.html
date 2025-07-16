@@ -2,10 +2,12 @@
 <html class="no-js" lang="French" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Recherche" href="search.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Recherche" href="search.html" /><link rel="prev" title="F1F Discord Bot Documentation" href="index.html" />
 
-    <link rel="shortcut icon" href="_static/F1F-logo.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 --><title>Index - Documentation Bot_F1F 1.0.3</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="shortcut icon" href="_static/F1F-logo.ico"/><!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+        <title>Get Started - Documentation Bot_F1F 1.0.3</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ba99f87c" />
@@ -177,7 +179,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -201,8 +203,8 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Navigation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a></li>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Get Started</a></li>
 </ul>
 
 </div>
@@ -222,7 +224,13 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/get_started.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
@@ -231,16 +239,193 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          
-<section class="genindex-section">
-  <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"></div>
+          <section id="get-started">
+<h1>Get Started<a class="headerlink" href="#get-started" title="Lien vers cette rubrique">¶</a></h1>
+<a class="reference internal image-reference" href="_static/banniere_F1F.png"><img alt="F1F Bot Logo" class="align-center" src="_static/banniere_F1F.png" style="width: 500px;" />
+</a>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Lien vers cette rubrique">¶</a></h2>
+<p>The F1F Bot is built in Python and interacts with the Discord API using <cite>discord.py</cite>.
+It automates tasks such as:</p>
+<ul class="simple">
+<li><p>User predictions (for Formula 1 races)</p></li>
+<li><p>Data scraping from race result websites</p></li>
+<li><p>Scheduled updates</p></li>
+<li><p>Database management</p></li>
+<li><p>Interactive commands on Discord</p></li>
+</ul>
+</section>
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Lien vers cette rubrique">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f1f_bot/
+├── bot.py
+├── cogs/
+│   ├── predictions.py
+│   └── ...
+├── utils/
+│   ├── scraping.py
+│   └── ...
+├── .env
+├── .venv/
+├── requirements.txt
+└── README.rst
+</pre></div>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Lien vers cette rubrique">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/votre-utilisateur/f1f-bot.git
+<span class="nb">cd</span><span class="w"> </span>f1f-bot
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="python-libraries-used-in-f1f-bot">
+<h2>Python Libraries Used in F1F Bot<a class="headerlink" href="#python-libraries-used-in-f1f-bot" title="Lien vers cette rubrique">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container" id="id1">
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">________</span><a class="headerlink" href="#id1" title="Lien vers ce tableau">¶</a></caption>
+<colgroup>
+<col style="width: 18.2%" />
+<col style="width: 27.3%" />
+<col style="width: 36.4%" />
+<col style="width: 18.2%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>📦 pip install</p></th>
+<th class="head"><p>💻 Python import</p></th>
+<th class="head"><p>🧠 Main Purpose</p></th>
+<th class="head"><p>🧩 Category</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>discord.py</cite></p></td>
+<td><p><cite>import discord</cite>
+<cite>from discord.ext import commands</cite></p></td>
+<td><p>Manage the Discord interface (messages, events, commands)</p></td>
+<td><p>🟣 Discord Bot</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>pandas</cite></p></td>
+<td><p><cite>import pandas as pd</cite></p></td>
+<td><p>Data analysis and manipulation (tables, CSV, etc.)</p></td>
+<td><p>🔵 Data Processing</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>beautifulsoup4</cite></p></td>
+<td><p><cite>from bs4 import BeautifulSoup</cite></p></td>
+<td><p>HTML parsing to extract data</p></td>
+<td><p>🟠 Web Scraping</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>selenium</cite></p></td>
+<td><p><cite>from selenium import webdriver</cite></p></td>
+<td><p>Browser automation (advanced scraping)</p></td>
+<td><p>🟠 Web Scraping</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>requests</cite></p></td>
+<td><p><cite>import requests</cite></p></td>
+<td><p>HTTP requests to APIs or websites</p></td>
+<td><p>🟠 Web Scraping</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>lxml</cite> <em>(or `html5lib`)</em></p></td>
+<td><p><em>(used by BeautifulSoup)</em></p></td>
+<td><p>Fast and robust HTML/XML parser</p></td>
+<td><p>⚙️ Parsing Dependency</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>sphinx</cite></p></td>
+<td><p><em>(not required directly in code)</em></p></td>
+<td><p>Automatic documentation generation</p></td>
+<td><p>🟡 Documentation</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>jupyter</cite> <em>(notebook)</em></p></td>
+<td><p><em>(launched via interface, not imported)</em></p></td>
+<td><p>Interactive notebooks for testing and code demos</p></td>
+<td><p>🟡 Documentation / Demo</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>asyncio</cite></p></td>
+<td><p><cite>import asyncio</cite></p></td>
+<td><p>Asynchronous task management</p></td>
+<td><p>🔴 Async Programming</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>typing</cite> <em>(builtin)</em></p></td>
+<td><p><cite>from typing import List, Optional, Dict</cite></p></td>
+<td><p>Static typing and function annotations</p></td>
+<td><p>⚪ Utility</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>os</cite> <em>(builtin)</em></p></td>
+<td><p><cite>import os</cite></p></td>
+<td><p>Access to file system / environment variables</p></td>
+<td><p>⚪ Utility</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>dotenv</cite> <em>(optional)</em></p></td>
+<td><p><cite>from dotenv import load_dotenv</cite></p></td>
+<td><p>Load environment variables from a <cite>.env</cite> file</p></td>
+<td><p>⚪ Security / Config</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>gitpython</cite> <em>(optional)</em></p></td>
+<td><p><cite>import git</cite></p></td>
+<td><p>Git integration within the script</p></td>
+<td><p>⚫ DevOps / Git</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>aiohttp</cite> <em>(optional)</em></p></td>
+<td><p><cite>import aiohttp</cite></p></td>
+<td><p>Asynchronous HTTP requests (more efficient than <cite>requests</cite>)</p></td>
+<td><p>🔴 Async Programming</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>schedule</cite> <em>(optional)</em></p></td>
+<td><p><cite>import schedule</cite></p></td>
+<td><p>Scheduling tasks at regular intervals</p></td>
+<td><p>🔁 Scheduled Tasks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="how-to-install-all-these-librairies">
+<h3>How to install all these librairies<a class="headerlink" href="#how-to-install-all-these-librairies" title="Lien vers cette rubrique">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>discord.py<span class="w"> </span>pandas<span class="w"> </span>beautifulsoup4<span class="w"> </span>selenium<span class="w"> </span>requests<span class="w"> </span>sphinx<span class="w"> </span>notebook<span class="w"> </span>python-dotenv
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Lien vers cette rubrique">¶</a></h2>
+<p>Make sure to create a <cite>.env</cite> file with the following structure:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">DISCORD_TOKEN</span><span class="o">=</span><span class="s">your_token_here</span>
+<span class="na">GUILD_ID</span><span class="o">=</span><span class="s">your_discord_guild_id</span>
+</pre></div>
+</div>
+</section>
+<section id="modules-and-libraries">
+<h2>Modules and Libraries<a class="headerlink" href="#modules-and-libraries" title="Lien vers cette rubrique">¶</a></h2>
+<p>The bot uses the following libraries:</p>
+<ul class="simple">
+<li><p><strong>discord.py</strong> – for interacting with the Discord API</p></li>
+<li><p><strong>pandas</strong> – for managing tabular data</p></li>
+<li><p><strong>BeautifulSoup / Selenium</strong> – for scraping external websites</p></li>
+<li><p><strong>schedule</strong> – for timed task execution</p></li>
+<li><p><strong>dotenv</strong> – for configuration via environment variables</p></li>
+</ul>
+</section>
+<section id="development-notes">
+<h2>Development Notes<a class="headerlink" href="#development-notes" title="Lien vers cette rubrique">¶</a></h2>
+<p>To launch the bot locally:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>bot.py
+</pre></div>
+</div>
+<p>You can add new commands using <cite>discord.ext.commands.Cog</cite>.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Lien vers cette rubrique">¶</a></h2>
+<p>MIT License.
+© Formula 1 France Development Team.</p>
+</section>
 </section>
 
         </article>
@@ -249,7 +434,17 @@
         
         <div class="related-pages">
           
-          
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -268,8 +463,37 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Get Started</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#python-libraries-used-in-f1f-bot">Python Libraries Used in F1F Bot</a><ul>
+<li><a class="reference internal" href="#how-to-install-all-these-librairies">How to install all these librairies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#modules-and-libraries">Modules and Libraries</a></li>
+<li><a class="reference internal" href="#development-notes">Development Notes</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
