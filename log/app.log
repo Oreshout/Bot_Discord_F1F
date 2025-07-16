@@ -169,3 +169,4 @@ BOT LANCER 11/07/2025 15:47:38
 2025-07-16 11:12:33,565 - INFO - [matt_karting] Lecture du fichier JSON réussie : ../data/resultats_qualif.json
 2025-07-16 11:12:33,812 - INFO - [matt_karting] Lecture du fichier Excel réussie : ../data/Result_Qualif_Pronos_F1F_DEMO.xlsx
 2025-07-16 11:12:33,844 - INFO - ✅ Classement sauvegardé dans : ../data/Classement_Qualif.xlsx
+2025-07-16 13:31:30,166 - INFO - BOT LANCER

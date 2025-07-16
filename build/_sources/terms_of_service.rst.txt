@@ -1,5 +1,5 @@
-Terms of Service for F1F Discord Bot
-====================================
+Terms of Service
+================
 
 Welcome to the F1F Discord Bot! By using this bot, you agree to the following terms and conditions. Please read them carefully.
 

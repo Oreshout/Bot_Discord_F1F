@@ -160,5 +160,4 @@ async def classement(interaction: discord.Interaction):
 
     await interaction.followup.send(embed=embed, ephemeral=True)
 
-
 bot.run(TOKEN)
