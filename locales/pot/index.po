@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Matt
+# This file is distributed under the same license as the Bot_F1F package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Bot_F1F \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-16 14:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/index.rst:90
+msgid "Navigation"
+msgstr "Navigation"
+
+#: ../../source/index.rst:8
+msgid "F1F Discord Bot Documentation"
+msgstr "Documentation du Bot Discord F1F"
+
+#: ../../source/index.rst:10
+msgid "Welcome to the documentation of the **F1F Bot**, a Discord bot designed to support Formula 1 France community predictions and automation."
+msgstr "Bienvenue dans la documentation du **Bot F1F**, un bot Discord conçu pour accompagner la communauté Formula 1 France dans ses pronostics et automatisations."
+
+#: ../../source/index.rst:12
+msgid "Discord link : https://discord.gg/89ENkYSCWE"
+msgstr "Lien Discord : https://discord.gg/89ENkYSCWE"
+
+#: ../../source/index.rst:15
+msgid "Introduction"
+msgstr "Introduction"
+
+#: ../../source/index.rst:17
+msgid "Welcome to the official documentation of the **F1F Discord Bot**, a custom-built assistant created to serve the Formula 1 France community on Discord. This bot is designed to bring automation, accuracy, and interactivity to your server, improving both user experience and community management."
+msgstr "Bienvenue dans la documentation officielle du **Bot Discord F1F**, un assistant personnalisé créé pour la communauté Formula 1 France sur Discord. Ce bot vise à apporter automatisation, précision et interactivité à votre serveur, améliorant ainsi l'expérience utilisateur et la gestion communautaire."
+
+#: ../../source/index.rst:21
+msgid "Why Build This Bot?"
+msgstr "Pourquoi créer ce bot ?"
+
+#: ../../source/index.rst:23
+msgid "Formula 1 fans thrive on fast, reliable information and a space to share predictions, opinions, and results. Managing such a community manually can be time-consuming and prone to errors."
+msgstr "Les fans de Formule 1 ont besoin d’informations rapides et fiables ainsi que d’un espace pour partager pronostics, avis et résultats. Gérer une telle communauté manuellement peut être chronophage et sujet aux erreurs."
+
+#: ../../source/index.rst:25
+msgid "The F1F Bot was developed to:"
+msgstr "Le Bot F1F a été développé pour :"
+
+#: ../../source/index.rst:27
+msgid "**Automate repetitive tasks:** such as posting race schedules, results, and reminders."
+msgstr "**Automatiser les tâches répétitives :** comme la publication des calendriers de course, résultats et rappels."
+
+#: ../../source/index.rst:28
+msgid "**Ensure real-time updates:** by scraping and processing live race data."
+msgstr "**Assurer des mises à jour en temps réel :** en récupérant et traitant les données de course en direct."
+
+#: ../../source/index.rst:29
+msgid "**Engage the community:** through interactive prediction games and commands."
+msgstr "**Impliquer la communauté :** via des jeux de pronostics interactifs et des commandes."
+
+#: ../../source/index.rst:30
+msgid "**Support moderators:** by handling routine administrative tasks, freeing up human effort for more meaningful interactions."
+msgstr "**Soutenir les modérateurs :** en gérant les tâches administratives courantes, libérant ainsi du temps pour des interactions plus importantes."
+
+#: ../../source/index.rst:33
+msgid "Core Features"
+msgstr "Fonctionnalités principales"
+
+#: ../../source/index.rst:35
+msgid "**Race Predictions System**"
+msgstr "**Système de pronostics de course**"
+
+#: ../../source/index.rst:37
+msgid "Members can submit predictions for upcoming Grand Prix events via bot commands. The bot stores these predictions securely and can later retrieve, compare, and display them."
+msgstr "Les membres peuvent soumettre leurs pronostics pour les prochains Grands Prix via des commandes du bot. Le bot stocke ces pronostics en toute sécurité et peut ensuite les récupérer, comparer et afficher."
+
+#: ../../source/index.rst:39
+msgid "**Automated Data Scraping and Updates**"
+msgstr "**Extraction et mise à jour automatique des données**"
+
+#: ../../source/index.rst:41
+msgid "Using libraries like `BeautifulSoup` and `Selenium`, the bot extracts live race results and relevant statistics from official websites or trusted sources, ensuring the community stays up-to-date."
+msgstr "Grâce à des bibliothèques comme `BeautifulSoup` et `Selenium`, le bot extrait les résultats de course en direct et les statistiques pertinentes depuis les sites officiels ou sources fiables, garantissant que la communauté soit toujours à jour."
+
+#: ../../source/index.rst:43
+msgid "**Scheduled Announcements**"
+msgstr "**Annonces programmées**"
+
+#: ../../source/index.rst:45
+msgid "The bot schedules reminders, race start notifications, and result postings automatically, maintaining a dynamic and engaging server atmosphere without manual input."
+msgstr "Le bot planifie automatiquement les rappels, notifications de départ de course et publications de résultats, maintenant ainsi une ambiance dynamique et engageante sans intervention manuelle."
+
+#: ../../source/index.rst:47
+msgid "**Interactive Commands**"
+msgstr "**Commandes interactives**"
+
+#: ../../source/index.rst:49
+msgid "A rich set of commands allows users to interact seamlessly with the bot, from checking race calendars to viewing leaderboard standings."
+msgstr "Un ensemble riche de commandes permet aux utilisateurs d’interagir facilement avec le bot, de la consultation du calendrier des courses au classement des leaders."
+
+#: ../../source/index.rst:51
+msgid "**Community and Moderation Tools**"
+msgstr "**Outils communautaires et de modération**"
+
+#: ../../source/index.rst:53
+msgid "The bot helps moderators by monitoring chats, managing permissions, and automating common administrative duties, enhancing overall server health and safety."
+msgstr "Le bot aide les modérateurs en surveillant les discussions, en gérant les permissions et en automatisant les tâches administratives courantes, améliorant la santé et la sécurité globale du serveur."
+
+#: ../../source/index.rst:56
+msgid "Technical Overview"
+msgstr "Présentation technique"
+
+#: ../../source/index.rst:58
+msgid "**Language and Libraries:** Written in Python, leveraging `discord.py` for Discord API interaction."
+msgstr "**Langage et bibliothèques :** Écrit en Python, utilisant `discord.py` pour l’interaction avec l’API Discord."
+
+#: ../../source/index.rst:59
+msgid "**Web Scraping:** Utilizes `BeautifulSoup`, `Selenium`, and `requests` for fetching and parsing web data."
+msgstr "**Extraction web :** Utilise `BeautifulSoup`, `Selenium` et `requests` pour récupérer et analyser les données web."
+
+#: ../../source/index.rst:60
+msgid "**Asynchronous Programming:** Uses Python’s `asyncio` to handle multiple concurrent tasks efficiently."
+msgstr "**Programmation asynchrone :** Utilise `asyncio` de Python pour gérer efficacement plusieurs tâches simultanées."
+
+#: ../../source/index.rst:61
+msgid "**Configuration:** Environment variables (stored in `.env` files) manage sensitive data such as bot tokens and server IDs."
+msgstr "**Configuration :** Les variables d’environnement (stockées dans des fichiers `.env`) gèrent les données sensibles comme les tokens du bot et les IDs des serveurs."
+
+#: ../../source/index.rst:62
+msgid "**Extensibility:** Modular design with easily extendable components to add new features or integrate third-party services."
+msgstr "**Extensibilité :** Conception modulaire avec composants facilement extensibles pour ajouter de nouvelles fonctionnalités ou intégrer des services tiers."
+
+#: ../../source/index.rst:65
+msgid "Getting Started"
+msgstr "Premiers pas"
+
+#: ../../source/index.rst:67
+msgid "To get the bot up and running on your server, the documentation provides detailed instructions on:"
+msgstr "Pour lancer le bot sur votre serveur, la documentation fournit des instructions détaillées sur :"
+
+#: ../../source/index.rst:69
+msgid "Installing dependencies and setting up the Python environment."
+msgstr "L’installation des dépendances et la configuration de l’environnement Python."
+
+#: ../../source/index.rst:70
+msgid "Configuring authentication tokens and server settings."
+msgstr "La configuration des tokens d’authentification et des paramètres du serveur."
+
+#: ../../source/index.rst:71
+msgid "Running the bot locally or deploying it on a server."
+msgstr "L’exécution locale du bot ou son déploiement sur un serveur."
+
+#: ../../source/index.rst:72
+msgid "Customizing features to suit your community’s unique needs."
+msgstr "La personnalisation des fonctionnalités selon les besoins spécifiques de votre communauté."
+
+#: ../../source/index.rst:75
+msgid "Contributing and Support"
+msgstr "Contributions et support"
+
+#: ../../source/index.rst:77
+msgid "The F1F Bot is an open project developed by the Formula 1 France community. Contributions, feature requests, and bug reports are welcome through our GitHub repository and Discord server. Whether you are a developer, F1 fan, or community manager, your participation helps improve the bot for everyone."
+msgstr "Le Bot F1F est un projet open source développé par la communauté Formula 1 France. Contributions, demandes de fonctionnalités et rapports de bugs sont les bienvenus via notre dépôt GitHub et notre serveur Discord. Que vous soyez développeur, fan de F1 ou gestionnaire de communauté, votre participation aide à améliorer le bot pour tous."
+
+#: ../../source/index.rst:81
+msgid "License"
+msgstr "Licence"
+
+#: ../../source/index.rst:83
+msgid "This project is distributed under the MIT License, promoting free use, modification, and distribution."
+msgstr "Ce projet est distribué sous licence MIT, favorisant l’utilisation, la modification et la distribution libres."
+
+#: ../../source/index.rst:85
+msgid "---"
+msgstr "---"
+
+#: ../../source/index.rst:87
+msgid "Thank you for supporting the Formula 1 France community with the F1F Bot — your go-to assistant for all things F1 on Discord!"
+msgstr "Merci de soutenir la communauté Formula 1 France avec le Bot F1F — votre assistant incontournable pour tout ce qui concerne la F1 sur Discord !"

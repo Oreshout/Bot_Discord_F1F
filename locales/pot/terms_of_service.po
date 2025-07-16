@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Matt
+# This file is distributed under the same license as the Bot_F1F package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Bot_F1F \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-16 14:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/terms_of_service.rst:2
+msgid "Terms of Service"
+msgstr "Conditions d’utilisation"
+
+#: ../../source/terms_of_service.rst:4
+msgid "Welcome to the F1F Discord Bot! By using this bot, you agree to the following terms and conditions. Please read them carefully."
+msgstr "Bienvenue sur le bot Discord F1F ! En utilisant ce bot, vous acceptez les conditions suivantes. Veuillez les lire attentivement."
+
+#: ../../source/terms_of_service.rst:7
+msgid "1. Introduction"
+msgstr "1. Introduction"
+
+#: ../../source/terms_of_service.rst:9
+msgid "The F1F Discord Bot (\"the Bot\") is designed to assist the Formula 1 France community with race predictions, automation, and data management. This document outlines your rights and responsibilities when interacting with the Bot."
+msgstr "Le bot Discord F1F (« le Bot ») est conçu pour assister la communauté Formula 1 France dans les pronostics de course, l’automatisation et la gestion des données. Ce document décrit vos droits et responsabilités lors de l’utilisation du Bot."
+
+#: ../../source/terms_of_service.rst:12
+msgid "2. Use of the Bot"
+msgstr "2. Utilisation du Bot"
+
+#: ../../source/terms_of_service.rst:14
+msgid "The Bot is provided \"as is\" and \"as available\"."
+msgstr "Le Bot est fourni « tel quel » et « selon disponibilité »."
+
+#: ../../source/terms_of_service.rst:15
+msgid "You agree to use the Bot responsibly and not to exploit or misuse its features."
+msgstr "Vous acceptez d’utiliser le Bot de manière responsable et de ne pas exploiter ou abuser de ses fonctionnalités."
+
+#: ../../source/terms_of_service.rst:16
+msgid "You may not use the Bot for any illegal, harmful, or disruptive activities."
+msgstr "Vous ne devez pas utiliser le Bot pour des activités illégales, nuisibles ou perturbatrices."
+
+#: ../../source/terms_of_service.rst:19
+msgid "3. User Data and Privacy"
+msgstr "3. Données utilisateur et vie privée"
+
+#: ../../source/terms_of_service.rst:21
+msgid "The Bot may collect certain user data necessary for its operation (such as Discord IDs, predictions, and related inputs)."
+msgstr "Le Bot peut collecter certaines données utilisateurs nécessaires à son fonctionnement (comme les identifiants Discord, les pronostics et données associées)."
+
+#: ../../source/terms_of_service.rst:22
+msgid "No personal data will be shared with third parties without your explicit consent."
+msgstr "Aucune donnée personnelle ne sera partagée avec des tiers sans votre consentement explicite."
+
+#: ../../source/terms_of_service.rst:23
+msgid "All data collected is stored securely and used only for the intended purpose of providing Bot services."
+msgstr "Toutes les données collectées sont stockées de manière sécurisée et utilisées uniquement dans le cadre des services fournis par le Bot."
+
+#: ../../source/terms_of_service.rst:24
+msgid "By using the Bot, you consent to this data collection and usage."
+msgstr "En utilisant le Bot, vous consentez à cette collecte et utilisation des données."
+
+#: ../../source/terms_of_service.rst:27
+msgid "4. Limitations and Liability"
+msgstr "4. Limitations et responsabilité"
+
+#: ../../source/terms_of_service.rst:29
+msgid "The Bot team strives for accuracy but does not guarantee the correctness of race results or predictions."
+msgstr "L’équipe du Bot s’efforce d’assurer l’exactitude, mais ne garantit pas la justesse des résultats de course ou des pronostics."
+
+#: ../../source/terms_of_service.rst:30
+msgid "The developers are not responsible for any damages or losses caused by using the Bot."
+msgstr "Les développeurs ne sont pas responsables des dommages ou pertes résultant de l’utilisation du Bot."
+
+#: ../../source/terms_of_service.rst:31
+msgid "The Bot may undergo maintenance or experience downtime without prior notice."
+msgstr "Le Bot peut être en maintenance ou indisponible sans préavis."
+
+#: ../../source/terms_of_service.rst:34
+msgid "5. Changes to Terms"
+msgstr "5. Modifications des conditions"
+
+#: ../../source/terms_of_service.rst:36
+msgid "We reserve the right to update or modify these Terms of Service at any time. Changes will be communicated via the Discord server or Bot messages."
+msgstr "Nous nous réservons le droit de modifier ces conditions d’utilisation à tout moment. Les changements seront communiqués via le serveur Discord ou les messages du Bot."
+
+#: ../../source/terms_of_service.rst:39
+msgid "6. Contact"
+msgstr "6. Contact"
+
+#: ../../source/terms_of_service.rst:41
+msgid "For questions or concerns about these Terms, please contact the F1F Bot development team via the official Discord server: https://discord.gg/89ENkYSCWE"
+msgstr "Pour toute question ou préoccupation concernant ces conditions, veuillez contacter l’équipe de développement du Bot F1F via le serveur Discord officiel : https://discord.gg/89ENkYSCWE"
+
+#: ../../source/terms_of_service.rst:44
+msgid "---"
+msgstr "---"
+
+#: ../../source/terms_of_service.rst:46
+msgid "By using the F1F Bot, you acknowledge that you have read, understood, and agree to these Terms of Service."
+msgstr "En utilisant le Bot F1F, vous reconnaissez avoir lu, compris et accepté ces conditions d’utilisation."

@@ -18,7 +18,7 @@ Welcome to the official documentation of the **F1F Discord Bot**, a custom-built
 This bot is designed to bring automation, accuracy, and interactivity to your server, improving both user experience and community management.
 
 Why Build This Bot?
-------------------
+-------------------
 
 Formula 1 fans thrive on fast, reliable information and a space to share predictions, opinions, and results. Managing such a community manually can be time-consuming and prone to errors.
 

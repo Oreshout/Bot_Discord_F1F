@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Matt
+# This file is distributed under the same license as the Bot_F1F package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Bot_F1F \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-16 14:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/privacy_policy.rst:2
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+#: ../../source/privacy_policy.rst:4
+msgid "This Privacy Policy explains how the **F1F Discord Bot** collects, uses, and protects your personal data when you use the bot."
+msgstr "Cette politique de confidentialité explique comment le **bot Discord F1F** collecte, utilise et protège vos données personnelles lors de l’utilisation du bot."
+
+#: ../../source/privacy_policy.rst:7
+msgid "Data Collection"
+msgstr "Collecte de données"
+
+#: ../../source/privacy_policy.rst:9
+msgid "The F1F Bot may collect the following information:"
+msgstr "Le bot F1F peut collecter les informations suivantes :"
+
+#: ../../source/privacy_policy.rst:11
+msgid "**Discord User ID**: to identify users and manage interactions."
+msgstr "**Identifiant utilisateur Discord** : pour identifier les utilisateurs et gérer les interactions."
+
+#: ../../source/privacy_policy.rst:12
+msgid "**Predictions Data**: your race predictions submitted through the bot."
+msgstr "**Données de pronostics** : vos pronostics de course soumis via le bot."
+
+#: ../../source/privacy_policy.rst:13
+msgid "**Server Interaction Data**: messages and commands you send to the bot."
+msgstr "**Données d’interactions sur le serveur** : messages et commandes que vous envoyez au bot."
+
+#: ../../source/privacy_policy.rst:15
+msgid "No personally identifiable information (such as your real name, email, or location) is collected by the bot unless you provide it voluntarily."
+msgstr "Aucune information personnellement identifiable (comme votre vrai nom, email ou localisation) n’est collectée par le bot sauf si vous la fournissez volontairement."
+
+#: ../../source/privacy_policy.rst:18
+msgid "Data Usage"
+msgstr "Utilisation des données"
+
+#: ../../source/privacy_policy.rst:20
+msgid "The data collected is used solely to:"
+msgstr "Les données collectées sont utilisées uniquement pour :"
+
+#: ../../source/privacy_policy.rst:22
+msgid "Provide the prediction features and related functionalities."
+msgstr "Fournir les fonctionnalités de pronostics et les services associés."
+
+#: ../../source/privacy_policy.rst:23
+msgid "Maintain and improve the bot’s performance."
+msgstr "Maintenir et améliorer les performances du bot."
+
+#: ../../source/privacy_policy.rst:24
+msgid "Communicate important updates or announcements via Discord."
+msgstr "Communiquer des mises à jour ou annonces importantes via Discord."
+
+#: ../../source/privacy_policy.rst:27
+msgid "Data Protection"
+msgstr "Protection des données"
+
+#: ../../source/privacy_policy.rst:29
+msgid "We implement reasonable security measures to protect your data from unauthorized access or disclosure. However, no method of transmission over the internet is 100% secure."
+msgstr "Nous mettons en œuvre des mesures de sécurité raisonnables pour protéger vos données contre tout accès ou divulgation non autorisée. Cependant, aucune méthode de transmission sur Internet n’est sécurisée à 100 %."
+
+#: ../../source/privacy_policy.rst:32
+msgid "Data Sharing"
+msgstr "Partage des données"
+
+#: ../../source/privacy_policy.rst:34
+msgid "Your data will not be sold, rented, or shared with third parties outside of the F1F Bot development team, except if required by law."
+msgstr "Vos données ne seront ni vendues, ni louées, ni partagées avec des tiers en dehors de l’équipe de développement du bot F1F, sauf obligation légale."
+
+#: ../../source/privacy_policy.rst:37
+msgid "Your Rights"
+msgstr "Vos droits"
+
+#: ../../source/privacy_policy.rst:39
+msgid "You have the right to:"
+msgstr "Vous avez le droit de :"
+
+#: ../../source/privacy_policy.rst:41
+msgid "Request access to the personal data we hold about you."
+msgstr "Demander l’accès aux données personnelles que nous détenons à votre sujet."
+
+#: ../../source/privacy_policy.rst:42
+msgid "Request correction or deletion of your data."
+msgstr "Demander la correction ou la suppression de vos données."
+
+#: ../../source/privacy_policy.rst:43
+msgid "Withdraw your consent to data processing at any time."
+msgstr "Retirer votre consentement au traitement des données à tout moment."
+
+#: ../../source/privacy_policy.rst:45
+msgid "To exercise these rights, please contact the bot administrators via the official Discord server or email."
+msgstr "Pour exercer ces droits, veuillez contacter les administrateurs du bot via le serveur Discord officiel ou par email."
+
+#: ../../source/privacy_policy.rst:48
+msgid "Changes to This Policy"
+msgstr "Modifications de cette politique"
+
+#: ../../source/privacy_policy.rst:50
+msgid "This Privacy Policy may be updated periodically. We will notify users of significant changes via the Discord server."
+msgstr "Cette politique de confidentialité peut être mise à jour périodiquement. Nous informerons les utilisateurs des changements importants via le serveur Discord."
+
+#: ../../source/privacy_policy.rst:53
+msgid "Contact Information"
+msgstr "Coordonnées"
+
+#: ../../source/privacy_policy.rst:55
+msgid "If you have any questions about this Privacy Policy, please contact us at:"
+msgstr "Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à :"
+
+#: ../../source/privacy_policy.rst:57
+msgid "**Discord:** https://discord.gg/89ENkYSCWE **Email:** [your-email@example.com]"
+msgstr "**Discord :** https://discord.gg/89ENkYSCWE **Email :** [votre-email@example.com]"
+
+#: ../../source/privacy_policy.rst:60
+msgid "---"
+msgstr "---"
+
+#: ../../source/privacy_policy.rst:62
+msgid "© 2025 Formula 1 France Development Team"
+msgstr "© 2025 Équipe de développement Formula 1 France"

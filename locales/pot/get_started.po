@@ -1,0 +1,374 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Matt
+# This file is distributed under the same license as the Bot_F1F package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Bot_F1F \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-16 14:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/get_started.rst:2
+msgid "Get Started"
+msgstr "Premiers pas"
+
+#: ../../source/get_started.rst:4
+msgid "F1F Bot Logo"
+msgstr "Logo du Bot F1F"
+
+#: ../../source/get_started.rst:10
+msgid "Overview"
+msgstr "Présentation"
+
+#: ../../source/get_started.rst:12
+msgid "The F1F Bot is built in Python and interacts with the Discord API using `discord.py`. It automates tasks such as:"
+msgstr "Le Bot F1F est développé en Python et utilise l’API Discord via `discord.py`. Il automatise plusieurs tâches telles que :"
+
+#: ../../source/get_started.rst:15
+msgid "User predictions (for Formula 1 races)"
+msgstr "Prédictions des utilisateurs (pour les courses de Formule 1)"
+
+#: ../../source/get_started.rst:16
+msgid "Data scraping from race result websites"
+msgstr "Extraction de données depuis les sites de résultats de course"
+
+#: ../../source/get_started.rst:17
+msgid "Scheduled updates"
+msgstr "Mises à jour planifiées"
+
+#: ../../source/get_started.rst:18
+msgid "Database management"
+msgstr "Gestion de base de données"
+
+#: ../../source/get_started.rst:19
+msgid "Interactive commands on Discord"
+msgstr "Commandes interactives sur Discord"
+
+#: ../../source/get_started.rst:22
+msgid "Project Structure"
+msgstr "Structure du projet"
+
+#: ../../source/get_started.rst:40
+msgid "Installation"
+msgstr "Installation"
+
+#: ../../source/get_started.rst:51
+msgid "Python Libraries Used in F1F Bot"
+msgstr "Bibliothèques Python utilisées dans F1F Bot"
+
+#: ../../source/get_started.rst:53
+msgid "________"
+msgstr "________"
+
+#: ../../source/get_started.rst:57
+msgid "📦 pip install"
+msgstr "📦 installation via pip"
+
+#: ../../source/get_started.rst:58
+msgid "💻 Python import"
+msgstr "💻 import en Python"
+
+#: ../../source/get_started.rst:59
+msgid "🧠 Main Purpose"
+msgstr "🧠 Usage principal"
+
+#: ../../source/get_started.rst:60
+msgid "🧩 Category"
+msgstr "🧩 Catégorie"
+
+#: ../../source/get_started.rst:61
+msgid "`discord.py`"
+msgstr "`discord.py`"
+
+#: ../../source/get_started.rst:62
+msgid "`import discord` `from discord.ext import commands`"
+msgstr "`import discord` `from discord.ext import commands`"
+
+#: ../../source/get_started.rst:64
+msgid "Manage the Discord interface (messages, events, commands)"
+msgstr "Gestion de l’interface Discord (messages, événements, commandes)"
+
+#: ../../source/get_started.rst:65
+msgid "🟣 Discord Bot"
+msgstr "🟣 Bot Discord"
+
+#: ../../source/get_started.rst:66
+msgid "`pandas`"
+msgstr "`pandas`"
+
+#: ../../source/get_started.rst:67
+msgid "`import pandas as pd`"
+msgstr "`import pandas as pd`"
+
+#: ../../source/get_started.rst:68
+msgid "Data analysis and manipulation (tables, CSV, etc.)"
+msgstr "Analyse et manipulation de données (tables, CSV, etc.)"
+
+#: ../../source/get_started.rst:69
+msgid "🔵 Data Processing"
+msgstr "🔵 Traitement des données"
+
+#: ../../source/get_started.rst:70
+msgid "`beautifulsoup4`"
+msgstr "`beautifulsoup4`"
+
+#: ../../source/get_started.rst:71
+msgid "`from bs4 import BeautifulSoup`"
+msgstr "`from bs4 import BeautifulSoup`"
+
+#: ../../source/get_started.rst:72
+msgid "HTML parsing to extract data"
+msgstr "Analyse HTML pour extraire des données"
+
+#: ../../source/get_started.rst:73
+#: ../../source/get_started.rst:77
+#: ../../source/get_started.rst:81
+msgid "🟠 Web Scraping"
+msgstr "🟠 Web scraping"
+
+#: ../../source/get_started.rst:74
+msgid "`selenium`"
+msgstr "`selenium`"
+
+#: ../../source/get_started.rst:75
+msgid "`from selenium import webdriver`"
+msgstr "`from selenium import webdriver`"
+
+#: ../../source/get_started.rst:76
+msgid "Browser automation (advanced scraping)"
+msgstr "Automatisation du navigateur (scraping avancé)"
+
+#: ../../source/get_started.rst:78
+msgid "`requests`"
+msgstr "`requests`"
+
+#: ../../source/get_started.rst:79
+msgid "`import requests`"
+msgstr "`import requests`"
+
+#: ../../source/get_started.rst:80
+msgid "HTTP requests to APIs or websites"
+msgstr "Requêtes HTTP vers des APIs ou sites web"
+
+#: ../../source/get_started.rst:82
+msgid "`lxml` *(or `html5lib`)*"
+msgstr "`lxml` *(ou `html5lib`)*"
+
+#: ../../source/get_started.rst:83
+msgid "*(used by BeautifulSoup)*"
+msgstr "*(utilisé par BeautifulSoup)*"
+
+#: ../../source/get_started.rst:84
+msgid "Fast and robust HTML/XML parser"
+msgstr "Analyseur HTML/XML rapide et robuste"
+
+#: ../../source/get_started.rst:85
+msgid "⚙️ Parsing Dependency"
+msgstr "⚙️ Dépendance d’analyse"
+
+#: ../../source/get_started.rst:86
+msgid "`sphinx`"
+msgstr "`sphinx`"
+
+#: ../../source/get_started.rst:87
+msgid "*(not required directly in code)*"
+msgstr "*(pas directement utilisé dans le code)*"
+
+#: ../../source/get_started.rst:88
+msgid "Automatic documentation generation"
+msgstr "Génération automatique de documentation"
+
+#: ../../source/get_started.rst:89
+msgid "🟡 Documentation"
+msgstr "🟡 Documentation"
+
+#: ../../source/get_started.rst:90
+msgid "`jupyter` *(notebook)*"
+msgstr "`jupyter` *(notebook)*"
+
+#: ../../source/get_started.rst:91
+msgid "*(launched via interface, not imported)*"
+msgstr "*(lancé via interface, non importé)*"
+
+#: ../../source/get_started.rst:92
+msgid "Interactive notebooks for testing and code demos"
+msgstr "Notebooks interactifs pour tests et démonstrations"
+
+#: ../../source/get_started.rst:93
+msgid "🟡 Documentation / Demo"
+msgstr "🟡 Documentation / Démo"
+
+#: ../../source/get_started.rst:94
+msgid "`asyncio`"
+msgstr "`asyncio`"
+
+#: ../../source/get_started.rst:95
+msgid "`import asyncio`"
+msgstr "`import asyncio`"
+
+#: ../../source/get_started.rst:96
+msgid "Asynchronous task management"
+msgstr "Gestion des tâches asynchrones"
+
+#: ../../source/get_started.rst:97
+#: ../../source/get_started.rst:117
+msgid "🔴 Async Programming"
+msgstr "🔴 Programmation asynchrone"
+
+#: ../../source/get_started.rst:98
+msgid "`typing` *(builtin)*"
+msgstr "`typing` *(intégré)*"
+
+#: ../../source/get_started.rst:99
+msgid "`from typing import List, Optional, Dict`"
+msgstr "`from typing import List, Optional, Dict`"
+
+#: ../../source/get_started.rst:100
+msgid "Static typing and function annotations"
+msgstr "Typage statique et annotations de fonctions"
+
+#: ../../source/get_started.rst:101
+#: ../../source/get_started.rst:105
+msgid "⚪ Utility"
+msgstr "⚪ Utilitaire"
+
+#: ../../source/get_started.rst:102
+msgid "`os` *(builtin)*"
+msgstr "`os` *(intégré)*"
+
+#: ../../source/get_started.rst:103
+msgid "`import os`"
+msgstr "`import os`"
+
+#: ../../source/get_started.rst:104
+msgid "Access to file system / environment variables"
+msgstr "Accès au système de fichiers / variables d’environnement"
+
+#: ../../source/get_started.rst:106
+msgid "`dotenv` *(optional)*"
+msgstr "`dotenv` *(optionnel)*"
+
+#: ../../source/get_started.rst:107
+msgid "`from dotenv import load_dotenv`"
+msgstr "`from dotenv import load_dotenv`"
+
+#: ../../source/get_started.rst:108
+msgid "Load environment variables from a `.env` file"
+msgstr "Chargement des variables d’environnement depuis un fichier `.env`"
+
+#: ../../source/get_started.rst:109
+msgid "⚪ Security / Config"
+msgstr "⚪ Sécurité / Configuration"
+
+#: ../../source/get_started.rst:110
+msgid "`gitpython` *(optional)*"
+msgstr "`gitpython` *(optionnel)*"
+
+#: ../../source/get_started.rst:111
+msgid "`import git`"
+msgstr "`import git`"
+
+#: ../../source/get_started.rst:112
+msgid "Git integration within the script"
+msgstr "Intégration Git dans le script"
+
+#: ../../source/get_started.rst:113
+msgid "⚫ DevOps / Git"
+msgstr "⚫ DevOps / Git"
+
+#: ../../source/get_started.rst:114
+msgid "`aiohttp` *(optional)*"
+msgstr "`aiohttp` *(optionnel)*"
+
+#: ../../source/get_started.rst:115
+msgid "`import aiohttp`"
+msgstr "`import aiohttp`"
+
+#: ../../source/get_started.rst:116
+msgid "Asynchronous HTTP requests (more efficient than `requests`)"
+msgstr "Requêtes HTTP asynchrones (plus efficaces que `requests`)"
+
+#: ../../source/get_started.rst:118
+msgid "`schedule` *(optional)*"
+msgstr "`schedule` *(optionnel)*"
+
+#: ../../source/get_started.rst:119
+msgid "`import schedule`"
+msgstr "`import schedule`"
+
+#: ../../source/get_started.rst:120
+msgid "Scheduling tasks at regular intervals"
+msgstr "Planification de tâches à intervalles réguliers"
+
+#: ../../source/get_started.rst:121
+msgid "🔁 Scheduled Tasks"
+msgstr "🔁 Tâches planifiées"
+
+#: ../../source/get_started.rst:124
+msgid "How to install all these librairies"
+msgstr "Comment installer toutes ces bibliothèques"
+
+#: ../../source/get_started.rst:131
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../../source/get_started.rst:133
+msgid "Make sure to create a `.env` file with the following structure:"
+msgstr "Veillez à créer un fichier `.env` avec la structure suivante :"
+
+#: ../../source/get_started.rst:141
+msgid "Modules and Libraries"
+msgstr "Modules et bibliothèques"
+
+#: ../../source/get_started.rst:143
+msgid "The bot uses the following libraries:"
+msgstr "Le bot utilise les bibliothèques suivantes :"
+
+#: ../../source/get_started.rst:145
+msgid "**discord.py** – for interacting with the Discord API"
+msgstr "**discord.py** – pour interagir avec l’API Discord"
+
+#: ../../source/get_started.rst:146
+msgid "**pandas** – for managing tabular data"
+msgstr "**pandas** – pour gérer les données tabulaires"
+
+#: ../../source/get_started.rst:147
+msgid "**BeautifulSoup / Selenium** – for scraping external websites"
+msgstr "**BeautifulSoup / Selenium** – pour extraire des données depuis des sites externes"
+
+#: ../../source/get_started.rst:148
+msgid "**schedule** – for timed task execution"
+msgstr "**schedule** – pour exécuter des tâches planifiées"
+
+#: ../../source/get_started.rst:149
+msgid "**dotenv** – for configuration via environment variables"
+msgstr "**dotenv** – pour la configuration via variables d’environnement"
+
+#: ../../source/get_started.rst:152
+msgid "Development Notes"
+msgstr "Notes de développement"
+
+#: ../../source/get_started.rst:154
+msgid "To launch the bot locally:"
+msgstr "Pour lancer le bot en local :"
+
+#: ../../source/get_started.rst:161
+msgid "You can add new commands using `discord.ext.commands.Cog`."
+msgstr "Vous pouvez ajouter de nouvelles commandes avec `discord.ext.commands.Cog`."
+
+#: ../../source/get_started.rst:164
+msgid "License"
+msgstr "Licence"
+
+#: ../../source/get_started.rst:166
+msgid "MIT License. © Formula 1 France Development Team."
+msgstr "Licence MIT. © Équipe de développement Formula 1 France."
