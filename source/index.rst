@@ -93,5 +93,6 @@ Thank you for supporting the Formula 1 France community with the F1F Bot — you
 
    get_started
    terms_of_service
+   privacy_policy
 
 
