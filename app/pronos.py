@@ -5,7 +5,7 @@ import discord
 
 
 def pronos(id: int, pseudo: str, premier: str, second: str, troisieme: str, bt: str):
-    file_path = 'data/Pronos.json'
+    file_path = '../data/Pronos.json'
     if not os.path.exists(file_path):
         pronos_database = {
             str(id): {

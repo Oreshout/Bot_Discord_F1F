@@ -73,3 +73,16 @@ async def Error(interaction: discord.Interaction, erreur: str):
         embed=embed
     )
 
+async def no_prono(interaction: discord.Interaction):
+    embed = discord.Embed(
+        title="❌ Oups, on dirait que tu n'as pas fais de pronos",
+        description=f"{interaction.user.name} utilise la fonction pronos !",
+        color=EMBED_COLOR_RED,
+    )
+    embed.set_footer(text=EMBED_FOOTER_TEXT)
+    embed.set_image(url=EMBED_IMAGE)
+    embed.set_thumbnail(url=EMBED_THUMBNAIL)
+    await interaction.followup.send(
+        ephemeral=True,
+        embed=embed
+    )

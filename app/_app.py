@@ -1,7 +1,7 @@
 from discord import app_commands
 import asyncio
 from config import os, bot, tree, logger,discord, TOKEN
-from tools import help, clear_slash,start_Session,Wait
+from tools import help, clear_slash,start_Session,Wait, visualisation
 import error_embed as embed
 import classement as ldb
 from admin_command import ban
@@ -78,8 +78,10 @@ async def submit(interaction: discord.Interaction, premier: str, deuxieme: str, 
 
 # _______________________________________________________________________________________________________________________________
 
-
-
+@tree.command(name="visualisation", description="Te montre tes pronos")
+async def visu(interaction : discord.Interaction):
+    #await interaction.response.defer(ephemeral=True)
+    await visualisation(interaction)
 # _______________________________________________________________________________________________________________________________
 
 @tree.command(name="leaderboard", description="Affiche le clasement des membres")

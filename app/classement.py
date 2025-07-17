@@ -8,9 +8,9 @@ from config import logger, EMBED_COLOR_RED, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, 
 def saveResults():
     
     try:
-        with open('data/Results.json', 'r', encoding='utf-8') as f:
+        with open('../data/Results.json', 'r', encoding='utf-8') as f:
             results = json.load(f)
-        with open('data/Pronos.json', 'r', encoding='utf-8') as f:
+        with open('../data/Pronos.json', 'r', encoding='utf-8') as f:
             pronos = json.load(f)
 
     except ValueError:
@@ -18,7 +18,7 @@ def saveResults():
         return
     
     try:
-        with open('data/Barem.json', 'r', encoding='utf-8') as f:
+        with open('../data/Barem.json', 'r', encoding='utf-8') as f:
             barem = json.load(f)
     except ValueError:
         logger.info("Problem with Barem")
