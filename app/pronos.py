@@ -1,6 +1,7 @@
 # Gestion des pronostiques, écriture et lecture
 import json
 import os
+import discord
 
 
 def pronos(id: int, pseudo: str, premier: str, second: str, troisieme: str, bt: str):
@@ -12,7 +13,8 @@ def pronos(id: int, pseudo: str, premier: str, second: str, troisieme: str, bt: 
                 "1": premier,
                 "2": second,
                 "3": troisieme,
-                "Best Lap": bt
+                "Best Lap": bt,
+                "Modif":False
             }
         }
     else:
@@ -24,14 +26,26 @@ def pronos(id: int, pseudo: str, premier: str, second: str, troisieme: str, bt: 
                     "1": premier,
                     "2": second,
                     "3": troisieme,
-                    "Best Lap": bt
+                    "Best Lap": bt,
+                    "Modif":False
                 }
             else:
-                pronos_database[str(id)]["Pseudo"] = pseudo
-                pronos_database[str(id)]["1"] = premier
-                pronos_database[str(id)]["2"] = second
-                pronos_database[str(id)]["3"] = troisieme
-                pronos_database[str(id)]["Best Lap"] = bt
+                if(pronos_database[str(id)]["Modif"] == True):
+                    return False
+                else:
+
+                    pronos_database[str(id)]["Pseudo"] = pseudo
+                    pronos_database[str(id)]["1"] = premier
+                    pronos_database[str(id)]["2"] = second
+                    pronos_database[str(id)]["3"] = troisieme
+                    pronos_database[str(id)]["Best Lap"] = bt
+                    pronos_database[str(id)]["Modif"] = True
+
 
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(pronos_database, f, ensure_ascii=False, indent=4)
+    return True
+
+    
+
+    

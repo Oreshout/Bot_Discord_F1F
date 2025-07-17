@@ -59,15 +59,19 @@ async def helping_tools(interaction: discord.Interaction):
 # _______________________________________________________________________________________________________________________________
 
 
-@tree.command(name="pronos_course", description="Enregistre tes pronos dans la base de données")
+@tree.command(name="pronos_course", description="Enregistre tes pronos ou modifie les si tu l'a déja fait par le passé(max 1 fois)")
 @app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième", best_lap="Meilleur Tour")
 async def submit(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, best_lap: str):
     await interaction.response.defer(ephemeral=True)
     if (command_enabled):
 
-        pr.pronos(interaction.user.id, str(interaction.user),
-                  premier, deuxieme, troisieme, best_lap)
-        await interaction.followup.send("Ton prono a bien été pris en compte", ephemeral=True)
+        if(pr.pronos(interaction.user.id, str(interaction.user),
+                  premier, deuxieme, troisieme, best_lap)):
+             await interaction.followup.send("Ton prono a bien été pris en compte", ephemeral=True)
+        else:
+            await embed.Error(interaction, "Tu ne peux modifier ton pronostic qu'une fois")
+            
+       
 
     else:
         await embed.Error(interaction, "Il y a une heure pour tout faire, et celle ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
