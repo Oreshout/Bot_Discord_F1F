@@ -6,7 +6,6 @@ from config import os
 import fastf1 as f1api
 import classement as ldb
 import json
-import pandas as pd
 from error_embed import info_embed, no_prono
 
 
@@ -80,60 +79,6 @@ async def start_Session(interaction: discord.Interaction, duration: float):
     await asyncio.sleep(timedelta(hours=duration).total_seconds())
 
 
-async def visualisation(interaction: discord.Interaction):
-    
-    file_path = "../data/Pronos.json"
-    df = pd.read_json(file_path)
-    
-    # Le pseudo que tu veux chercher — ici je suppose que c'est le pseudo Discord
-    user = interaction.user.id # par exemple pour chercher avec le pseudo Discord exact
-    
-    resultat = False
-    # Filtrer la DataFrame pour la ligne où la colonne 'Pseudo' correspond au pseudo recherché
-    for user_id, info in df.items():
-        if user_id == user:
-            resultat = True
-            premier = info['1']
-            deuxieme = info['2']
-            troisieme = info['3']
-            best_lap = info['Best Lap']
-    
-    if resultat:
-       
-        embed = discord.Embed(
-            title = f"🐐 Merci pour vos pronos {interaction.user} !",
-            description="Voici tes pronostiques : ",
-            color=discord.Color.red()
-        )
-        
-        embed.add_field(name="Ton Premier 🥇 :", value=f"{premier}", inline=False)
-        embed.add_field(name="Ton Deuxième 🥈 :", value=f"{deuxieme}", inline=False)
-        embed.add_field(name="Ton Troisième 🥉 :", value=f"{troisieme}", inline=False)
-        embed.add_field(name="Ton Meilleur Tour ⏱️ :", value=f"{best_lap}", inline=False) 
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)  
-        
-        logger.info(f"{interaction.user.name} a regarder ses pronos course")
-        
-    else:
-        embed = discord.Embed(
-            title = f"Désolé {interaction.user} !",
-            description="On dirait que tu n'as pas encore fait de pronostique",
-            color=discord.Color.red()
-        )
-        
-        embed.set_footer(text="Bot créé par F1F Team", icon_url="https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png")
-        embed.set_thumbnail(url=interaction.user.display_avatar.url)
-        embed.set_image(url="https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png")
-        
-        await interaction.response.send_message(embed=embed, ephemeral=True)
-        
-        logger.info(f"{interaction.user.name} a tenter de regarder ses pronos course alors qu'il n'en avais pas fais")
-    
 
 
 

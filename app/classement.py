@@ -18,7 +18,7 @@ def saveResults():
         return
     
     try:
-        with open('../data/Barem.json', 'r', encoding='utf-8') as f:
+        with open('data/Barem.json', 'r', encoding='utf-8') as f:
             barem = json.load(f)
     except ValueError:
         logger.info("Problem with Barem")
