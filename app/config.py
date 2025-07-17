@@ -57,3 +57,9 @@ CLASS_NAME = 'a'
 URL_BASE = "https://fr.motorsport.com/"
 URL_RESULT_COURSE = "https://fr.motorsport.com/f1/results/2025"
 URL_RESULT_QUALIF = "https://fr.motorsport.com/f1/results/2025/gp-de-grande-bretagne-653245/?st=Q3"
+
+# === Environment variable ===
+
+PRONOS_ID=1395093933176131755
+GUILD_ID = 1394054995523010761
+

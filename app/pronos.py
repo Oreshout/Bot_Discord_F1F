@@ -1,9 +1,9 @@
-# Gestion des pronostiques, Ã©criture et lecture
+# Gestion des pronostiques, écriture et lecture
 import json
 import os
 
 
-def pronos_qualif_logic(id, pseudo, premier: str, second: str, troisieme: str, bt: str):
+def pronos(id: int, pseudo: str, premier: str, second: str, troisieme: str, bt: str):
     file_path = 'data/Pronos.json'
     if not os.path.exists(file_path):
         pronos_database = {
@@ -27,13 +27,11 @@ def pronos_qualif_logic(id, pseudo, premier: str, second: str, troisieme: str, b
                     "Best Lap": bt
                 }
             else:
-                print("Modif")
-                pronos_database[str(id)["Pseudo"]] = pseudo
-                pronos_database[str(id)["1"]] = premier
-                pronos_database[str(id)["2"]] = second
-                pronos_database[str(id)["3"]] = troisieme
+                pronos_database[str(id)]["Pseudo"] = pseudo
+                pronos_database[str(id)]["1"] = premier
+                pronos_database[str(id)]["2"] = second
+                pronos_database[str(id)]["3"] = troisieme
+                pronos_database[str(id)]["Best Lap"] = bt
+
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(pronos_database, f, ensure_ascii=False, indent=4)
-
-
-pronos_qualif_logic(19, "Victor", "Oscar", "Pierre", "Lando", "Lando")

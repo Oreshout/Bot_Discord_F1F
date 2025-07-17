@@ -1,5 +1,12 @@
 from config import logger, EMBED_COLOR_RED, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, EMBED_IMAGE
 import discord
+import asyncio
+from datetime import timedelta
+from config import os
+import fastf1 as f1api
+import error_embed as embed
+import classement as ldb
+
 
 
 async def help(interaction: discord.Interaction):
@@ -51,3 +58,54 @@ async def clear_slash(interaction: discord.Interaction, nombre: int):
 
     logger.info(
         f"{interaction.user.name} à clear {nombre} lignes dans {interaction.channel.name}")
+    
+    
+async def auto_mod(interaction: discord.Interaction):
+    global command_enabled
+    global auto
+    auto = True
+    while (True):
+        f1api.getNextEvent()
+        await interaction.followup.send("Le mode auto à bien été lancé", ephemeral=True)
+        time = embed.Wait()
+        logger.info(str(time))
+        if (time > 0):
+            await asyncio.sleep(time)
+            logger.info("C'est l'heure")
+            command_enabled = True
+            await asyncio.sleep(timedelta(hours=5).total_seconds())
+            logger.info("c'est fini")
+            command_enabled = False
+            f1api.getResults()
+            ldb.saveResults()
+            if (os.path.exists("data/Pronos.json")):
+                os.remove("data/Pronos.json")
+        elif (time <= -timedelta(hours=5).total_seconds()):
+            break
+        else:
+            logger.info("C'est l'heure")
+            command_enabled = True
+            await asyncio.sleep(timedelta(hours=5).total_seconds()+time)
+            logger.info("C'est fini")
+            command_enabled = False
+            f1api.getResults()
+            ldb.saveResults()
+            if (os.path.exists("data/Pronos.json")):
+                os.remove("data/Pronos.json")
+                
+def Wait():
+    try:
+        with open('data/Session.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        return 1
+    delta_t = (timedelta.strptime(
+        data["Date"], "%d/%m/%Y,%H:%M:%S")-timedelta.now()-timedelta(hours=5)).total_seconds()
+    return delta_t
+
+
+async def start_Session(interaction: discord.Interaction, duration: float):
+    await info_embed(f"Les pronos sont lancés pour {str(float(duration*60))} minutes ! \n Pensez à voter !", interaction)
+    await asyncio.sleep(timedelta(hours=duration).total_seconds())
+
+
