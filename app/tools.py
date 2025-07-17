@@ -1,11 +1,13 @@
 from config import logger, EMBED_COLOR_RED, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, EMBED_IMAGE
 import discord
 import asyncio
-from datetime import timedelta
+from datetime import timedelta,datetime
 from config import os
 import fastf1 as f1api
 import error_embed as embed
 import classement as ldb
+import json
+from error_embed import info_embed
 
 
 
@@ -60,38 +62,7 @@ async def clear_slash(interaction: discord.Interaction, nombre: int):
         f"{interaction.user.name} à clear {nombre} lignes dans {interaction.channel.name}")
     
     
-async def auto_mod(interaction: discord.Interaction):
-    global command_enabled
-    global auto
-    auto = True
-    while (True):
-        f1api.getNextEvent()
-        await interaction.followup.send("Le mode auto à bien été lancé", ephemeral=True)
-        time = embed.Wait()
-        logger.info(str(time))
-        if (time > 0):
-            await asyncio.sleep(time)
-            logger.info("C'est l'heure")
-            command_enabled = True
-            await asyncio.sleep(timedelta(hours=5).total_seconds())
-            logger.info("c'est fini")
-            command_enabled = False
-            f1api.getResults()
-            ldb.saveResults()
-            if (os.path.exists("data/Pronos.json")):
-                os.remove("data/Pronos.json")
-        elif (time <= -timedelta(hours=5).total_seconds()):
-            break
-        else:
-            logger.info("C'est l'heure")
-            command_enabled = True
-            await asyncio.sleep(timedelta(hours=5).total_seconds()+time)
-            logger.info("C'est fini")
-            command_enabled = False
-            f1api.getResults()
-            ldb.saveResults()
-            if (os.path.exists("data/Pronos.json")):
-                os.remove("data/Pronos.json")
+
                 
 def Wait():
     try:
@@ -99,8 +70,8 @@ def Wait():
             data = json.load(f)
     except FileNotFoundError:
         return 1
-    delta_t = (timedelta.strptime(
-        data["Date"], "%d/%m/%Y,%H:%M:%S")-timedelta.now()-timedelta(hours=5)).total_seconds()
+    delta_t = (datetime.strptime(
+        data["Date"], "%d/%m/%Y,%H:%M:%S")-datetime.now()-timedelta(hours=5)).total_seconds()
     return delta_t
 
 

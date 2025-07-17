@@ -1,17 +1,14 @@
 from discord import app_commands
 import asyncio
-
 from config import os, bot, tree, logger,discord, TOKEN
-from qualif import pronos_qualif_logic, visualisation_pronos_qualif_logic, modify_qualif_logic
-from race import  visualisation_pronos_course_logic, modify_course
-from scrapping_result import scrapping_result_course, scrapping_result_qualif
-from tools import help, clear_slash, auto_mod
+from tools import help, clear_slash,start_Session,Wait
 import error_embed as embed
 import classement as ldb
 from admin_command import ban
 import pronos as pr
 import json
-import fastf1 as f1api
+import f1api
+from datetime import timedelta,datetime
 
 
 @bot.event
@@ -78,79 +75,6 @@ async def submit(interaction: discord.Interaction, premier: str, deuxieme: str, 
 # _______________________________________________________________________________________________________________________________
 
 
-@tree.command(name="pronos_qualifs", description="Pronostiques Qualification de Formule 1")
-@app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième")
-async def pronostique_qualification(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
-    await pronos_qualif_logic(interaction, premier, deuxieme, troisieme)
-# _______________________________________________________________________________________________________________________________
-
-
-@tree.command(name="visualisation_pronos_course", description="Voir mon pronostique de course")
-async def voir_pronos_course(interaction: discord.Interaction):
-    await visualisation_pronos_course_logic(interaction)
-# _______________________________________________________________________________________________________________________________
-
-
-@tree.command(name="visualisation_pronos_qualif", description="Voir mon pronostique de qualif")
-async def voir_pronos_qualif(interaction: discord.Interaction):
-    await visualisation_pronos_qualif_logic(interaction)
-
-# _______________________________________________________________________________________________________________________________
-
-
-@tree.command(name="modify_course", description="Modifie ton pronostique pour la course")
-@app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième", meilleur_tour="Meilleur Tour")
-async def modifier_pronos(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, meilleur_tour: str):
-    # 👈 Appel ici
-    await modify_course(interaction, premier, deuxieme, troisieme, meilleur_tour)
-
-# _______________________________________________________________________________________________________________
-
-
-@tree.command(name="modify_qualif", description="Modifie ton pronostique pour la qualification")
-@app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième")
-async def modifier_qualif(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
-    await modify_qualif_logic(interaction, premier, deuxieme, troisieme)
-
-# _______________________________________________________________________________________________________________
-
-
-@tree.command(name="admin_result_reasearch_course", description="AC-001")
-async def recup_valeur(interaction: discord.Interaction):
-    if interaction.user.guild_permissions.administrator:
-        await interaction.response.defer(ephemeral=True)
-
-        try:
-            embed = await scrapping_result_course(interaction)
-            await interaction.followup.send(embed=embed, ephemeral=True)
-        except Exception as e:
-            logger.error(f"Erreur pendant le scraping : {e}")
-            await interaction.followup.send(
-                content="❌ Une erreur est survenue lors de la récupération des résultats.",
-                ephemeral=True
-            )
-    else:
-        await embed.chat_you_dont_have_perm(interaction)
-
-# _______________________________________________________________________________________________________________
-
-
-@tree.command(name="admin_result_reasearch_qualif", description="AC-002")
-async def recup_valeur_qualif(interaction: discord.Interaction):
-    if interaction.user.guild_permissions.administrator:
-        await interaction.response.defer(ephemeral=True)
-
-        try:
-            embed = await scrapping_result_qualif(interaction)
-            await interaction.followup.send(embed=embed, ephemeral=True)
-        except Exception as e:
-            logger.error(f"Erreur pendant le scraping : {e}")
-            await interaction.followup.send(
-                content="❌ Une erreur est survenue lors de la récupération des résultats.",
-                ephemeral=True
-            )
-    else:
-        await embed.chat_you_dont_have_perm(interaction)
 
 # _______________________________________________________________________________________________________________________________
 
@@ -158,7 +82,7 @@ async def recup_valeur_qualif(interaction: discord.Interaction):
 async def leaderboard(interaction: discord.Interaction):
     await interaction.response.defer()
     embed = ldb.Leaderboard()
-    await interaction.followup.send(embed=embed)
+    await interaction.followup.send(content=None,embed=embed)
     
 # _______________________________________________________________________________________________________________________________
     
@@ -195,7 +119,7 @@ async def create(interaction: discord.Interaction, duration: float):
             global command_enabled
             command_enabled = True
             task = asyncio.create_task(
-                embed.start_Session(interaction, duration))
+                start_Session(interaction, duration))
             await task
             command_enabled = False
         else:
@@ -248,7 +172,8 @@ async def session(interaction: discord.Interaction, saison: int, location: str, 
         try:
             f1api.getResults()
         except Exception as e:
-            interaction.followup.send(f" Erreur : {str(e)}")
+            await interaction.followup.send(f" Erreur : {str(e)}")
+            return
         ldb.saveResults()
         os.remove('data/Pronos.json')
         await interaction.followup.send("Le Leaderboard est à jour")
@@ -292,6 +217,39 @@ async def stop(interaction: discord.Interaction):
 
 # _______________________________________________________________________________________________________________________________
 
+
+async def auto_mod(interaction: discord.Interaction):
+    global command_enabled
+    global auto
+    auto = True
+    while (True):
+        f1api.getNextEvent()
+        await interaction.followup.send("Le mode auto à bien été lancé", ephemeral=True)
+        time = Wait()
+        logger.info(str(time))
+        if (time > 0):
+            await asyncio.sleep(time)
+            logger.info("C'est l'heure")
+            command_enabled = True
+            await asyncio.sleep(timedelta(hours=5).total_seconds())
+            logger.info("c'est fini")
+            command_enabled = False
+            f1api.getResults()
+            ldb.saveResults()
+            if (os.path.exists("data/Pronos.json")):
+                os.remove("data/Pronos.json")
+        elif (time <= -timedelta(hours=5).total_seconds()):
+            break
+        else:
+            logger.info("C'est l'heure")
+            command_enabled = True
+            await asyncio.sleep(timedelta(hours=5).total_seconds()+time)
+            logger.info("C'est fini")
+            command_enabled = False
+            f1api.getResults()
+            ldb.saveResults()
+            if (os.path.exists("data/Pronos.json")):
+                os.remove("data/Pronos.json")
 @tree.command(name="admin_launch", description="Lance le fonctionnement auto du bot")
 async def launch(interaction: discord.Interaction):
     if interaction.user.guild_permissions.administrator:
