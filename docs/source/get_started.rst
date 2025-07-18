@@ -142,7 +142,7 @@ How to install all these librairies
 
 .. code-block:: bash
 
-   pip install -U discord.py pandas beautifulsoup4 selenium requests sphinx notebook python-dotenv
+  pip install -r requirements.txt
 
 Configuration
 -------------
@@ -151,19 +151,7 @@ Make sure to create a `.env` file with the following structure:
 
 .. code-block:: ini
 
-   DISCORD_TOKEN=your_token_here
-   GUILD_ID=your_discord_guild_id
-
-Modules and Libraries
----------------------
-
-The bot uses the following libraries:
-
-- **discord.py** – for interacting with the Discord API
-- **pandas** – for managing tabular data
-- **BeautifulSoup / Selenium** – for scraping external websites
-- **schedule** – for timed task execution
-- **dotenv** – for configuration via environment variables
+   DISCORD_TOKEN_F1F = your_token_here
 
 Development Notes
 -----------------
@@ -173,9 +161,8 @@ To launch the bot locally:
 .. code-block:: bash
 
    source .venv/bin/activate
-   python bot.py
+   python app\_app.py
 
-You can add new commands using `discord.ext.commands.Cog`.
 
 License
 -------
