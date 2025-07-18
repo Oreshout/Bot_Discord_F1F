@@ -295,6 +295,7 @@ async def on_message(message: discord.Message):
 @tree.command(name="presentation", description="Laisse moi me présenter et aide moi à trouver mon nom !")
 async def presentation(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
+    await interaction.followup.send(f"{interaction.user.mention}, va voir tes MP !", ephemeral=False)
     await presentation_bot(interaction)
 
 bot.run(TOKEN)
