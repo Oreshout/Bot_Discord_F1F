@@ -26,7 +26,7 @@ LOG_LEVEL = logging.INFO
 logger = logging.getLogger("F1F_Bot")
 logger.setLevel(LOG_LEVEL)
 
-log_path = "../log/app.log"
+log_path = "log/app.log"
 # Crée le dossier si nécessaire
 os.makedirs(os.path.dirname(log_path), exist_ok=True)
 

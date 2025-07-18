@@ -1,7 +1,7 @@
 from discord import app_commands
 import asyncio
 from config import os, bot, tree, logger,discord, TOKEN
-from tools import help, clear_slash,start_Session,Wait
+from tools import help, clear_slash,start_Session,Wait,presentation_bot
 import error_embed as embed
 import classement as ldb
 from admin_command import ban
@@ -289,5 +289,12 @@ async def on_message(message: discord.Message):
                     asyncio.sleep(5)
                     pass
                 await message.delete()
+                
+# _______________________________________________________________________________________________________________________________
+
+@tree.command(name="presentation", description="Laisse moi me présenter et aide moi à trouver mon nom !")
+async def presentation(interaction: discord.Interaction):
+    await interaction.response.defer(ephemeral=True)
+    await presentation_bot(interaction)
 
 bot.run(TOKEN)

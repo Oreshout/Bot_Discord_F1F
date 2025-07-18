@@ -46,6 +46,7 @@ def pronos(id: int, pseudo: str, premier: str, second: str, troisieme: str, bt: 
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(pronos_database, f, ensure_ascii=False, indent=4)
     return True
+
 async def visualisation(interaction: discord.Interaction):
     
     file_path = "data/Pronos.json"
