@@ -91,7 +91,7 @@ Installation
 Python Libraries Used in F1F Bot
 --------------------------------
 
-.. list-table:: ________
+.. list-table:: 📚 Librairies utilisées
    :widths: 20 30 40 20
    :header-rows: 1
 
@@ -99,67 +99,43 @@ Python Libraries Used in F1F Bot
      - 💻 Python import
      - 🧠 Main Purpose
      - 🧩 Category
+   * - `python-dotenv`
+     - `from dotenv import load_dotenv`
+     - Charger des variables d’environnement depuis un fichier `.env`
+     - ⚪ Security / Config
    * - `discord.py`
      - `import discord`  
        `from discord.ext import commands`
-     - Manage the Discord interface (messages, events, commands)
+     - Gérer les messages, événements et commandes Discord
      - 🟣 Discord Bot
+   * - `fastf1`
+     - `import fastf1`
+     - Accès aux données de Formule 1 via API (lap times, telemetry, etc.)
+     - 🔴 F1 Data API
    * - `pandas`
      - `import pandas as pd`
-     - Data analysis and manipulation (tables, CSV, etc.)
+     - Manipulation et analyse de données tabulaires (CSV, séries, etc.)
      - 🔵 Data Processing
-   * - `beautifulsoup4`
-     - `from bs4 import BeautifulSoup`
-     - HTML parsing to extract data
-     - 🟠 Web Scraping
-   * - `selenium`
-     - `from selenium import webdriver`
-     - Browser automation (advanced scraping)
-     - 🟠 Web Scraping
-   * - `requests`
-     - `import requests`
-     - HTTP requests to APIs or websites
-     - 🟠 Web Scraping
-   * - `lxml` *(or `html5lib`)*
-     - *(used by BeautifulSoup)*
-     - Fast and robust HTML/XML parser
-     - ⚙️ Parsing Dependency
+   * - `thefuzz`
+     - `from thefuzz import fuzz`
+     - Fuzzy matching (comparaison de similarité textuelle)
+     - 🟢 Text Similarity
    * - `sphinx`
-     - *(not required directly in code)*
-     - Automatic documentation generation
+     - *(non utilisé dans le code Python)*
+     - Génération automatique de documentation
      - 🟡 Documentation
-   * - `jupyter` *(notebook)*
-     - *(launched via interface, not imported)*
-     - Interactive notebooks for testing and code demos
-     - 🟡 Documentation / Demo
-   * - `asyncio`
-     - `import asyncio`
-     - Asynchronous task management
-     - 🔴 Async Programming
-   * - `typing` *(builtin)*
-     - `from typing import List, Optional, Dict`
-     - Static typing and function annotations
-     - ⚪ Utility
-   * - `os` *(builtin)*
-     - `import os`
-     - Access to file system / environment variables
-     - ⚪ Utility
-   * - `dotenv` *(optional)*
-     - `from dotenv import load_dotenv`
-     - Load environment variables from a `.env` file
-     - ⚪ Security / Config
-   * - `gitpython` *(optional)*
-     - `import git`
-     - Git integration within the script
-     - ⚫ DevOps / Git
-   * - `aiohttp` *(optional)*
-     - `import aiohttp`
-     - Asynchronous HTTP requests (more efficient than `requests`)
-     - 🔴 Async Programming
-   * - `schedule` *(optional)*
-     - `import schedule`
-     - Scheduling tasks at regular intervals
-     - 🔁 Scheduled Tasks
+   * - `sphinx_rtd_theme`
+     - *(configuré dans `conf.py`)*
+     - Thème graphique style *ReadTheDocs* pour Sphinx
+     - 🎨 Documentation Theme
+   * - `myst-parser`
+     - *(activé via `extensions` dans `conf.py`)*
+     - Permet d’écrire la documentation Sphinx en Markdown (.md)
+     - 📝 Markdown Support
+   * - `furo`
+     - *(configuré dans `conf.py`)*
+     - Thème moderne, sombre/clair responsive pour Sphinx
+     - 🎨 Documentation Theme
 
 How to install all these librairies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
