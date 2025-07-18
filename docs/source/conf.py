@@ -34,8 +34,8 @@ templates_path = ['_templates']
 html_static_path = ['_static']
 
 # Logo et favicon (vérifie que les fichiers existent dans _static)
-html_logo = '../build/_static/F1F-logo.png'
-html_favicon = '../build/_static/F1F-logo.ico'
+html_logo = '../_static/F1F-logo.png'
+html_favicon = '../_static/F1F-logo.ico'
 html_css_files = [
     'custom.css',
 ]
