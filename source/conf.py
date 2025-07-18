@@ -16,6 +16,8 @@ release = '1.0.3'
 
 # -- General configuration ---------------------------------------------------
 
+html_baseurl = 'https://username.github.io/Bot_Discord_F1F/'
+
 extensions = [
     "sphinx.ext.autodoc",    # doc automatique depuis docstrings
     "sphinx.ext.napoleon",   # support Google/Numpy style docstrings
