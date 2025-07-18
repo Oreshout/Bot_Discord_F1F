@@ -76,14 +76,14 @@ Project Structure
   |   ├── .buildinfo.bak
   |   ├── ...
   └── README.md  
-  
+
 Installation
 ------------
 
 .. code-block:: bash
 
-   git clone https://github.com/votre-utilisateur/f1f-bot.git
-   cd f1f-bot
+   git clone https://github.com/Oreshout/Bot_Discord_F1F.git
+   cd Bot_Discord_F1F
    python -m venv .venv
    source .venv/bin/activate
    pip install -r requirements.txt

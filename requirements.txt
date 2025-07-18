@@ -1,0 +1,10 @@
+python-dotenv
+discord.py
+fastf1
+pandas
+thefuzz
+sphinx 
+sphinx_rtd_theme 
+myst-parser 
+furo
+
