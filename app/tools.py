@@ -84,29 +84,23 @@ async def presentation_bot(interaction: discord.Interaction):
     file_path = 'data/NameBot.json'
     
     embed = discord.Embed(
-    title="📢 Présentation du Bot + Concours de Nom 🏁",
+    title="Présentation du Bot + Concours de Nom 🏁",
     description=(
         "👋 **Bonjour à toi, fan de Formule 1 !**\n\n"
         "Je suis **le nouveau bot officiel** de la communauté **Formula 1 France**. Mon rôle ? "
-        "T’accompagner pendant toute la saison avec des outils pratiques, des pronostics et des infos à jour sur les Grands Prix ! 🇫🇷🏎️\n\n"
+        "T’accompagner pendant toute la saison avec des outils pratiques comme la récupération de tes pronostics et des infos à jour sur les Grands Prix ! 🇫🇷🏎️\n\n"
 
-        "__**🔧 Commandes utiles :**__\n"
-        "• `/pronos_course` → Donne ton podium de course\n"
-        "• `/pronos_qualifs` → Donne ton top 3 en qualifications\n"
-        "• `/visualisation_pronos_course` → Consulte ton pronostic\n"
-        "• `/modify_course` → Modifie ton choix avant le départ\n\n"
+        "Sois indulgent avec moi, je viens tout juste d’être lancé : je suis encore en **BETA** 🥺\n\n"
 
-        "📊 D’autres fonctions arrivent bientôt : infos circuits, classements en direct, statistiques pilotes...\n\n"
-        
-        "---\n\n"
+        "📊 D’autres fonctions arrivent bientôt : infos circuits, classements en direct, statistiques pilotes, et même un jeu spécial F1F!\n\n"
 
-        "🎉 **Et maintenant, place au concours !**\n\n"
-        "🤔 Mon créateur ne m’a pas encore donné de nom... C’est là que **toi** tu entres en jeu !\n"
-        "Propose-moi un nom original, fun ou en rapport avec la F1 – **et si ta proposition est retenue, elle deviendra mon nom officiel !**\n\n"
+        "🎉 __**Et maintenant, place au concours !**__\n\n"
+        "🤔 Mes créateurs ne m’ont pas encore donné de nom... C’est là que **toi** tu entres en jeu !\n"
+        "Propose-moi un nom original, fun ou en rapport avec la F1 et F1F, **et si ta proposition est retenue, elle deviendra mon nom officiel trop bien non ?!**\n\n"
 
-        "__📬 Pour participer :__\n"
+        " 📬__Pour participer :__\n"
         "Répond simplement à **ce message privé** avec ton idée de nom pour le bot.\n"
-        "**Une seule condition : que ce soit cool et en rapport avec la Formule 1 !**\n\n"
+        "**Une seule condition : que ce soit cool, en rapport avec la Formule 1 et F1F (le mot GOAT est fortement conseillé) !!**\n\n"
 
         "🏆 Le vainqueur sera annoncé sur le serveur et gagnera une **petite surprise** 👀\n\n"
         "À toi de jouer, et que le meilleur nom gagne ! 🏎️✨"

@@ -46,7 +46,7 @@ EMBED_COLOR_GOLD = discord.Color.gold()
 EMBED_THUMBNAIL = "https://cdn.discordapp.com/attachments/1339299411360088226/1367477935392428083/Votre_texte_de_paragraphe_12.png?ex=6871ac52&is=68705ad2&hm=a63fd375a9f30130247df80b936c43e1d93b3a5b16c3415f7a63cac72614058e&"
 EMBED_IMAGE = "https://cdn.discordapp.com/attachments/1339299411360088226/1368544420504272987/Design_sans_titre_2.png?ex=68719910&is=68704790&hm=46bd1e4a625f33cc26d5e029888bef5c265732b842de241daa62662206f13885&"
 
-EMBED_FOOTER_TEXT = "Bot créé par F1F Team"
+EMBED_FOOTER_TEXT = "Bot créé par F1F Team (BETA)"
 EMBED_FOOTER_ICON = EMBED_THUMBNAIL
 
 
