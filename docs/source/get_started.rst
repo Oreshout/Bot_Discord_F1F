@@ -91,7 +91,7 @@ Installation
 Python Libraries Used in F1F Bot
 --------------------------------
 
-.. list-table:: 📚 Librairies utilisées
+.. list-table:: 📚 Used Python Libraries
    :widths: 20 30 40 20
    :header-rows: 1
 
@@ -101,40 +101,40 @@ Python Libraries Used in F1F Bot
      - 🧩 Category
    * - `python-dotenv`
      - `from dotenv import load_dotenv`
-     - Charger des variables d’environnement depuis un fichier `.env`
+     - Load environment variables from a `.env` file
      - ⚪ Security / Config
    * - `discord.py`
      - `import discord`  
        `from discord.ext import commands`
-     - Gérer les messages, événements et commandes Discord
+     - Manage Discord interactions: messages, events, commands
      - 🟣 Discord Bot
    * - `fastf1`
      - `import fastf1`
-     - Accès aux données de Formule 1 via API (lap times, telemetry, etc.)
+     - Access F1 telemetry and session data via API
      - 🔴 F1 Data API
    * - `pandas`
      - `import pandas as pd`
-     - Manipulation et analyse de données tabulaires (CSV, séries, etc.)
+     - Data manipulation and analysis (tables, CSV, etc.)
      - 🔵 Data Processing
    * - `thefuzz`
      - `from thefuzz import fuzz`
-     - Fuzzy matching (comparaison de similarité textuelle)
-     - 🟢 Text Similarity
+     - Fuzzy string matching (text similarity)
+     - 🟢 Text Matching
    * - `sphinx`
-     - *(non utilisé dans le code Python)*
-     - Génération automatique de documentation
+     - *(not used in Python code directly)*
+     - Generate documentation automatically from source code
      - 🟡 Documentation
    * - `sphinx_rtd_theme`
-     - *(configuré dans `conf.py`)*
-     - Thème graphique style *ReadTheDocs* pour Sphinx
+     - *(configured in `conf.py`)*
+     - Classic Sphinx theme styled like ReadTheDocs
      - 🎨 Documentation Theme
    * - `myst-parser`
-     - *(activé via `extensions` dans `conf.py`)*
-     - Permet d’écrire la documentation Sphinx en Markdown (.md)
+     - *(enabled in `extensions` in `conf.py`)*
+     - Add Markdown (.md) support to Sphinx
      - 📝 Markdown Support
    * - `furo`
-     - *(configuré dans `conf.py`)*
-     - Thème moderne, sombre/clair responsive pour Sphinx
+     - *(configured in `conf.py`)*
+     - Clean, modern, responsive Sphinx theme (light/dark mode)
      - 🎨 Documentation Theme
 
 How to install all these librairies
