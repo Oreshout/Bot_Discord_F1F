@@ -23,19 +23,60 @@ Project Structure
 
 .. code-block:: none
 
-   f1f_bot/
-   ├── bot.py
-   ├── cogs/
-   │   ├── predictions.py
-   │   └── ...
-   ├── utils/
-   │   ├── scraping.py
-   │   └── ...
-   ├── .env
-   ├── .venv/
-   ├── requirements.txt
-   └── README.rst
-
+  Bot_Discord_F1F/
+  ├── .github/
+  │   └── workflows/
+  │       └── static.yml   
+  |
+  ├── app/
+  |   ├── __pycache__
+  |   ├── _app.py
+  |   ├── .env
+  |   ├── admin_command.py
+  |   ├── classement.py
+  |   ├── config.py
+  |   ├── error_embed.py
+  |   ├── f1api.py
+  |   ├── pronos.py
+  |   ├── tools.py
+  |  
+  ├── data/
+  |   ├── Barem.json
+  |   ├── Leaderbord.json
+  |   ├── NameBot.json
+  |   ├── Pronos.json
+  |   ├── Result.json
+  |   ├── Session.json
+  |
+  ├── docs/
+  |   ├── _images/
+  |   |     └── F1F-logo.png
+  |   ├── _sources/
+  |   |     └── commands.rst.txt
+  |   |     └── get_started.rst.txt
+  |   |     └── index.rst.txt
+  |   |     └── privacy_policy.rst.txt
+  |   |     └── terms_of_service.rst.txt
+  |   ├── _statics/
+  |   |    └── ...
+  |   ├── .doctrees/
+  |   |    └── commands.doctree
+  |   |    └── environment.pickle
+  |   |    └── ... 
+  |   ├── html/
+  |   |    └── ...
+  |   ├── source/
+  |   |    └── commands.rst
+  |   |    └── conf.py
+  |   |    └── get_started.rst
+  |   |    └── index.rst
+  |   |    └── privacy_policy.rst
+  |   |    └── terms_of_service.rst
+  |   ├── .buildinfo
+  |   ├── .buildinfo.bak
+  |   ├── ...
+  └── README.md  
+  
 Installation
 ------------
 
