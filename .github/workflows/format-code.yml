@@ -54,5 +54,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "style: Correction du formatage Python"
-          branch: ${{ github.head_ref || github.ref
-_name }}
+          branch: ${{ github.head_ref || github.ref_name }}
