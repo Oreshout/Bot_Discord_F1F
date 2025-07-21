@@ -78,17 +78,17 @@ The F1F Bot is an open project developed by the Formula 1 France community. Cont
 Whether you are a developer, F1 fan, or community manager, your participation helps improve the bot for everyone.
 
 .. list-table:: Contacts
-   :widths: 30 95
+   :widths: 5 95
    :header-rows: 0
 
    * - .. image:: ../_images/mail.png
-         :width: 16px
+         :width: 32px
      - **Email:** contact.formula1france@gmail.com
    * - .. image:: ../_images/Discord.png
-         :width: 16px
+         :width: 32px
      - **Discord:** https://discord.gg/89ENkYSCWE
    * - .. image:: ../_images/github.png
-         :width: 16px
+         :width: 32px
      - **GitHub:** https://github.com/Oreshout/Bot_Discord_F1F
 
 License
