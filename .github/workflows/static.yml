@@ -36,12 +36,12 @@ jobs:
 
       - name: Build Sphinx documentation
         run: |
-          sphinx-build -b html ./docs/source ./docs/build/html
+          sphinx-build -b html ./docs/source ./docs/html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs/build/html  # Dossier contenant la doc HTML générée
+          path: ./docs/html  # Dossier contenant la doc HTML générée
 
       - name: Deploy to GitHub Pages
         id: deployment
