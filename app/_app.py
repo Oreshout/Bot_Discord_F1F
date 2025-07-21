@@ -97,18 +97,9 @@ async def leaderboard(interaction: discord.Interaction):
 async def bannissement(interaction: discord.Interaction, member: discord.Member, reason: str, article: str):
     if interaction.user.guild_permissions.ban_members:
         await interaction.response.defer(ephemeral=True)
-
-        try:
-            await ban(interaction, member, reason, article)
-            logger.info(f"{interaction.user.name} à banni {member}")
-            
-        except Exception as e:
-            
-            logger.error(f"Erreur pendant le ban : {e}")
-            await interaction.followup.send(
-                content="❌ Une erreur est survenue lors de la récupération des résultats.",
-                ephemeral=True
-            )
+        await ban(interaction, member, reason, article)
+        logger.info(f"{interaction.user.name} à banni {member}")
+        
     else:
         await embed.chat_you_dont_have_perm(interaction)
         
