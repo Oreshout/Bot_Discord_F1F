@@ -33,7 +33,7 @@ os.makedirs(os.path.dirname(log_path), exist_ok=True)
 file_handler = logging.FileHandler(log_path, mode="a", encoding="utf-8")
 file_handler.setLevel(LOG_LEVEL)
 
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
@@ -52,8 +52,10 @@ EMBED_FOOTER_ICON = EMBED_THUMBNAIL
 
 # === Scrapping devices ===
 
-CLASS_NAME = 'a'
+CLASS_NAME = "a"
 
 URL_BASE = "https://fr.motorsport.com/"
 URL_RESULT_COURSE = "https://fr.motorsport.com/f1/results/2025"
-URL_RESULT_QUALIF = "https://fr.motorsport.com/f1/results/2025/gp-de-grande-bretagne-653245/?st=Q3"
+URL_RESULT_QUALIF = (
+    "https://fr.motorsport.com/f1/results/2025/gp-de-grande-bretagne-653245/?st=Q3"
+)

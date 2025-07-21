@@ -4,14 +4,23 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import json
-from config import discord, EMBED_COLOR_RED, EMBED_IMAGE, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, URL_RESULT_COURSE, URL_RESULT_QUALIF, logger
+from config import (
+    discord,
+    EMBED_COLOR_RED,
+    EMBED_IMAGE,
+    EMBED_THUMBNAIL,
+    EMBED_FOOTER_TEXT,
+    URL_RESULT_COURSE,
+    URL_RESULT_QUALIF,
+    logger,
+)
 
 
 async def scrapping_result_course(interaction: discord.Interaction):
 
     options = uc.ChromeOptions()
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-blink-features=AutomationControlled")
 
     driver = uc.Chrome(options=options, use_subprocess=True)
     logger.info("Driver has been initialized.")
@@ -28,7 +37,7 @@ async def scrapping_result_course(interaction: discord.Interaction):
         exit()
 
     # Parser la page
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    soup = BeautifulSoup(driver.page_source, "html.parser")
     table_rows = soup.find_all("tr", class_="ms-table_row")
 
     # Récupérer uniquement les positions et noms
@@ -39,7 +48,18 @@ async def scrapping_result_course(interaction: discord.Interaction):
         if len(columns) >= 2:  # on vérifie qu’il y a bien au moins position + nom
             pos = columns[0].get_text(strip=True)
             raw_name = columns[1].get_text(strip=True)
-            for team in ["McLaren", "Stake Sauber", "Ferrari", "Red Bull", "Alpine", "Aston Martin", "Mercedes", "Haas", "Williams", "Racing Bulls"]:
+            for team in [
+                "McLaren",
+                "Stake Sauber",
+                "Ferrari",
+                "Red Bull",
+                "Alpine",
+                "Aston Martin",
+                "Mercedes",
+                "Haas",
+                "Williams",
+                "Racing Bulls",
+            ]:
                 raw_name = raw_name.replace(team, "")
             name = raw_name.strip()
 
@@ -71,16 +91,13 @@ async def scrapping_result_course(interaction: discord.Interaction):
         description = "La mise à jour du fichier `.json` est faite."
         title = f"Merci {interaction.user} !"
 
-    embed = discord.Embed(
-        title=title,
-        description=description,
-        color=EMBED_COLOR_RED
-    )
+    embed = discord.Embed(title=title, description=description, color=EMBED_COLOR_RED)
     embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
     embed.set_thumbnail(url=interaction.user.display_avatar.url)
     embed.set_image(url=EMBED_IMAGE)
 
     return embed  # ✅ On retourne l'embed sans l'envoyer
+
 
 # _______________________________________________________________________________________________________________
 
@@ -88,8 +105,8 @@ async def scrapping_result_course(interaction: discord.Interaction):
 async def scrapping_result_qualif(interaction: discord.Interaction):
 
     options = uc.ChromeOptions()
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-blink-features=AutomationControlled")
 
     driver = uc.Chrome(options=options, use_subprocess=True)
     logger.info("Driver has been initialized.")
@@ -106,7 +123,7 @@ async def scrapping_result_qualif(interaction: discord.Interaction):
         exit()
 
     # Parser la page
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    soup = BeautifulSoup(driver.page_source, "html.parser")
     table_rows = soup.find_all("tr", class_="ms-table_row")
 
     # Récupérer uniquement les positions et noms
@@ -117,7 +134,18 @@ async def scrapping_result_qualif(interaction: discord.Interaction):
         if len(columns) >= 2:  # on vérifie qu’il y a bien au moins position + nom
             pos = columns[0].get_text(strip=True)
             raw_name = columns[1].get_text(strip=True)
-            for team in ["McLaren", "Stake Sauber", "Ferrari", "Red Bull", "Alpine", "Aston Martin", "Mercedes", "Haas", "Williams", "Racing Bulls"]:
+            for team in [
+                "McLaren",
+                "Stake Sauber",
+                "Ferrari",
+                "Red Bull",
+                "Alpine",
+                "Aston Martin",
+                "Mercedes",
+                "Haas",
+                "Williams",
+                "Racing Bulls",
+            ]:
                 raw_name = raw_name.replace(team, "")
             name = raw_name.strip()
 
@@ -149,11 +177,7 @@ async def scrapping_result_qualif(interaction: discord.Interaction):
         description = "La mise à jour du fichier `.json` est faite."
         title = f"Merci {interaction.user} !"
 
-    embed = discord.Embed(
-        title=title,
-        description=description,
-        color=EMBED_COLOR_RED
-    )
+    embed = discord.Embed(title=title, description=description, color=EMBED_COLOR_RED)
     embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
     embed.set_thumbnail(url=interaction.user.display_avatar.url)
     embed.set_image(url=EMBED_IMAGE)

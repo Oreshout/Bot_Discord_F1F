@@ -6,7 +6,7 @@ async def chat_you_dont_have_perm(interaction: discord.Interaction):
     embed = discord.Embed(
         title=f"Désolé {interaction.user} !",
         description="On dirait que tu n'as pas les permissions pour utilisé cette commande",
-        color=EMBED_COLOR_RED
+        color=EMBED_COLOR_RED,
     )
 
     embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
