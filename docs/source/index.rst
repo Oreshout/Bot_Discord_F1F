@@ -78,7 +78,7 @@ The F1F Bot is an open project developed by the Formula 1 France community. Cont
 Whether you are a developer, F1 fan, or community manager, your participation helps improve the bot for everyone.
 
 .. list-table:: Contacts
-   :widths: 0 95
+   :widths: 30 95
    :header-rows: 0
 
    * - .. image:: ../_images/mail.png
