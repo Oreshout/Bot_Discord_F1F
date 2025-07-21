@@ -137,8 +137,10 @@ async def presentation_bot(interaction: discord.Interaction):
     except discord.Forbidden:
         await interaction.channel.send("Je n'ai pas pu envoyer le message")
 
-    logger.info(f"Présentation par {interaction.user.name} dans {interaction.channel.name} sur {interaction.guild.name}")
-
+    if not interaction.channel.name == None and interaction.guild.name == None:
+        logger.info(f"Présentation par {interaction.user.name} dans {interaction.channel.name} sur {interaction.guild.name}")
+    else:
+        logger.info(f"Présentation par {interaction.user.name} en mp")
 
 
 
