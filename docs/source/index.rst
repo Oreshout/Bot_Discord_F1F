@@ -80,15 +80,16 @@ Whether you are a developer, F1 fan, or community manager, your participation he
 .. list-table::
    :widths: 5 95
    :header-rows: 0
+
    * - .. image:: ../_images/mail.png
          :width: 16px
-     - **Discord:** https://discord.gg/89ENkYSCWE  
+     - **Email:** contact.formula1france@gmail.com
    * - .. image:: ../_images/Discord.png
-            :width: 16px
-     - **Email:** [contact.formula1france@gmail.com]  
+         :width: 16px
+     - **Discord:** https://discord.gg/89ENkYSCWE
    * - .. image:: ../_images/github.png
          :width: 16px
-     - **GitHub** https://github.com/Oreshout/Bot_Discord_F1F  
+     - **GitHub:** https://github.com/Oreshout/Bot_Discord_F1F
 
 License
 -------
