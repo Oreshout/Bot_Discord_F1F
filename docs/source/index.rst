@@ -77,11 +77,18 @@ Contributing and Support
 The F1F Bot is an open project developed by the Formula 1 France community. Contributions, feature requests, and bug reports are welcome through our GitHub repository and Discord server.  
 Whether you are a developer, F1 fan, or community manager, your participation helps improve the bot for everyone.
 
-.. line-block::
-
-   **Discord:** https://discord.gg/89ENkYSCWE  
-   **Email:** [contact.formula1france@gmail.com]  
-   **GitHub** https://github.com/Oreshout/Bot_Discord_F1F  
+.. list-table::
+   :widths: 5 95
+   :header-rows: 0
+   * - .. image:: ../_images/mail.png
+         :width: 16px
+     - **Discord:** https://discord.gg/89ENkYSCWE  
+   * - .. image:: ../_images/Discord.png
+            :width: 16px
+     - **Email:** [contact.formula1france@gmail.com]  
+   * - .. image:: ../_images/github.png
+         :width: 16px
+     - **GitHub** https://github.com/Oreshout/Bot_Discord_F1F  
 
 License
 -------
