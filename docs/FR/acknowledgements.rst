@@ -14,7 +14,7 @@ Sans sa vision initiale, son énergie inépuisable et sa conviction dans le pouv
 ce bot n'aurait jamais franchi la ligne de départ. Whiiisp' n'est pas seulement un fondateur, il est l'étincelle à l'origine de tout cela.
 
 Le developpeur surnaturel – Victor 🔧💡
-----------------------------------------
+---------------------------------------
 
 Un grand merci à **Victor**, le développeur talentueux dont l'esprit vif et l'aide constante ont permis de donner vie à des éléments essentiels du bot.
 De la mécanique complexe du **système de prédiction** à la résolution des cas limites, ses connaissances techniques ont permis de transformer des idées ambitieuses en fonctionnalités opérationnelles.
