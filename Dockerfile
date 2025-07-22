@@ -2,7 +2,8 @@ FROM python:3.13.5
 
 # Définit le dossier de travail dans le container
 WORKDIR /PRIVATE_BOT_DISCORD_F1F
-
+ARG DISCORD_TOKEN
+ENV DISCORD_TOKEN=$DISCORD_TOKEN
 # Copie le fichier requirements.txt dans le container
 COPY requirements.txt .
 
