@@ -7,9 +7,8 @@ Cette section est dédiée à ceux qui ont rendu cette aventure possible.
 
 Whisper – Le GOAT SUPREME 🐐👑
 --------------------------------
-
-Salutations à **Whisper**, fondateur de **Formula 1 France (F1F)** et celui que nous appelons fièrement le **GOAT SUPREME**.  
-Depuis les tout premiers pas de la communauté jusqu'à chaque tournant pris par le serveur, Whiiisp' a été aux commandes, dirigeant l'équipe avec clarté, charisme et une passion sans pareille.
+  
+Un grand merci à **Whiiisp'**, le créateur de **Formula 1 France (F1F)**, qu’on appelle avec fierté notre **GOAT SUPREME**. Depuis la création du serveur **F1F** il a toujours été là pour guider le serveur, avec clarté.
 
 Sans sa vision initiale, son énergie inépuisable et sa conviction dans le pouvoir des fans unis par la vitesse,  
 ce bot n'aurait jamais franchi la ligne de départ. Whiiisp' n'est pas seulement un fondateur, il est l'étincelle à l'origine de tout cela.
