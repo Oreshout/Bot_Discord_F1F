@@ -7,3 +7,4 @@
 - [ ] Gestions des data
 - [ ] Tester le bot à spa en commité réduit (DEV / STAFF / BOOSTEUR)
 - [ ] Supprimé la commande ban du bot
+- [ ] Les stats sur le serveur

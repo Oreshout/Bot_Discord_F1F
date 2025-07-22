@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Commande pour lancer le bot
-CMD ["python", "app/app.py"]
+CMD ["python", "app/_app.py"]
