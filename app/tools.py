@@ -8,6 +8,10 @@ import classement as ldb
 import json
 from error_embed import info_embed, no_prono
 
+def ensure_file_exists(path):
+    if not os.path.exists(path):
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump({}, f)
 
 
 async def help(interaction: discord.Interaction):

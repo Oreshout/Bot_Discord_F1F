@@ -254,3 +254,48 @@ BOT LANCER 11/07/2025 15:47:38
 >>>>>>> origin/prod
 2025-07-22 10:04:00,632 - INFO - BOT LANCER
 2025-07-22 11:21:27,604 - INFO - BOT LANCER
+2025-07-22 13:01:09,124 - INFO - BOT LANCER
+2025-07-22 13:38:41,960 - INFO - Présentation par palmer_jrr dans ⭐・paddock-vip sur Formula 1 France
+2025-07-22 14:18:45,629 - INFO - BOT LANCER
+2025-07-22 14:21:05,202 - INFO - BOT LANCER
+2025-07-22 14:24:13,649 - INFO - BOT LANCER
+2025-07-22 14:24:48,736 - INFO - BOT LANCER
+2025-07-22 14:26:42,316 - INFO - BOT LANCER
+2025-07-22 14:30:16,090 - INFO - BOT LANCER
+2025-07-22 14:30:49,185 - ERROR - Erreur pendant l'enregistrement du prono qualif
+Traceback (most recent call last):
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\_app.py", line 85, in submit_qualif
+    success = pr.pronos_qualif(
+        interaction.user.id,
+        str(interaction.user),
+        premier, deuxieme, troisieme
+    )
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\pronos.py", line 210, in pronos_qualif
+    country = country_fonction()
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\pronos.py", line 22, in country_fonction
+    elif now <= row.Session5DateUtc:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/tslibs/timestamps.pyx", line 337, in pandas._libs.tslibs.timestamps._Timestamp.__richcmp__
+TypeError: can't compare offset-naive and offset-aware datetimes
+2025-07-22 14:35:34,108 - INFO - BOT LANCER
+2025-07-22 14:46:02,981 - INFO - BOT LANCER
+2025-07-22 14:46:25,178 - ERROR - Erreur pendant l'enregistrement du prono qualif
+Traceback (most recent call last):
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\_app.py", line 68, in submit
+    success = pr.pronos(
+        interaction.user.id,
+        str(interaction.user),
+        premier, deuxieme, troisieme
+    )
+TypeError: pronos() missing 1 required positional argument: 'bt'
+2025-07-22 14:47:10,693 - INFO - BOT LANCER
+2025-07-22 14:52:43,644 - INFO - BOT LANCER
+2025-07-22 14:53:25,047 - INFO - matt_karting a consulté ses pronos
+2025-07-22 14:53:58,812 - ERROR - Erreur dans visualisation : Expecting value: line 1 column 1 (char 0)
+2025-07-22 15:07:23,711 - INFO - BOT LANCER
+2025-07-22 15:08:11,403 - ERROR - Erreur dans visualisation : Expecting value: line 1 column 1 (char 0)
+2025-07-22 15:11:19,129 - ERROR - Erreur dans visualisation : [Errno 2] No such file or directory: 'data/pronos_Belgium.json'
+2025-07-22 15:11:30,720 - INFO - BOT LANCER
+2025-07-22 15:11:36,044 - ERROR - Erreur dans visualisation : [Errno 2] No such file or directory: 'data/pronos_Belgium.json'
+2025-07-22 15:20:06,650 - INFO - BOT LANCER
+2025-07-22 15:22:06,430 - INFO - BOT LANCER

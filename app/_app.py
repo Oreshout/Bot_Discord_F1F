@@ -8,7 +8,7 @@ from admin_command import ban
 import pronos as pr
 import json
 import f1api
-from datetime import timedelta,datetime
+from datetime import timedelta
 
 
 @bot.event
@@ -63,18 +63,53 @@ async def helping_tools(interaction: discord.Interaction):
 @app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième", best_lap="Meilleur Tour")
 async def submit(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, best_lap: str):
     await interaction.response.defer(ephemeral=True)
-    if (command_enabled):
+    if command_enabled:
+        try:
+            success = pr.pronos(
+                interaction.user.id,
+                str(interaction.user),
+                premier, deuxieme, troisieme, best_lap
+            )
+        except Exception as e:
+            logger.exception("Erreur pendant l'enregistrement du prono qualif")
+            await embed.Error(interaction, f"❌ Erreur pendant l'enregistrement du prono : `{e}`")
+            return
 
-        if(pr.pronos(interaction.user.id, str(interaction.user),
-                  premier, deuxieme, troisieme, best_lap)):
-             await interaction.followup.send("Ton prono a bien été pris en compte", ephemeral=True)
+        if success:
+            await interaction.followup.send("✅ Ton prono qualif a bien été pris en compte !", ephemeral=True)
+            logger.info(f'{interaction.user} à fais son pronos course')
         else:
-            await embed.Error(interaction, "Tu ne peux modifier ton pronostic qu'une fois")
-            
-       
-
+            await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
     else:
         await embed.Error(interaction, "Il y a une heure pour tout faire, et celle ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
+
+# _______________________________________________________________________________________________________________________________
+
+@tree.command(name="pronos_qualif", description="Enregistre tes pronos ou modifie les si tu l'a déja fait par le passé(max 1 fois)")
+@app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième")
+async def submit_qualif(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
+    await interaction.response.defer(ephemeral=True)
+
+    if command_enabled:
+        try:
+            success = pr.pronos_qualif(
+                interaction.user.id,
+                str(interaction.user),
+                premier, deuxieme, troisieme
+            )
+        except Exception as e:
+            logger.exception("Erreur pendant l'enregistrement du prono qualif")
+            await embed.Error(interaction, f"❌ Erreur pendant l'enregistrement du prono : `{e}`")
+            return
+
+        if success:
+            await interaction.followup.send("✅ Ton prono qualif a bien été pris en compte !", ephemeral=True)
+            logger.info(f'{interaction.user} à fais son pronos qualif')
+        else:
+            await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
+    else:
+        await embed.Error(interaction, "Il y a une heure pour tout faire, et celle ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
+
 
 # _______________________________________________________________________________________________________________________________
 
