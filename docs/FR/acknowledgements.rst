@@ -13,7 +13,7 @@ Un grand merci à **Whiiisp'**, le créateur de **Formula 1 France (F1F)**, qu�
 Sans sa vision initiale, son énergie inépuisable et sa conviction dans le pouvoir des fans unis par la vitesse,  
 ce bot n'aurait jamais franchi la ligne de départ. Whiiisp' n'est pas seulement un fondateur, il est l'étincelle à l'origine de tout cela.
 
- Le developpeur surnaturel – Victor 🔧💡
+Le developpeur surnaturel – Victor 🔧💡
 ----------------------------------------
 
 Un grand merci à **Victor**, le développeur talentueux dont l'esprit vif et l'aide constante ont permis de donner vie à des éléments essentiels du bot.
