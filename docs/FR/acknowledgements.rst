@@ -5,7 +5,7 @@ Derrière chaque grand projet se cache une passion commune, et ce bot ne fait pa
 Il a été construit avec passion, dévouement et un amour indéfectible pour le sport automobile et la communauté.  
 Cette section est dédiée à ceux qui ont rendu cette aventure possible.
 
-Whiiisp' – Le GOAT SUPREME 🐐👑
+Whisper – Le GOAT SUPREME 🐐👑
 --------------------------------
 
 Salutations à **Whisper**, fondateur de **Formula 1 France (F1F)** et celui que nous appelons fièrement le **GOAT SUPREME**.  
