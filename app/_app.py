@@ -1,7 +1,7 @@
 from discord import app_commands
 import asyncio
-from config import os, bot, tree, logger, discord, TOKEN
-from tools import help, clear_slash, start_Session, Wait, presentation_bot
+from config import os, bot, tree, logger, discord, TOKEN, ROLE_ID_F1PADDOCKCLUB
+import tools as tool
 import error_embed as embed
 import classement as ldb
 from admin_command import ban
@@ -26,13 +26,13 @@ async def on_ready():
 @tree.command(name="clear", description="Supprime des messages (admin uniquement)")
 @app_commands.describe(nombre="Nombre de messages à supprimer")
 async def clearing_tool(interaction: discord.Interaction, nombre: int):
-    await clear_slash(interaction, nombre)
+    await tool.clear_slash(interaction, nombre)
 # _______________________________________________________________________________________________________________________________
 
 
 @tree.command(name="help", description="Gives you all the commands you can use with this bot")
 async def helping_tools(interaction: discord.Interaction):
-    await help(interaction)
+    await tool.help(interaction)
 
 # _______________________________________________________________________________________________________________________________
 
@@ -134,7 +134,7 @@ async def create(interaction: discord.Interaction, duration: float):
             global command_enabled
             command_enabled = True
             task = asyncio.create_task(
-                start_Session(interaction, duration))
+                tool.start_Session(interaction, duration))
             await task
             command_enabled = False
         else:
@@ -272,7 +272,7 @@ async def auto_mod(interaction: discord.Interaction):
     while (True):
         f1api.getNextEvent()
         await interaction.followup.send("Le mode auto à bien été lancé", ephemeral=True)
-        time = Wait()
+        time = tool.Wait()
         logger.info(str(time))
         if (time > 0):
             await asyncio.sleep(time)
@@ -341,7 +341,7 @@ async def on_message(message: discord.Message):
 async def presentation(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
     await interaction.followup.send(f"{interaction.user.mention}, va voir tes MP !", ephemeral=False)
-    await presentation_bot(interaction)
+    await tool.presentation_bot(interaction)
     logger.info(f"{interaction.user} a demandé la présentation du BOT")
 
 # _______________________________________________________________________________________________________________________________
@@ -352,5 +352,17 @@ async def reglement(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
     await embed.rules(interaction)
     logger.info(f"{interaction.user} a demandé les règles du BOT.")
+    
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="play_song", description="Joue une musique demander")
+@app_commands.describe(title="Nom de la musique")
+async def music(interaction: discord.Interaction, title: str):
+    if any(role.id == ROLE_ID_F1PADDOCKCLUB for role in interaction.user.roles) or interaction.user.guild_permissions.administrator:
+        await interaction.response.defer(ephemeral=True)
+        await tool.music_play(interaction, title)
+        logger.info(f"{interaction.user} a demandé de la musique au BOT.")
+
 
 bot.run(TOKEN)

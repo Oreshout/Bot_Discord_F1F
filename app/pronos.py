@@ -6,7 +6,7 @@ import discord
 import fastf1 as f1
 from datetime import datetime, timezone
 import pandas as pd
-from config import logger
+from config import logger, EMBED_COLOR_RED, EMBED_FOOTER_ICON, EMBED_IMAGE, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT
 import tools as tool
 
 
@@ -110,7 +110,7 @@ async def visualisation(interaction: discord.Interaction):
         prono = pronos_database[user_id]
         embed = discord.Embed(
             title=f"🐐 Merci pour vos pronos {interaction.user} !",
-            color=discord.Color.red()
+            color=EMBED_COLOR_RED
         )
         embed.description = "Voici tes pronostics de course :"
         embed.add_field(name="Ton Premier 🥇 :", value=prono.get(
@@ -126,13 +126,17 @@ async def visualisation(interaction: discord.Interaction):
             "Modif", True) else "✅ Tu peux modifier ton pronostic en relançant /pronos_course"
         embed.add_field(name="Droit de modification :",
                         value=modif_text, inline=False)
+        
+        embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
+        embed.set_thumbnail(url=interaction.user.display_avatar.url)
+        embed.set_image(url=EMBED_IMAGE)
 
     # Cas : seulement prono qualif
     elif user_id in pronos_database_qualif and user_id not in pronos_database:
         prono = pronos_database_qualif[user_id]
         embed = discord.Embed(
             title=f"🐐 Merci pour vos pronos {interaction.user} !",
-            color=discord.Color.red()
+            color=EMBED_COLOR_RED
         )
         embed.description = "Voici tes pronostics de qualif :"
         embed.add_field(name="Ton Premier 🥇 :", value=prono.get(
@@ -146,6 +150,10 @@ async def visualisation(interaction: discord.Interaction):
             "Modif", True) else "✅ Tu peux modifier ton pronostic en relançant /pronos_qualif"
         embed.add_field(name="Droit de modification :",
                         value=modif_text, inline=False)
+        
+        embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
+        embed.set_thumbnail(url=interaction.user.display_avatar.url)
+        embed.set_image(url=EMBED_IMAGE)
 
     # Cas : les deux pronos existent
     elif user_id in pronos_database and user_id in pronos_database_qualif:
@@ -153,7 +161,7 @@ async def visualisation(interaction: discord.Interaction):
         pr_qualif = pronos_database_qualif[user_id]
         embed = discord.Embed(
             title=f"🐐 Merci pour vos pronos {interaction.user} !",
-            color=discord.Color.red()
+            color=EMBED_COLOR_RED
         )
 
         embed.description = "Voici tes pronostics complets :"
@@ -180,13 +188,17 @@ async def visualisation(interaction: discord.Interaction):
             "Modif", True) else "✅ Tu peux modifier ton prono Course (/pronos_course)"
         embed.add_field(name="Droits de modification :",
                         value=f"{modif_q}\n{modif_c}", inline=False)
+        
+        embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
+        embed.set_thumbnail(url=interaction.user.display_avatar.url)
+        embed.set_image(url=EMBED_IMAGE)
 
     # Cas : aucun prono
     else:
         embed = discord.Embed(
             title=f"Désolé {interaction.user} !",
             description="On dirait que tu n'as pas encore fait de pronostic.",
-            color=discord.Color.red()
+            color=EMBED_COLOR_RED
         )
 
     # Envoi final

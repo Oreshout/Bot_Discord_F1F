@@ -3,10 +3,9 @@ import discord
 import asyncio
 from datetime import timedelta, datetime
 from config import os
-import fastf1 as f1api
-import classement as ldb
+import yt_dlp
 import json
-from error_embed import info_embed, no_prono
+from error_embed import info_embed
 
 
 def ensure_file_exists(path):
@@ -23,8 +22,8 @@ async def help(interaction: discord.Interaction):
     )
 
     # Commandes utilisateurs
-    embed.add_field(
-        name="/help", value="📖 Affiche cette liste d’aide", inline=False)
+    embed.add_field(name="/help",
+                    value="📖 Affiche cette liste d’aide", inline=False)
     embed.add_field(name="/pronos_course",
                     value="🏁 Enregistre ou modifie ton pronostic pour la **course**", inline=False)
     embed.add_field(name="/pronos_qualif",
@@ -35,8 +34,10 @@ async def help(interaction: discord.Interaction):
                     value="🏆 Affiche le classement général", inline=False)
     embed.add_field(name="/presentation",
                     value="🤖 Laisse le bot se présenter et choisis-lui un nom", inline=False)
-    embed.add_field(
-        name="/rules", value="📏 Affiche le règlement d’utilisation du bot", inline=False)
+    embed.add_field(name="/rules",
+                    value="📏 Affiche le règlement d’utilisation du bot", inline=False)
+    embed.add_field(name="/play_music",
+                    value="🎶 Joue une chanson demander (Reservé au Booster)", inline=False)
 
     # Commandes admin
     embed.add_field(
@@ -164,3 +165,59 @@ async def presentation_bot(interaction: discord.Interaction):
     else:
         logger.info(
             f"Présentation par {interaction.user.name} dans {interaction.channel.name} sur {interaction.guild.name}")
+
+
+async def music_play(interaction: discord.Interaction, song_name: str):
+    intents = discord.Intents.default()
+    intents.message_content = True
+    intents.voice_states = True
+
+    if not interaction.guild.voice_client:
+        if interaction.user.voice:
+            channel = interaction.user.voice.channel
+            await channel.connect()
+            await interaction.response.send_message("✅ Rejoint le salon vocal", ephemeral=True)
+        else:
+            await interaction.response.send_message("❌ Tu dois être dans un salon vocal", ephemeral=True)
+            return
+
+    voice = interaction.guild.voice_client
+
+    if not voice:
+        if interaction.user.voice:
+            channel = interaction.user.voice.channel
+            voice = await channel.connect()
+        else:
+            await interaction.response.send_message("❌ Tu dois être dans un salon vocal", ephemeral=True)
+            return
+
+    await interaction.response.send_message(f"🔍 Recherche : **{song_name}**", ephemeral=True)
+
+    ydl_opts = {'format': 'bestaudio', 'noplaylist': 'True'}
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        try:
+            info = ydl.extract_info(f"ytsearch:{song_name}", download=False)['entries'][0]
+            stream_url = info['url']
+            found_title = info.get('title', song_name)
+        except Exception as e:
+            await interaction.followup.send(f"❌ Impossible de lire la musique. Erreur : {e}")
+            return
+
+    # Définir la fonction avant de l'utiliser
+    async def auto_leave_if_idle(voice_client, delay=300):
+        await asyncio.sleep(delay)
+        if not voice_client.is_playing() and not voice_client.is_paused():
+            await voice_client.disconnect()
+            logger.info("⏹️ Déconnexion automatique après 5 minutes d'inactivité.")
+            await interaction.followup.send("⏹️ Déconnexion automatique après 5 minutes d'inactivité.**")
+            # Ici, interaction n'est plus garanti safe. Tu peux notifier ailleurs si besoin.
+
+    def after_playing(err):
+        if err:
+            print(f"Erreur de lecture : {err}")
+        asyncio.create_task(auto_leave_if_idle(voice))
+
+    audio_source = discord.FFmpegPCMAudio(stream_url)
+    voice.play(audio_source, after=after_playing)
+
+    await interaction.followup.send(f"🎶 Lecture : **{found_title}**")
