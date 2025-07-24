@@ -1,12 +1,13 @@
 from config import logger, bot, EMBED_COLOR_RED, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, EMBED_IMAGE
 import discord
 import asyncio
-from datetime import timedelta,datetime
+from datetime import timedelta, datetime
 from config import os
 import fastf1 as f1api
 import classement as ldb
 import json
 from error_embed import info_embed, no_prono
+
 
 def ensure_file_exists(path):
     if not os.path.exists(path):
@@ -22,24 +23,40 @@ async def help(interaction: discord.Interaction):
     )
 
     # Commandes utilisateurs
-    embed.add_field(name="/help", value="📖 Affiche cette liste d’aide", inline=False)
-    embed.add_field(name="/pronos_course", value="🏁 Enregistre ou modifie ton pronostic pour la **course**", inline=False)
-    embed.add_field(name="/pronos_qualif", value="⏱️ Enregistre ou modifie ton pronostic pour les **qualifications**", inline=False)
-    embed.add_field(name="/visualisation", value="🔍 Affiche tes pronos actuels", inline=False)
-    embed.add_field(name="/leaderboard", value="🏆 Affiche le classement général", inline=False)
-    embed.add_field(name="/presentation", value="🤖 Laisse le bot se présenter et choisis-lui un nom", inline=False)
-    embed.add_field(name="/rules", value="📏 Affiche le règlement d’utilisation du bot", inline=False)
+    embed.add_field(
+        name="/help", value="📖 Affiche cette liste d’aide", inline=False)
+    embed.add_field(name="/pronos_course",
+                    value="🏁 Enregistre ou modifie ton pronostic pour la **course**", inline=False)
+    embed.add_field(name="/pronos_qualif",
+                    value="⏱️ Enregistre ou modifie ton pronostic pour les **qualifications**", inline=False)
+    embed.add_field(name="/visualisation",
+                    value="🔍 Affiche tes pronos actuels", inline=False)
+    embed.add_field(name="/leaderboard",
+                    value="🏆 Affiche le classement général", inline=False)
+    embed.add_field(name="/presentation",
+                    value="🤖 Laisse le bot se présenter et choisis-lui un nom", inline=False)
+    embed.add_field(
+        name="/rules", value="📏 Affiche le règlement d’utilisation du bot", inline=False)
 
     # Commandes admin
-    embed.add_field(name="/clear", value="🧹 Supprime un nombre de messages (admin uniquement)", inline=False)
-    embed.add_field(name="/admin_ban", value="🔨 Bannir un membre avec raison et article (admin)", inline=False)
-    embed.add_field(name="/admin_open", value="🟢 Ouvre une session de pronos pour une durée définie (admin)", inline=False)
-    embed.add_field(name="/admin_close", value="🔴 Ferme la session de pronos en cours (admin)", inline=False)
-    embed.add_field(name="/admin_status", value="📊 Affiche le mode actuel du bot : manuel ou auto (admin)", inline=False)
-    embed.add_field(name="/admin_getresult", value="🔄 Met à jour les résultats via l’API (admin)", inline=False)
-    embed.add_field(name="/admin_stop", value="⛔ Stoppe le mode automatique du bot (admin)", inline=False)
-    embed.add_field(name="/admin_launch", value="🚀 Lance le mode automatique du bot (admin)", inline=False)
-    embed.add_field(name="/session", value="🗂️ Configure manuellement une session + update leaderboard (admin)", inline=False)
+    embed.add_field(
+        name="/clear", value="🧹 Supprime un nombre de messages (admin uniquement)", inline=False)
+    embed.add_field(name="/admin_ban",
+                    value="🔨 Bannir un membre avec raison et article (admin)", inline=False)
+    embed.add_field(name="/admin_open",
+                    value="🟢 Ouvre une session de pronos pour une durée définie (admin)", inline=False)
+    embed.add_field(name="/admin_close",
+                    value="🔴 Ferme la session de pronos en cours (admin)", inline=False)
+    embed.add_field(name="/admin_status",
+                    value="📊 Affiche le mode actuel du bot : manuel ou auto (admin)", inline=False)
+    embed.add_field(name="/admin_getresult",
+                    value="🔄 Met à jour les résultats via l’API (admin)", inline=False)
+    embed.add_field(name="/admin_stop",
+                    value="⛔ Stoppe le mode automatique du bot (admin)", inline=False)
+    embed.add_field(name="/admin_launch",
+                    value="🚀 Lance le mode automatique du bot (admin)", inline=False)
+    embed.add_field(
+        name="/session", value="🗂️ Configure manuellement une session + update leaderboard (admin)", inline=False)
 
     embed.set_thumbnail(url=interaction.user.display_avatar.url)
     embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
@@ -47,7 +64,8 @@ async def help(interaction: discord.Interaction):
 
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
-    logger.info(f"{interaction.user.name} a demandé /help dans {interaction.channel.name}")
+    logger.info(
+        f"{interaction.user.name} a demandé /help dans {interaction.channel.name}")
 
 
 async def clear_slash(interaction: discord.Interaction, nombre: int):
@@ -64,10 +82,8 @@ async def clear_slash(interaction: discord.Interaction, nombre: int):
 
     logger.info(
         f"{interaction.user.name} à clear {nombre} lignes dans {interaction.channel.name}")
-    
-    
 
-                
+
 def Wait():
     try:
         with open('data/Session.json', 'r', encoding='utf-8') as f:
@@ -85,44 +101,45 @@ async def start_Session(interaction: discord.Interaction, duration: float):
 
 
 async def presentation_bot(interaction: discord.Interaction):
-    
+
     file_path = 'data/NameBot.json'
-    
+
     embed = discord.Embed(
-    title="Présentation du Bot + Concours de Nom 🏁",
-    description=(
-        "👋 **Bonjour à toi, fan de Formule 1 !**\n\n"
-        "Je suis **le nouveau bot officiel** de la communauté **Formula 1 France**. Mon rôle ? "
-        "T’accompagner pendant toute la saison avec des outils pratiques comme la récupération de tes pronostics et des infos à jour sur les Grands Prix ! 🇫🇷🏎️\n\n"
+        title="Présentation du Bot + Concours de Nom 🏁",
+        description=(
+            "👋 **Bonjour à toi, fan de Formule 1 !**\n\n"
+            "Je suis **le nouveau bot officiel** de la communauté **Formula 1 France**. Mon rôle ? "
+            "T’accompagner pendant toute la saison avec des outils pratiques comme la récupération de tes pronostics et des infos à jour sur les Grands Prix ! 🇫🇷🏎️\n\n"
 
-        "Sois indulgent avec moi, je viens tout juste d’être lancé : je suis encore en **BETA** 🥺\n\n"
+            "Sois indulgent avec moi, je viens tout juste d’être lancé : je suis encore en **BETA** 🥺\n\n"
 
-        "📊 D’autres fonctions arrivent bientôt : infos circuits, classements en direct, statistiques pilotes, et même un jeu spécial F1F!\n\n"
+            "📊 D’autres fonctions arrivent bientôt : infos circuits, classements en direct, statistiques pilotes, et même un jeu spécial F1F!\n\n"
 
-        "🎉 __**Et maintenant, place au concours !**__\n\n"
-        "🤔 Mes créateurs ne m’ont pas encore donné de nom... C’est là que **toi** tu entres en jeu !\n"
-        "Propose-moi un nom original, fun ou en rapport avec la F1 et F1F, **et si ta proposition est retenue, elle deviendra mon nom officiel trop bien non ?!**\n\n"
+            "🎉 __**Et maintenant, place au concours !**__\n\n"
+            "🤔 Mes créateurs ne m’ont pas encore donné de nom... C’est là que **toi** tu entres en jeu !\n"
+            "Propose-moi un nom original, fun ou en rapport avec la F1 et F1F, **et si ta proposition est retenue, elle deviendra mon nom officiel trop bien non ?!**\n\n"
 
-        " 📬__Pour participer :__\n"
-        "Répond simplement à **ce message privé** avec ton idée de nom pour le bot.\n"
-        "**Une seule condition : que ce soit cool, en rapport avec la Formule 1 et F1F (le mot GOAT est fortement conseillé) !!**\n\n"
+            " 📬__Pour participer :__\n"
+            "Répond simplement à **ce message privé** avec ton idée de nom pour le bot.\n"
+            "**Une seule condition : que ce soit cool, en rapport avec la Formule 1 et F1F (le mot GOAT est fortement conseillé) !!**\n\n"
 
-        "🏆 Le vainqueur sera annoncé sur le serveur et gagnera une **petite surprise** 👀\n\n"
-        "À toi de jouer, et que le meilleur nom gagne ! 🏎️✨"
-    ),
-    color=discord.Color.red()
-)
+            "🏆 Le vainqueur sera annoncé sur le serveur et gagnera une **petite surprise** 👀\n\n"
+            "À toi de jouer, et que le meilleur nom gagne ! 🏎️✨"
+        ),
+        color=discord.Color.red()
+    )
 
     embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
     embed.set_thumbnail(url=interaction.user.display_avatar.url)
     embed.set_image(url=EMBED_IMAGE)
-            
+
     try:
         await interaction.user.send(embed=embed)
 
         msg = await bot.wait_for(
             "message",
-            check=lambda m: m.author == interaction.user and isinstance(m.channel, discord.DMChannel)
+            check=lambda m: m.author == interaction.user and isinstance(
+                m.channel, discord.DMChannel)
         )
 
         try:
@@ -136,7 +153,7 @@ async def presentation_bot(interaction: discord.Interaction):
 
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=True)
-            
+
         await interaction.user.send("Merci pour ta proposition !")
 
     except discord.Forbidden:
@@ -145,8 +162,5 @@ async def presentation_bot(interaction: discord.Interaction):
     if interaction.guild is None:
         logger.info(f"Présentation par {interaction.user.name} en MP")
     else:
-        logger.info(f"Présentation par {interaction.user.name} dans {interaction.channel.name} sur {interaction.guild.name}")
-
-
-
-
+        logger.info(
+            f"Présentation par {interaction.user.name} dans {interaction.channel.name} sur {interaction.guild.name}")

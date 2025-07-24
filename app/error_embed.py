@@ -14,7 +14,8 @@ async def chat_you_dont_have_perm(interaction: discord.Interaction):
     embed.set_image(url=EMBED_IMAGE)
 
     await interaction.response.send_message(embed=embed, ephemeral=True)
-    
+
+
 async def chat_Oops(interaction: discord.Interaction):
     embed = discord.Embed(
         title=f"Désolé {interaction.user} !",
@@ -27,7 +28,8 @@ async def chat_Oops(interaction: discord.Interaction):
     embed.set_image(url=EMBED_IMAGE)
 
     await interaction.response.send_message(embed=embed, ephemeral=True)
-    
+
+
 async def info_embed(message: str, interaction: discord.Interaction):
     role = interaction.guild.get_role(PRONOS_ID)
     embed = discord.Embed(
@@ -73,6 +75,7 @@ async def Error(interaction: discord.Interaction, erreur: str):
         embed=embed
     )
 
+
 async def no_prono(interaction: discord.Interaction):
     embed = discord.Embed(
         title="❌ Oups, on dirait que tu n'as pas fais de pronos",
@@ -86,12 +89,13 @@ async def no_prono(interaction: discord.Interaction):
         ephemeral=True,
         embed=embed
     )
-    
+
+
 async def rules(interaction: discord.Interaction):
     embed = discord.Embed(
-    title="📕 Règlement de Formula 1 France BOT",
-    description=f"{interaction.user.name}, en utilisant ce bot vous acceptez automatiquement les règles ci-dessous.",
-    color=EMBED_COLOR_RED,
+        title="📕 Règlement de Formula 1 France BOT",
+        description=f"{interaction.user.name}, en utilisant ce bot vous acceptez automatiquement les règles ci-dessous.",
+        color=EMBED_COLOR_RED,
     )
 
     embed.add_field(
@@ -139,5 +143,5 @@ async def rules(interaction: discord.Interaction):
     embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
     embed.set_thumbnail(url=interaction.user.display_avatar.url)
     embed.set_image(url=EMBED_IMAGE)
-    
+
     await interaction.followup.send(embed=embed, ephemeral=True)

@@ -60,6 +60,5 @@ URL_RESULT_QUALIF = "https://fr.motorsport.com/f1/results/2025/gp-de-grande-bret
 
 # === Environment variable ===
 
-PRONOS_ID=1395093933176131755
+PRONOS_ID = 1395093933176131755
 GUILD_ID = 1394054995523010761
-
