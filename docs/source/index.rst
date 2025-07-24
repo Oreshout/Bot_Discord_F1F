@@ -100,12 +100,9 @@ This project is distributed under the MIT License, promoting free use, modificat
 
 Thank you for supporting the Formula 1 France community with the F1F Bot — your go-to assistant for all things F1 on Discord!
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Support
-   
-   github
-   discord
+.. toctree:: 
+   ← Github <https://github.com/Oreshout/Bot_Discord_F1F>
+   ← Discord <https://discord.gg/89ENkYSCWE>
 
 .. toctree::
    :maxdepth: 1
