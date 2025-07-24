@@ -6,7 +6,7 @@ import discord
 import fastf1 as f1
 from datetime import datetime, timezone
 import pandas as pd
-from config import logger, EMBED_COLOR_RED, EMBED_FOOTER_ICON, EMBED_IMAGE, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT
+from config import logger, EMBED_COLOR_RED, EMBED_IMAGE, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT
 import tools as tool
 
 

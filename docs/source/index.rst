@@ -110,5 +110,7 @@ Thank you for supporting the Formula 1 France community with the F1F Bot — you
    terms_of_service
    privacy_policy
    acknowledgements
+   github
+   discord
 
 
