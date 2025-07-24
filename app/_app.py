@@ -124,6 +124,7 @@ async def leaderboard(interaction: discord.Interaction):
     await interaction.response.defer()
     embed = ldb.Leaderboard()
     await interaction.followup.send(content=None,embed=embed)
+    logger.info(f'{interaction.user} à regarder le leaderbord')
     
 # _______________________________________________________________________________________________________________________________
     
@@ -213,6 +214,34 @@ async def session(interaction: discord.Interaction, saison: int, location: str, 
         await interaction.followup.send(embed=await embed.permError(interaction))
         
 # _______________________________________________________________________________________________________________________________
+
+@tree.command(name="admin_getresult", description="Mettre à jour l'api")
+async def maj_api(interaction: discord.Interaction):
+    interaction.response.defer()
+    if interaction.user.guild_permissions.administrator:
+        await interaction.response.send_message("⏳ Mise à jour en cours...")
+        
+        try:
+            result = f1api.getResults()
+
+            if result == 0:
+                await interaction.followup.send("✅ Résultats mis à jour avec succès.")
+            elif result == 1:
+                await interaction.followup.send("⚠️ Les résultats ne sont pas encore disponibles. Réessaie plus tard.")
+            elif result == 2:
+                await interaction.followup.send("❌ L'API FastF1 ne prend pas en charge cette session.")
+            elif result == 3:
+                await interaction.followup.send("❌ Erreur lors du chargement de la session FastF1.")
+            else:
+                await interaction.followup.send("❌ Une erreur inattendue est survenue.")
+
+        except Exception as e:
+            await interaction.followup.send(f"Erreur : {str(e)}")
+    else:
+        await interaction.followup.send(embeds=await embed.permError(interaction))
+
+# _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="admin_status", description="Retourne le status du bot")
 async def status(interaction: discord.Interaction):
