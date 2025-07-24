@@ -6,27 +6,21 @@ General Commands
 
 .. code:: slash
 
-   /ping
-
-Replies with "🏓 Pong!". Used to check if the bot is online.
-
-.. code:: slash
-
-   /say message: str
-
-Repeats the provided message. Very useful to make the bot speak.
-
-.. code:: slash
-
-   /salut
-
-Sends a personalized greeting to the user.
-
-.. code:: slash
-
    /help
 
-Displays the list of available commands with a brief explanation.
+Displays the list of all available commands with explanations.
+
+.. code:: slash
+
+   /presentation
+
+Introduces the bot and lets users suggest a name in DM. These suggestions are saved in a file.
+
+.. code:: slash
+
+   /rules
+
+Displays the bot usage rules.
 
 Prediction Commands
 -------------------
@@ -35,79 +29,82 @@ Prediction Commands
 
    /pronos_course premier: str deuxieme: str troisieme: str best_lap: str
 
-Allows a user to register their predictions for an event. Can be modified only once.
+Submit or update your race predictions. Can be modified only once and only when a session is open.
+
+.. code:: slash
+
+   /pronos_qualif premier: str deuxieme: str troisieme: str
+
+Submit or update your qualifying predictions. Can be modified only once and only when a session is open.
 
 .. code:: slash
 
    /visualisation
 
-Displays the user’s previously recorded predictions.
+Displays your current predictions (both race and qualifying if available).
 
 .. code:: slash
 
    /leaderboard
 
-Shows the general leaderboard of users based on their prediction scores.
+Displays the general leaderboard based on prediction accuracy.
 
-Administration Commands
------------------------
+Admin Commands
+--------------
 
 .. code:: slash
 
    /clear nombre: int
 
-Deletes a given number of messages in a channel (admins only).
+Deletes a specified number of messages in a channel. Admin only.
 
 .. code:: slash
 
    /admin_ban member: @member reason: str article: str
 
-Bans a member from the server for a specified reason and article (moderators only).
+Bans a member for a specified reason and rule/article. Admin only.
 
 .. code:: slash
 
    /admin_open duration: float
 
-Opens a prediction session for a set duration (in hours). Works only in manual mode.
+Opens a prediction session manually for a specified duration (in hours). Manual mode only.
 
 .. code:: slash
 
    /admin_close
 
-Closes the prediction session manually.
+Closes the current prediction session manually. Manual mode only.
 
 .. code:: slash
 
    /admin_status
 
-Shows the current bot mode (auto or manual).
+Returns the current bot mode (manual or auto).
 
 .. code:: slash
 
    /admin_stop
 
-Disables automatic mode and switches back to manual.
+Stops automatic mode and reverts to manual mode. Admin only.
 
 .. code:: slash
 
    /admin_launch
 
-Starts automatic mode: the bot automatically opens prediction sessions based on the F1 calendar.
+Launches the bot in automatic mode: sessions will be opened and closed based on the F1 calendar.
+
+.. code:: slash
+
+   /admin_getresult
+
+Manually fetches session results from the FastF1 API and updates the leaderboard.
 
 .. code:: slash
 
    /session saison: int location: str type: str
 
-Manually configures a session (Q for qualifying, R for race). Updates the leaderboard.
-
-Special Commands
-----------------
-
-.. code:: slash
-
-   /presentation
-
-Introduces the bot and allows users to propose a name via private message. These proposals are saved in a file.
+Manually configures a prediction session and updates the leaderboard (Q = qualifying, R = race).
 
 System Commands (non-slash)
 ---------------------------
@@ -116,11 +113,12 @@ System Commands (non-slash)
 
    !sync
 
-Command available only to administrators listed in `owners_id`. Synchronizes all slash commands with Discord.
+Command reserved to the developers (listed in `owners_id`). Syncs all slash commands with Discord.
 
 Notes
 -----
 
-- Administration commands require the corresponding permissions (ban, admin, etc.).
-- The prediction system uses both manual and automatic modes.
-- All logs and errors are properly handled within `try/except` blocks.
+- Admin commands require appropriate permissions (administrator, ban members, etc.).
+- The prediction system works in both **manual** and **automatic** mode.
+- All sessions are time-limited and controlled based on mode.
+- Errors are handled using proper `try/except` blocks, and logs are generated accordingly.

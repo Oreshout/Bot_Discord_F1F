@@ -1,7 +1,7 @@
 from discord import app_commands
 import asyncio
-from config import os, bot, tree, logger,discord, TOKEN
-from tools import help, clear_slash,start_Session,Wait,presentation_bot
+from config import os, bot, tree, logger, discord, TOKEN
+from tools import help, clear_slash, start_Session, Wait, presentation_bot
 import error_embed as embed
 import classement as ldb
 from admin_command import ban
@@ -19,28 +19,6 @@ async def on_ready():
     auto = False
     print(f"✅ Connecté en tant que {bot.user} !")
     logger.info("BOT LANCER")
-
-# _______________________________________________________________________________________________________________________________
-
-
-@tree.command(name="ping", description="Répond avec Pong !")
-async def ping_slash(interaction: discord.Interaction):
-    await interaction.response.send_message("🏓 Pong !")
-
-# _______________________________________________________________________________________________________________________________
-
-
-@tree.command(name="say", description="Répète ton message")
-@app_commands.describe(message="Le message à répéter")
-async def say_slash(interaction: discord.Interaction, message: str):
-    await interaction.response.send_message(f"💬 {message}")
-
-# _______________________________________________________________________________________________________________________________
-
-
-@tree.command(name="salut", description="Salue quelqu’un")
-async def salut_slash(interaction: discord.Interaction):
-    await interaction.response.send_message(f"👋 Salut {interaction.user.mention} !")
 
 # _______________________________________________________________________________________________________________________________
 
@@ -85,6 +63,7 @@ async def submit(interaction: discord.Interaction, premier: str, deuxieme: str, 
 
 # _______________________________________________________________________________________________________________________________
 
+
 @tree.command(name="pronos_qualif", description="Enregistre tes pronos ou modifie les si tu l'a déja fait par le passé(max 1 fois)")
 @app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième")
 async def submit_qualif(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
@@ -112,34 +91,38 @@ async def submit_qualif(interaction: discord.Interaction, premier: str, deuxieme
 
 # _______________________________________________________________________________________________________________________________
 
+
 @tree.command(name="visualisation", description="Te montre tes pronos")
-async def visu(interaction : discord.Interaction):
+async def visu(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
     await pr.visualisation(interaction)
 # _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="leaderboard", description="Affiche le clasement des membres")
 async def leaderboard(interaction: discord.Interaction):
     await interaction.response.defer()
     embed = ldb.Leaderboard()
-    await interaction.followup.send(content=None,embed=embed)
+    await interaction.followup.send(content=None, embed=embed)
     logger.info(f'{interaction.user} à regarder le leaderbord')
-    
+
 # _______________________________________________________________________________________________________________________________
-    
+
+
 @tree.command(name="admin_ban", description="AC-03")
-@app_commands.describe(member= "Membre à bannnir", reason = "Raison du bannissement" , article = "Le ou les articles qu'il a enfreint")
+@app_commands.describe(member="Membre à bannnir", reason="Raison du bannissement", article="Le ou les articles qu'il a enfreint")
 async def bannissement(interaction: discord.Interaction, member: discord.Member, reason: str, article: str):
     if interaction.user.guild_permissions.ban_members:
         await interaction.response.defer(ephemeral=True)
         await ban(interaction, member, reason, article)
         logger.info(f"{interaction.user.name} à banni {member}")
-        
+
     else:
         await embed.chat_you_dont_have_perm(interaction)
-        
+
 # _______________________________________________________________________________________________________________________________
-        
+
+
 @tree.command(name="admin_open", description="Ouvre une session de pronostics pour un temp donné")
 @app_commands.describe(duration="temps en heures")
 async def create(interaction: discord.Interaction, duration: float):
@@ -160,8 +143,9 @@ async def create(interaction: discord.Interaction, duration: float):
     else:
         await interaction.response.defer(ephemeral=True)
         await interaction.followup.send(embed=await embed.permError(interaction))
-        
+
 # _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="admin_close", description="Ferme la session de pronos")
 async def close(interaction: discord.Interaction):
@@ -187,6 +171,7 @@ async def close(interaction: discord.Interaction):
 
 # _______________________________________________________________________________________________________________________________
 
+
 @tree.command(name="session", description="Configure manuellement la session des pronos récupère ses résultats, et update le leaderboard")
 @app_commands.describe(saison="Année de la saison", location="Nom du Circuit", type="Type de l'événement(Q pour qualif, ou R pour course)")
 async def session(interaction: discord.Interaction, saison: int, location: str, type: str):
@@ -211,15 +196,16 @@ async def session(interaction: discord.Interaction, saison: int, location: str, 
         await interaction.followup.send("Le Leaderboard est à jour")
     else:
         await interaction.followup.send(embed=await embed.permError(interaction))
-        
+
 # _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="admin_getresult", description="Mettre à jour l'api")
 async def maj_api(interaction: discord.Interaction):
     interaction.response.defer()
     if interaction.user.guild_permissions.administrator:
         await interaction.response.send_message("⏳ Mise à jour en cours...")
-        
+
         try:
             result = f1api.getResults()
 
@@ -255,6 +241,7 @@ async def status(interaction: discord.Interaction):
         await interaction.followup.send(embed=await embed.permError(interaction))
 
 # _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="admin_stop", description="Stop le fonctionnement auto du bot")
 async def stop(interaction: discord.Interaction):
@@ -310,6 +297,8 @@ async def auto_mod(interaction: discord.Interaction):
             ldb.saveResults()
             if (os.path.exists("data/Pronos.json")):
                 os.remove("data/Pronos.json")
+
+
 @tree.command(name="admin_launch", description="Lance le fonctionnement auto du bot")
 async def launch(interaction: discord.Interaction):
     if interaction.user.guild_permissions.administrator:
@@ -320,8 +309,9 @@ async def launch(interaction: discord.Interaction):
     else:
         await interaction.response.defer(ephemeral=True)
         await interaction.followup.send(embed=await embed.permError(interaction), ephemeral=True)
-        
+
 # _______________________________________________________________________________________________________________________________
+
 
 @bot.event
 async def on_message(message: discord.Message):
@@ -343,8 +333,9 @@ async def on_message(message: discord.Message):
                     asyncio.sleep(5)
                     pass
                 await message.delete()
-                
+
 # _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="presentation", description="Laisse moi me présenter et aide moi à trouver mon nom !")
 async def presentation(interaction: discord.Interaction):
@@ -352,8 +343,9 @@ async def presentation(interaction: discord.Interaction):
     await interaction.followup.send(f"{interaction.user.mention}, va voir tes MP !", ephemeral=False)
     await presentation_bot(interaction)
     logger.info(f"{interaction.user} a demandé la présentation du BOT")
-    
+
 # _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="rules", description="Affiche le règlement d'usage du BOT")
 async def reglement(interaction: discord.Interaction):

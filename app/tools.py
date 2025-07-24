@@ -17,36 +17,37 @@ def ensure_file_exists(path):
 async def help(interaction: discord.Interaction):
     embed = discord.Embed(
         title="📜 Help - Liste des commandes",
-        description=f"Salut {interaction.user.mention} ! Voici les commandes que tu peux utiliser :",
+        description=f"Salut {interaction.user.mention} ! Voici les commandes disponibles :",
         color=EMBED_COLOR_RED
     )
 
-    embed.add_field(name="/ping", value="Répond avec Pong ! 🏓", inline=False)
-    embed.add_field(name="/say", value="Répète ton message 💬", inline=False)
-    embed.add_field(name="/salut", value="Salue quelqu’un 👋", inline=False)
-    embed.add_field(
-        name="/clear", value="Supprime des messages (admin uniquement) 🧹", inline=False)
-    embed.add_field(name="/pronos_qualifs",
-                    value="Enregistre ton pronostique pour les qualifications", inline=False)
-    embed.add_field(name="/pronos_course",
-                    value="Enregistre ton pronostique pour les qualifications", inline=False)
-    embed.add_field(name="/visualisation_pronos_course",
-                    value="Te montre ton pronostique actuel de course", inline=False)
-    embed.add_field(name="/visualisation_pronos_qualif",
-                    value="Te montre ton pronostique actuel de qualif", inline=False)
-    embed.add_field(name="/modify_course",
-                    value="Modifie ton pronostique pour la course", inline=False)
-    embed.add_field(name="/modify_qualif",
-                    value="Modifie ton pronostique pour la qualif", inline=False)
+    # Commandes utilisateurs
+    embed.add_field(name="/help", value="📖 Affiche cette liste d’aide", inline=False)
+    embed.add_field(name="/pronos_course", value="🏁 Enregistre ou modifie ton pronostic pour la **course**", inline=False)
+    embed.add_field(name="/pronos_qualif", value="⏱️ Enregistre ou modifie ton pronostic pour les **qualifications**", inline=False)
+    embed.add_field(name="/visualisation", value="🔍 Affiche tes pronos actuels", inline=False)
+    embed.add_field(name="/leaderboard", value="🏆 Affiche le classement général", inline=False)
+    embed.add_field(name="/presentation", value="🤖 Laisse le bot se présenter et choisis-lui un nom", inline=False)
+    embed.add_field(name="/rules", value="📏 Affiche le règlement d’utilisation du bot", inline=False)
 
-    embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
+    # Commandes admin
+    embed.add_field(name="/clear", value="🧹 Supprime un nombre de messages (admin uniquement)", inline=False)
+    embed.add_field(name="/admin_ban", value="🔨 Bannir un membre avec raison et article (admin)", inline=False)
+    embed.add_field(name="/admin_open", value="🟢 Ouvre une session de pronos pour une durée définie (admin)", inline=False)
+    embed.add_field(name="/admin_close", value="🔴 Ferme la session de pronos en cours (admin)", inline=False)
+    embed.add_field(name="/admin_status", value="📊 Affiche le mode actuel du bot : manuel ou auto (admin)", inline=False)
+    embed.add_field(name="/admin_getresult", value="🔄 Met à jour les résultats via l’API (admin)", inline=False)
+    embed.add_field(name="/admin_stop", value="⛔ Stoppe le mode automatique du bot (admin)", inline=False)
+    embed.add_field(name="/admin_launch", value="🚀 Lance le mode automatique du bot (admin)", inline=False)
+    embed.add_field(name="/session", value="🗂️ Configure manuellement une session + update leaderboard (admin)", inline=False)
+
     embed.set_thumbnail(url=interaction.user.display_avatar.url)
+    embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
     embed.set_image(url=EMBED_IMAGE)
 
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
-    logger.info(
-        f"{interaction.user.name} à demander help dans le salon {interaction.channel.name}")
+    logger.info(f"{interaction.user.name} a demandé /help dans {interaction.channel.name}")
 
 
 async def clear_slash(interaction: discord.Interaction, nombre: int):
