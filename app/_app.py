@@ -110,7 +110,6 @@ async def submit_qualif(interaction: discord.Interaction, premier: str, deuxieme
     else:
         await embed.Error(interaction, "Il y a une heure pour tout faire, et celle ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
 
-
 # _______________________________________________________________________________________________________________________________
 
 @tree.command(name="visualisation", description="Te montre tes pronos")
@@ -352,5 +351,14 @@ async def presentation(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
     await interaction.followup.send(f"{interaction.user.mention}, va voir tes MP !", ephemeral=False)
     await presentation_bot(interaction)
+    logger.info(f"{interaction.user} a demandé la présentation du BOT")
+    
+# _______________________________________________________________________________________________________________________________
+
+@tree.command(name="rules", description="Affiche le règlement d'usage du BOT")
+async def reglement(interaction: discord.Interaction):
+    await interaction.response.defer(ephemeral=True)
+    await embed.rules(interaction)
+    logger.info(f"{interaction.user} a demandé les règles du BOT.")
 
 bot.run(TOKEN)
