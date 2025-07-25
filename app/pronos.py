@@ -28,48 +28,41 @@ def country_fonction():
     return "Unknown"  # fallback par défaut si rien trouvé
 
 
-def pronos(id: int, pseudo: str, premier: str, second: str, troisieme: str, bt: str):
 
+def pronos_generic(pseudo, premier, second, troisieme, statue, best_lap=None):
     country = country_fonction()
-    file_path = f'data/pronos_{country}.json'
+
+    if statue == "qualif":
+        file_path = f'data/pronos_{country}_qualifs.json'
+    elif statue == "sprint":
+        file_path = f'data/pronos_{country}_sprint.json'
+    elif statue == "qualif_sprint":
+        file_path = f'data/pronos_{country}_qualifsprint.json'
+    else:
+        file_path = f'data/pronos_{country}.json'
 
     if not os.path.exists(file_path):
-        pronos_database = {
-            str(id): {
-                "Pseudo": pseudo,
-                "1": premier,
-                "2": second,
-                "3": troisieme,
-                "Best Lap": bt,
-                "Modif": False
-            }
-        }
+        pronos_database = {}
     else:
         with open(file_path, 'r', encoding='utf-8') as f:
             pronos_database = json.load(f)
-            if str(id) not in pronos_database:
-                pronos_database[str(id)] = {
-                    "Pseudo": pseudo,
-                    "1": premier,
-                    "2": second,
-                    "3": troisieme,
-                    "Best Lap": bt,
-                    "Modif": False
-                }
-            else:
-                if pronos_database[str(id)]["Modif"]:
-                    return False
-                else:
 
-                    pronos_database[str(id)]["Pseudo"] = pseudo
-                    pronos_database[str(id)]["1"] = premier
-                    pronos_database[str(id)]["2"] = second
-                    pronos_database[str(id)]["3"] = troisieme
-                    pronos_database[str(id)]["Best Lap"] = bt
-                    pronos_database[str(id)]["Modif"] = True
+    user_key = pseudo  # ou id si tu as
+
+    pronos_database[user_key] = {
+        "Pseudo": pseudo,
+        "1": premier,
+        "2": second,
+        "3": troisieme,
+        "Modif": False
+    }
+
+    if statue in ["course", "sprint"]:
+        pronos_database[user_key]["Best Lap"] = best_lap
 
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(pronos_database, f, ensure_ascii=False, indent=4)
+
     return True
 
 

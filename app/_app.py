@@ -9,6 +9,8 @@ import pronos as pr
 import json
 import f1api
 from datetime import timedelta
+from typing import Literal
+
 
 
 @bot.event
@@ -37,29 +39,57 @@ async def helping_tools(interaction: discord.Interaction):
 # _______________________________________________________________________________________________________________________________
 
 
-@tree.command(name="pronos_course", description="Enregistre tes pronos ou modifie les si tu l'a déja fait par le passé(max 1 fois)")
-@app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième", best_lap="Meilleur Tour")
-async def submit(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, best_lap: str):
+@tree.command(name="pronos", description="Enregistre tes pronos ou modifie les si tu l'as déjà fait")
+@app_commands.describe(
+    statue="Type de session (Qualif, Course, Sprint, Sprint_Qualif)",
+    premier="Le premier",
+    deuxieme="Le deuxième",
+    troisieme="Le troisième",
+    best_lap="Meilleur tour (uniquement pour Course et Sprint, optionnel pour Qualif)"
+)
+async def submit(interaction: discord.Interaction,
+                 statue: str,
+                 premier: str,
+                 deuxieme: str,
+                 troisieme: str,
+                 best_lap: str = None):
     await interaction.response.defer(ephemeral=True)
+    statue_lower = statue.lower()
+    if statue_lower not in ["Qualif", "Course", "Sprint", "Sprint_Qualif"]:
+        await embed.Error(interaction, "❌ Statue invalide. Choisis parmi : Qualif, Course, Sprint.")
+        return
+
+    if statue_lower in ["Course", "Sprint"] and not best_lap:
+        await embed.Error(interaction, "❌ Pour Course et Sprint, le Meilleur tour est obligatoire.")
+        return
+
+    # Pour Qualif, on ignore best_lap
+    if statue_lower in ["Qualif", "Sprint_Qualif"]:
+        best_lap = None
+
     if command_enabled:
         try:
-            success = pr.pronos(
+            success = pr.pronos_race(
                 interaction.user.id,
                 str(interaction.user),
-                premier, deuxieme, troisieme, best_lap
+                premier,
+                deuxieme,
+                troisieme,
+                best_lap,
+                statue_lower
             )
         except Exception as e:
-            logger.exception("Erreur pendant l'enregistrement du prono course")
+            logger.exception("Erreur pendant l'enregistrement du prono")
             await embed.Error(interaction, f"❌ Erreur pendant l'enregistrement du prono : `{e}`")
             return
 
         if success:
-            await interaction.followup.send("✅ Ton prono course a bien été pris en compte !", ephemeral=True)
-            logger.info(f'{interaction.user} à fais son pronos course')
+            await interaction.followup.send("✅ Ton prono a bien été pris en compte !", ephemeral=True)
+            logger.info(f'{interaction.user} a fait son pronostic {statue_lower}')
         else:
             await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
     else:
-        await embed.Error(interaction, "Il y a une heure pour tout faire, et celle ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
+        await embed.Error(interaction, "Il y a une heure pour tout faire, et celle-ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
 
 # _______________________________________________________________________________________________________________________________
 
@@ -150,20 +180,20 @@ async def bannissement(interaction: discord.Interaction, member: discord.Member,
 # _______________________________________________________________________________________________________________________________
 
 
-@tree.command(name="admin_open", description="Ouvre une session de pronostics pour un temp donné")
-@app_commands.describe(duration="temps en heures")
-async def create(interaction: discord.Interaction, duration: float):
+@tree.command(name="admin_open", description="Ouvre une session de pronostics pour un temps donné")
+@app_commands.describe(duration="temps en heures", statue="Choix de la session")
+async def create(interaction: discord.Interaction, duration: float, statue: Literal["Course", "Qualif", "Sprint", "Sprint_Qualif"]):
+    global current_session, command_enabled, auto, task
+
     if interaction.user.guild_permissions.administrator:
-        global auto
-        if (not auto):
+        if not auto:
             await interaction.response.defer()
-            global task
-            global command_enabled
+            current_session = statue
             command_enabled = True
-            task = asyncio.create_task(
-                tool.start_Session(interaction, duration))
+            task = asyncio.create_task(tool.start_Session(interaction, duration))
             await task
             command_enabled = False
+            current_session = None  # reset à la fin de la session
         else:
             await interaction.response.defer(ephemeral=True)
             await embed.Error(interaction, "Cette commande n'est pas disponible en mode auto")

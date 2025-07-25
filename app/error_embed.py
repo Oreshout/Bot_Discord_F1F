@@ -31,7 +31,6 @@ async def chat_Oops(interaction: discord.Interaction):
 
 
 async def info_embed(message: str, interaction: discord.Interaction):
-    role = interaction.guild.get_role(PRONOS_ID)
     embed = discord.Embed(
         title="Infos",
         description=message,
@@ -42,7 +41,6 @@ async def info_embed(message: str, interaction: discord.Interaction):
     embed.set_image(url=EMBED_IMAGE)
     embed.set_thumbnail(url=EMBED_THUMBNAIL)
     await interaction.followup.send(
-        content=f"||{role.mention}||",
         ephemeral=False,
         embed=embed
     )
