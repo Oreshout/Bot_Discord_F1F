@@ -1,0 +1,37 @@
+{
+    "1200489866165747722": {
+        "Pseudo": "matt_karting",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Hamilton",
+        "Modif": true
+    },
+    "944143066716045322": {
+        "Pseudo": "la_bagguette",
+        "1": "Piastri",
+        "2": "Verstappen",
+        "3": "Norris",
+        "Modif": false
+    },
+    "1030067694382354442": {
+        "Pseudo": "palmer_jrr",
+        "1": "Lando Norris",
+        "2": "Lewis Hamilton",
+        "3": "Charles Leclerc",
+        "Modif": false
+    },
+    "849334015525126156": {
+        "Pseudo": "debo.07",
+        "1": "Oscar Piastri",
+        "2": "Max Verstappen",
+        "3": "Charles Leclerc",
+        "Modif": false
+    },
+    "427103316028162048": {
+        "Pseudo": "nollywyn",
+        "1": "Verstappen",
+        "2": "Norris",
+        "3": "Leclerc",
+        "Modif": false
+    }
+}

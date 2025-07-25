@@ -44,30 +44,77 @@ def getNextEvent():
             with open('data/Session.json', 'w', encoding='utf-8') as f:
                 json.dump(session, f, ensure_ascii=False, indent=4)
             break
+        if (pd.isna(row.Session6DateUtc)):
+            logger.info("Pas de Date pour la course Sprint à "+row.Location)
+        elif (time > row.Session6Date):
+            logger.info(row.Location + " est passé (Course)")
+        else:
+            logger.info("Prochaine Course Sprint à "+row.Location)
+            session = {
+                "Round": row.Index,
+                "Country": row.Country,
+                "Location": row.Location,
+                "Session": 'S',
+                "Date": row.Session5DateUtc.strftime("%d/%m/%Y,%H:%M:%S"),
+                "Saison": datetime.now(timezone.utc).year
+            }
+            with open('data/Session.json', 'w', encoding='utf-8') as f:
+                json.dump(session, f, ensure_ascii=False, indent=4)
+            break
 
 
 def getResults():
     with open('data/Session.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
+
+    country = data.get('Country', 'unknown').lower()
+    session_type = data.get("Session", "")  # garder la casse telle quelle
+
     session = f1.get_session(data['Saison'], data["Location"], data["Session"])
+
     if not session.f1_api_support:
-        # Rajouter  une erreur sur discord
-        logger.info("L'api n'est pas disponible")
+        logger.info("L'API FastF1 n'est pas disponible pour cette session.")
         return 2
-    session.load()
+
+    try:
+        session.load()
+    except Exception as e:
+        logger.error(f"Erreur lors du chargement de la session : {e}")
+        return 3
+
+    if session.results is None or session.results.empty:
+        logger.warning("Les résultats ne sont pas encore disponibles.")
+        return 1
+
     try:
         number = session.laps.pick_fastest().DriverNumber
         row = session.results.loc[session.results.DriverNumber == str(number)]
         driver = row.FullName.values[0]
+
         result = {
             "1": session.results.FullName.iloc[0],
             "2": session.results.FullName.iloc[1],
             "3": session.results.FullName.iloc[2],
             "Best Lap": driver
         }
-    except ValueError:
-        # Aussi rajouter une erreur sur discord
-        logger.info("Value are not avalaible yet")
+
+    except (ValueError, IndexError) as e:
+        logger.warning(f"Erreur dans le traitement des résultats : {e}")
         return 1
-    with open('data/Results.json', 'w', encoding='utf-8') as f:
-        json.dump(result, f, ensure_ascii=False, indent=4)
+
+    # Choix du fichier selon le type exact de session
+    if session_type == "Q":
+        filename = f'data/Results_Qualif_{country}.json'
+    elif session_type == "S":
+        filename = f'data/Results_Sprint_{country}.json'
+    else:
+        filename = f'data/Results_Course_{country}.json'
+
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(result, f, ensure_ascii=False, indent=4)
+        logger.info(f"Résultats sauvegardés dans {filename}")
+        return 0
+    except Exception as e:
+        logger.error(f"Erreur sauvegarde résultats : {e}")
+        return 4

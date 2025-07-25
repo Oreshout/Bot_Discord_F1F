@@ -55,7 +55,7 @@ Contact Information
 If you have any questions about this Privacy Policy, please contact us at:
 
 **Discord:** https://discord.gg/89ENkYSCWE  
-**Email:** [your-email@example.com]
+**Email:** [contact.formula1france@gmail.com]
 
 ---
 

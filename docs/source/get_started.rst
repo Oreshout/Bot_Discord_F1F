@@ -1,7 +1,7 @@
 Get Started
 ===========
 
-.. image:: docs/_images/banniere_F1F.png
+.. image:: ../_images/banniere_F1F.png
    :alt: F1F Bot Logo
    :align: center
    :width: 500px

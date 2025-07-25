@@ -254,3 +254,175 @@ BOT LANCER 11/07/2025 15:47:38
 >>>>>>> origin/prod
 2025-07-22 10:04:00,632 - INFO - BOT LANCER
 2025-07-22 11:21:27,604 - INFO - BOT LANCER
+<<<<<<< HEAD
+=======
+2025-07-22 13:01:09,124 - INFO - BOT LANCER
+2025-07-22 13:38:41,960 - INFO - Présentation par palmer_jrr dans ⭐・paddock-vip sur Formula 1 France
+2025-07-22 14:18:45,629 - INFO - BOT LANCER
+2025-07-22 14:21:05,202 - INFO - BOT LANCER
+2025-07-22 14:24:13,649 - INFO - BOT LANCER
+2025-07-22 14:24:48,736 - INFO - BOT LANCER
+2025-07-22 14:26:42,316 - INFO - BOT LANCER
+2025-07-22 14:30:16,090 - INFO - BOT LANCER
+2025-07-22 14:30:49,185 - ERROR - Erreur pendant l'enregistrement du prono qualif
+Traceback (most recent call last):
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\_app.py", line 85, in submit_qualif
+    success = pr.pronos_qualif(
+        interaction.user.id,
+        str(interaction.user),
+        premier, deuxieme, troisieme
+    )
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\pronos.py", line 210, in pronos_qualif
+    country = country_fonction()
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\pronos.py", line 22, in country_fonction
+    elif now <= row.Session5DateUtc:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/tslibs/timestamps.pyx", line 337, in pandas._libs.tslibs.timestamps._Timestamp.__richcmp__
+TypeError: can't compare offset-naive and offset-aware datetimes
+2025-07-22 14:35:34,108 - INFO - BOT LANCER
+2025-07-22 14:46:02,981 - INFO - BOT LANCER
+2025-07-22 14:46:25,178 - ERROR - Erreur pendant l'enregistrement du prono qualif
+Traceback (most recent call last):
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\_app.py", line 68, in submit
+    success = pr.pronos(
+        interaction.user.id,
+        str(interaction.user),
+        premier, deuxieme, troisieme
+    )
+TypeError: pronos() missing 1 required positional argument: 'bt'
+2025-07-22 14:47:10,693 - INFO - BOT LANCER
+2025-07-22 14:52:43,644 - INFO - BOT LANCER
+2025-07-22 14:53:25,047 - INFO - matt_karting a consulté ses pronos
+2025-07-22 14:53:58,812 - ERROR - Erreur dans visualisation : Expecting value: line 1 column 1 (char 0)
+2025-07-22 15:07:23,711 - INFO - BOT LANCER
+2025-07-22 15:08:11,403 - ERROR - Erreur dans visualisation : Expecting value: line 1 column 1 (char 0)
+2025-07-22 15:11:19,129 - ERROR - Erreur dans visualisation : [Errno 2] No such file or directory: 'data/pronos_Belgium.json'
+2025-07-22 15:11:30,720 - INFO - BOT LANCER
+2025-07-22 15:11:36,044 - ERROR - Erreur dans visualisation : [Errno 2] No such file or directory: 'data/pronos_Belgium.json'
+2025-07-22 15:20:06,650 - INFO - BOT LANCER
+2025-07-22 15:22:06,430 - INFO - BOT LANCER
+2025-07-22 15:46:24,671 - INFO - BOT LANCER
+2025-07-22 15:54:57,842 - INFO - BOT LANCER
+2025-07-22 15:55:07,696 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 15:55:07,706 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 15:55:07,719 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 15:56:07,404 - INFO - BOT LANCER
+2025-07-22 15:56:15,619 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 15:56:15,635 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 15:56:15,646 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 15:56:15,647 - INFO - Save_result bien app
+2025-07-22 16:04:23,549 - INFO - BOT LANCER
+2025-07-22 16:04:31,351 - INFO - save_results appelée avec race_type = Qualif
+2025-07-22 16:04:31,534 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 16:04:31,534 - INFO - save_results appelée avec race_type = CourseSprint
+2025-07-22 16:04:31,545 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 16:04:31,545 - INFO - save_results appelée avec race_type = Course
+2025-07-22 16:04:31,558 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-07-22 16:04:31,558 - INFO - Save_result bien app
+2025-07-22 16:05:35,269 - INFO - matt_karting à fais son pronos course
+2025-07-22 16:05:41,039 - INFO - save_results appelée avec race_type = Qualif
+2025-07-22 16:05:41,052 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:05:41,053 - INFO - Premier à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:05:41,053 - INFO - Deuxième à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:05:41,053 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:05:41,053 - INFO - save_results appelée avec race_type = CourseSprint
+2025-07-22 16:05:41,063 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:05:41,064 - INFO - Premier à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:05:41,064 - INFO - Deuxième à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:05:41,064 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:05:41,064 - INFO - save_results appelée avec race_type = Course
+2025-07-22 16:05:41,079 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:05:41,079 - INFO - Premier à la bonne place pour matt_karting, +2 pts
+2025-07-22 16:05:41,080 - INFO - Deuxième à la bonne place pour matt_karting, +2 pts
+2025-07-22 16:05:41,081 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:05:41,081 - INFO - Save_result bien app
+2025-07-22 16:08:19,743 - INFO - save_results appelée avec race_type = Qualif
+2025-07-22 16:08:19,758 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:08:19,758 - INFO - Premier à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:08:19,758 - INFO - Deuxième à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:08:19,758 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:08:19,758 - INFO - save_results appelée avec race_type = CourseSprint
+2025-07-22 16:08:19,768 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:08:19,768 - INFO - Premier à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:08:19,768 - INFO - Deuxième à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:08:19,769 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:08:19,769 - INFO - save_results appelée avec race_type = Course
+2025-07-22 16:08:19,785 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:08:19,786 - INFO - Premier à la bonne place pour matt_karting, +2 pts
+2025-07-22 16:08:19,786 - INFO - Deuxième à la bonne place pour matt_karting, +2 pts
+2025-07-22 16:08:19,787 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:08:19,787 - INFO - Save_result bien app
+2025-07-22 16:08:37,281 - INFO - save_results appelée avec race_type = Qualif
+2025-07-22 16:08:37,304 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:08:37,304 - INFO - Premier à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:08:37,304 - INFO - Deuxième à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:08:37,305 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:08:37,305 - INFO - save_results appelée avec race_type = CourseSprint
+2025-07-22 16:08:37,324 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:08:37,324 - INFO - Premier à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:08:37,324 - INFO - Deuxième à la bonne place pour matt_karting, +1 pts
+2025-07-22 16:08:37,325 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:08:37,325 - INFO - save_results appelée avec race_type = Course
+2025-07-22 16:08:37,345 - INFO - Calcul des points pour l'utilisateur 1200489866165747722 (matt_karting)
+2025-07-22 16:08:37,345 - INFO - Premier à la bonne place pour matt_karting, +2 pts
+2025-07-22 16:08:37,345 - INFO - Deuxième à la bonne place pour matt_karting, +2 pts
+2025-07-22 16:08:37,345 - INFO - Leaderboard mis à jour avec 2 utilisateurs.
+2025-07-22 16:08:37,346 - INFO - Save_result bien app
+2025-07-22 16:09:29,169 - INFO - BOT LANCER
+2025-07-22 16:19:07,765 - INFO - BOT LANCER
+2025-07-22 16:19:21,355 - INFO - matt_karting à regarder le leaderbord
+2025-07-22 16:20:38,166 - INFO - matt_karting à fais son pronos course
+2025-07-22 16:20:44,259 - INFO - matt_karting à regarder le leaderbord
+2025-07-23 07:47:34,527 - INFO - BOT LANCER
+2025-07-23 07:58:00,375 - INFO - matt_karting à regarder le leaderbord
+2025-07-23 08:23:13,809 - INFO - BOT LANCER
+2025-07-23 10:10:17,832 - INFO - BOT LANCER
+2025-07-23 14:19:21,857 - INFO - BOT LANCER
+2025-07-23 14:42:40,236 - INFO - BOT LANCER
+2025-07-23 14:43:00,230 - WARNING - Les résultats ne sont pas encore disponibles.
+2025-07-23 15:48:37,665 - INFO - BOT LANCER
+2025-07-24 09:39:47,739 - INFO - BOT LANCER
+2025-07-24 09:54:33,789 - INFO - BOT LANCER
+2025-07-24 10:50:51,515 - INFO - BOT LANCER
+2025-07-24 10:54:14,138 - INFO - BOT LANCER
+2025-07-24 10:59:00,873 - INFO - BOT LANCER
+2025-07-24 10:59:55,051 - INFO - BOT LANCER
+2025-07-24 11:48:17,259 - INFO - BOT LANCER
+2025-07-24 14:39:22,244 - INFO - BOT LANCER
+2025-07-24 14:39:56,651 - INFO - Pas de Date pour la qualif à Sakhir
+2025-07-24 14:39:56,651 - INFO - Pas de Date pour la course à Sakhir
+2025-07-25 11:21:36,479 - INFO - BOT LANCER
+2025-07-25 11:22:16,526 - INFO - matt_karting à fais son pronos course sprint
+2025-07-25 11:47:00,647 - INFO - BOT LANCER
+2025-07-25 11:48:56,643 - INFO - matt_karting à fais son pronos qualif
+2025-07-25 12:14:43,083 - INFO - la_bagguette à fais son pronos qualif
+2025-07-25 12:26:30,599 - INFO - palmer_jrr à fais son pronos qualif
+2025-07-25 12:27:03,500 - INFO - matt_karting à visualisé ses pronos.
+2025-07-25 12:28:36,017 - INFO - palmer_jrr à visualisé ses pronos.
+2025-07-25 12:48:05,952 - INFO - lepingouin_1 à fais son pronos course
+2025-07-25 12:48:23,367 - INFO - BOT LANCER
+2025-07-25 12:50:35,481 - INFO - BOT LANCER
+2025-07-25 12:57:08,203 - INFO - debo.07 à fais son pronos qualif
+2025-07-25 12:57:43,049 - INFO - debo.07 à visualisé ses pronos.
+2025-07-25 13:00:08,588 - INFO - matt_karting à visualisé ses pronos.
+2025-07-25 13:05:38,325 - INFO - Présentation par debo.07 dans ⭐・paddock-général sur F1F VIP
+2025-07-25 13:05:38,325 - INFO - debo.07 a demandé la présentation du BOT
+2025-07-25 13:17:10,083 - INFO - Présentation par matt_karting dans ⭐・paddock-général sur F1F VIP
+2025-07-25 13:17:10,083 - INFO - matt_karting a demandé la présentation du BOT
+2025-07-25 13:17:10,155 - INFO - Présentation par matt_karting dans ⭐・paddock-général sur F1F VIP
+2025-07-25 13:17:10,155 - INFO - matt_karting a demandé la présentation du BOT
+2025-07-25 13:19:00,453 - INFO - matt_karting à fais son pronos qualif
+2025-07-25 13:19:03,591 - INFO - matt_karting à visualisé ses pronos.
+2025-07-25 13:48:28,654 - INFO - BOT LANCER
+2025-07-25 14:06:27,480 - INFO - Présentation par nollywyn dans ⭐・paddock-général sur F1F VIP
+2025-07-25 14:06:27,480 - INFO - nollywyn a demandé la présentation du BOT
+2025-07-25 14:08:34,989 - INFO - nollywyn à visualisé ses pronos.
+2025-07-25 14:16:53,171 - INFO - nollywyn à fais son pronos qualif
+2025-07-25 14:18:52,656 - INFO - matt_karting a demandé les règles du BOT.
+2025-07-25 14:19:06,580 - INFO - matt_karting a demandé /help dans ⭐・paddock-général
+2025-07-25 14:21:24,150 - INFO - nollywyn à visualisé ses pronos.
+2025-07-25 14:23:35,748 - INFO - nollywyn a demandé les règles du BOT.
+2025-07-25 14:26:22,714 - INFO - nollywyn a demandé les règles du BOT.
+2025-07-25 14:27:34,232 - INFO - nollywyn a demandé /help dans ⭐・paddock-général
+2025-07-25 15:40:46,190 - INFO - matt_karting à visualisé ses pronos.
+>>>>>>> Dev
