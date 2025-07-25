@@ -44,6 +44,23 @@ def getNextEvent():
             with open('data/Session.json', 'w', encoding='utf-8') as f:
                 json.dump(session, f, ensure_ascii=False, indent=4)
             break
+        if (pd.isna(row.Session6DateUtc)):
+            logger.info("Pas de Date pour la course Sprint à "+row.Location)
+        elif (time > row.Session6Date):
+            logger.info(row.Location + " est passé (Course)")
+        else:
+            logger.info("Prochaine Course Sprint à "+row.Location)
+            session = {
+                "Round": row.Index,
+                "Country": row.Country,
+                "Location": row.Location,
+                "Session": 'S',
+                "Date": row.Session5DateUtc.strftime("%d/%m/%Y,%H:%M:%S"),
+                "Saison": datetime.now(timezone.utc).year
+            }
+            with open('data/Session.json', 'w', encoding='utf-8') as f:
+                json.dump(session, f, ensure_ascii=False, indent=4)
+            break
 
 
 def getResults():
@@ -51,7 +68,7 @@ def getResults():
         data = json.load(f)
 
     country = data.get('Country', 'unknown').lower()
-    session_type = data.get("Session", "").lower()
+    session_type = data.get("Session", "")  # garder la casse telle quelle
 
     session = f1.get_session(data['Saison'], data["Location"], data["Session"])
 
@@ -85,8 +102,11 @@ def getResults():
         logger.warning(f"Erreur dans le traitement des résultats : {e}")
         return 1
 
-    if "qualif" in session_type:
+    # Choix du fichier selon le type exact de session
+    if session_type == "Q":
         filename = f'data/Results_Qualif_{country}.json'
+    elif session_type == "S":
+        filename = f'data/Results_Sprint_{country}.json'
     else:
         filename = f'data/Results_Course_{country}.json'
 
