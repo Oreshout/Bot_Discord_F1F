@@ -49,12 +49,12 @@ async def submit(interaction: discord.Interaction, premier: str, deuxieme: str, 
                 premier, deuxieme, troisieme, best_lap
             )
         except Exception as e:
-            logger.exception("Erreur pendant l'enregistrement du prono qualif")
+            logger.exception("Erreur pendant l'enregistrement du prono course")
             await embed.Error(interaction, f"❌ Erreur pendant l'enregistrement du prono : `{e}`")
             return
 
         if success:
-            await interaction.followup.send("✅ Ton prono qualif a bien été pris en compte !", ephemeral=True)
+            await interaction.followup.send("✅ Ton prono course a bien été pris en compte !", ephemeral=True)
             logger.info(f'{interaction.user} à fais son pronos course')
         else:
             await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
@@ -84,6 +84,33 @@ async def submit_qualif(interaction: discord.Interaction, premier: str, deuxieme
         if success:
             await interaction.followup.send("✅ Ton prono qualif a bien été pris en compte !", ephemeral=True)
             logger.info(f'{interaction.user} à fais son pronos qualif')
+        else:
+            await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
+    else:
+        await embed.Error(interaction, "Il y a une heure pour tout faire, et celle ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
+
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="pronos_sprint", description="Enregistre tes pronos ou modifie les si tu l'a déja fait par le passé(max 1 fois)")
+@app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième", best_lap="Meilleur Tour")
+async def submit_sprint(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, best_lap: str):
+    await interaction.response.defer(ephemeral=True)
+    if command_enabled:
+        try:
+            success = pr.pronos_sprint(
+                interaction.user.id,
+                str(interaction.user),
+                premier, deuxieme, troisieme, best_lap
+            )
+        except Exception as e:
+            logger.exception("Erreur pendant l'enregistrement du prono sprint")
+            await embed.Error(interaction, f"❌ Erreur pendant l'enregistrement du prono : `{e}`")
+            return
+
+        if success:
+            await interaction.followup.send("✅ Ton prono sprint a bien été pris en compte !", ephemeral=True)
+            logger.info(f'{interaction.user} à fais son pronos course sprint')
         else:
             await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
     else:
@@ -364,5 +391,35 @@ async def music(interaction: discord.Interaction, title: str):
         await tool.music_play(interaction, title)
         logger.info(f"{interaction.user} a demandé de la musique au BOT.")
 
+# _______________________________________________________________________________________________________________________________
+
+
+@bot.tree.command(name="next_event", description="Affiche le prochain événement F1")
+async def next_event(interaction: discord.Interaction):
+    await interaction.response.defer()
+    
+    try:
+        # Appelle ta fonction qui met à jour data/Session.json
+        f1api.getNextEvent()
+        
+        # Lecture du fichier JSON avec les infos du prochain event
+        with open('data/Session.json', 'r', encoding='utf-8') as f:
+            session = json.load(f)
+        
+        embed = discord.Embed(title="🏁 Prochain Événement F1",
+                      description=f"Session: {session.get('Session')}\n"
+                                  f"Round: {session.get('Round')}\n"
+                                  f"Pays: {session.get('Country')}\n"
+                                  f"Circuit: {session.get('Location')}\n"
+                                  f"Saison: {session.get('Saison')}",
+                      color=0x0099ff)
+        
+        embed.add_field(name="Date / Heure (UTC)", value=session.get('Date'), inline=False)
+        embed.set_footer(text="Données via FastF1 API")
+        
+        await interaction.followup.send(embed=embed)
+    
+    except Exception as e:
+        await interaction.followup.send(f"❌ Une erreur est survenue : {e}")
 
 bot.run(TOKEN)
