@@ -20,8 +20,6 @@ async def on_ready():
     print(f"✅ Connecté en tant que {bot.user} !")
     logger.info("BOT LANCER")
 
-<<<<<<< HEAD
-=======
 # _______________________________________________________________________________________________________________________________
 
 
@@ -340,7 +338,7 @@ async def launch(interaction: discord.Interaction):
         await interaction.followup.send(embed=await embed.permError(interaction), ephemeral=True)
 
 # _______________________________________________________________________________________________________________________________
->>>>>>> Dev
+
 
 
 @bot.event
