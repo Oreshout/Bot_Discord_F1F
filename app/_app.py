@@ -10,6 +10,7 @@ import json
 import f1api
 from datetime import timedelta
 from typing import Literal
+import economie as eco
 
 
 
@@ -451,5 +452,23 @@ async def next_event(interaction: discord.Interaction):
     
     except Exception as e:
         await interaction.followup.send(f"❌ Une erreur est survenue : {e}")
+        
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="salaire", description="Te permet de récupérer ton salaire journalié")
+async def paye(interaction: discord.Interaction):
+    await interaction.response.defer()
+    msg = eco.salaire(interaction)
+    await interaction.followup.send(msg, ephemeral=True)
+    logger.info(f"{interaction.user} a demandé son salaire journalié")
+
+# _______________________________________________________________________________________________________________________________
+
+@tree.command(name="solde", description="Te permet de voir ton solde actuelle")
+async def solding(interaction: discord.Interaction):
+    await interaction.response.defer()
+    await eco.voir_solde(interaction)
+    logger.info(f"{interaction.user} a regardé son solde")
 
 bot.run(TOKEN)

@@ -18,6 +18,11 @@
 
 ---
 
+## 🪙 Economie du serveur
+- [ ] création de la banque centrale avec la gestion des données
+- [ ] capacité d'utiliser sont argent + récompense
+- [ ] commande de management de l'économie du serveur
+
 ## 🧹 Nettoyage & Sécurité
 
 - [ ] Supprimer la commande ban du bot  

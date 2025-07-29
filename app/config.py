@@ -63,3 +63,6 @@ URL_RESULT_QUALIF = "https://fr.motorsport.com/f1/results/2025/gp-de-grande-bret
 PRONOS_ID = 1398238150215860345
 GUILD_ID = 1394054995523010761
 ROLE_ID_F1PADDOCKCLUB = 992784555150946446
+
+# === 🪙 Bot et Tree pour les commandes slash ===
+SALAIRE_JOURNALIER = 100
