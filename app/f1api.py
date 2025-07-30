@@ -79,7 +79,7 @@ def getResults():
     
     country = country_fonction()
     session_name = get_session_name()
-    with open(f'data/Session_{country}_{session_name}.json', 'r', encoding='utf-8') as f:
+    with open(f'data/session/Session_{country}_{session_name}.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     country = data.get('Country', 'unknown').lower()
@@ -127,11 +127,11 @@ def getResults():
         return 1
 
     if session_type == "Q":
-        filename = f'data/Results_Qualif_{country}.json'
+        filename = f'data/result/Results_Qualif_{country}.json'
     elif session_type == "S":
-        filename = f'data/Results_Sprint_{country}.json'
+        filename = f'data/result/Results_Sprint_{country}.json'
     else:
-        filename = f'data/Results_Course_{country}.json'
+        filename = f'data/result/Results_Course_{country}.json'
 
     try:
         with open(filename, 'w', encoding='utf-8') as f:

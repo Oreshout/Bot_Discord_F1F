@@ -50,13 +50,13 @@ def pronos_generic(pseudo, premier, second, troisieme, statue, best_lap=None):
     country = country_fonction()
 
     if statue == "qualif":
-        file_path = f'data/pronos_{country}_qualifs.json'
+        file_path = f'data/pronos/pronos_{country}_qualifs.json'
     elif statue == "sprint":
-        file_path = f'data/pronos_{country}_sprint.json'
+        file_path = f'data/pronos/pronos_{country}_sprint.json'
     elif statue == "sprint_qualif":
-        file_path = f'data/pronos_{country}_qualifsprint.json'
+        file_path = f'data/pronos/pronos_{country}_qualifsprint.json'
     else:
-        file_path = f'data/pronos_{country}.json'
+        file_path = f'data/pronos/pronos_{country}.json'
 
     if not os.path.exists(file_path):
         pronos_database = {}
@@ -102,8 +102,8 @@ async def visualisation(interaction: discord.Interaction):
 
     try:
         country = country_fonction()
-        file_path_course = f'data/pronos_{country}.json'
-        file_path_qualif = f'data/pronos_{country}_qualifs.json'
+        file_path_course = f'data/pronos/pronos_{country}.json'
+        file_path_qualif = f'data/pronos/pronos_{country}_qualifs.json'
 
         tool.ensure_file_exists(file_path_course)
         tool.ensure_file_exists(file_path_qualif)
