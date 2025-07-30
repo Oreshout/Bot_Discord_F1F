@@ -6,6 +6,14 @@
 
 - [x] Générer la documentation avec Sphinx  
 - [x] Déployer la documentation en ligne  
+- [X] Tester le bot à Spa en comité réduit (DEV / STAFF / BOOSTEUR)  
+- [x] Gestion des données (data)  
+- [x] Ajouter une commande Discord pour récupérer le prochain événement F1 (incluant Sprint)  
+- [x] Adapter la récupération des résultats selon le type de session (Qualif, Sprint, Course)  
+- [x] Gérer proprement les cas où les résultats ne sont pas encore disponibles  
+- [x] Ajoute une seule commande pronos lorsque l'on open les pronos on ajoute le statue de la session. ajout du statue dans le nom du fichier +  et une seule fonction pronos qui s'adapte à au statue de la session
+- [x] Tester la commande `next event` en conditions réelles  
+
 
 ---
 
@@ -13,8 +21,6 @@
 
 - [ ] Création du jeu F1F  
 - [ ] Commande administrateur complète  
-- [ ] Gestion des données (data)  
-- [ ] Tester le bot à Spa en comité réduit (DEV / STAFF / BOOSTEUR)  
 
 ---
 
@@ -33,18 +39,13 @@
 
 ## ⚙️ Fonctionnalités & Améliorations
 
-- [ ] Ajouter une commande Discord pour récupérer le prochain événement F1 (incluant Sprint)  
-- [ ] Adapter la récupération des résultats selon le type de session (Qualif, Sprint, Course)  
-- [ ] Gérer proprement les cas où les résultats ne sont pas encore disponibles  
 - [ ] Améliorer la robustesse et gestion des erreurs dans la fonction `getResults()` 
-- [ ] Ajoute une seule commande pronos lorsque l'on open les pronos on ajoute le statue de la session. ajout du statue dans le nom du fichier +  et une seule fonction pronos qui s'adapte à au statue de la session
 
 ---
 
 ## 🔍 Tests & Vérifications
 
 - [ ] Vérifier la disponibilité des données Sprint dans FastF1 pour chaque GP  
-- [ ] Tester la commande `next event` en conditions réelles  
 - [ ] Assurer la cohérence des données dans les fichiers JSON sauvegardés  
 
 ---
