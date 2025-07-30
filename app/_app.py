@@ -49,15 +49,18 @@ async def helping_tools(interaction: discord.Interaction):
     best_lap="Meilleur tour (uniquement pour Course et Sprint, optionnel pour Qualif)"
 )
 async def submit(interaction: discord.Interaction,
-                 statue: str,
+                  statue: Literal["Course", "Qualif", "Sprint", "Sprint_Qualif"],
                  premier: str,
                  deuxieme: str,
                  troisieme: str,
                  best_lap: str = None):
     await interaction.response.defer(ephemeral=True)
+    STATUSES_VALIDES = ["qualif", "course", "sprint", "sprint_qualif"]
     statue_lower = statue.lower()
-    if statue_lower not in ["Qualif", "Course", "Sprint", "Sprint_Qualif"]:
-        await embed.Error(interaction, "❌ Statue invalide. Choisis parmi : Qualif, Course, Sprint.")
+
+    if statue_lower not in STATUSES_VALIDES:
+        readable = ", ".join([s.capitalize() for s in STATUSES_VALIDES])
+        await embed.Error(interaction, f"❌ Statue invalide. Choisis parmi : {readable}.")
         return
 
     if statue_lower in ["Course", "Sprint"] and not best_lap:
@@ -70,14 +73,13 @@ async def submit(interaction: discord.Interaction,
 
     if command_enabled:
         try:
-            success = pr.pronos_race(
-                interaction.user.id,
-                str(interaction.user),
+            success = pr.pronos_generic(
+                str(interaction.user),  # pseudo
                 premier,
                 deuxieme,
                 troisieme,
-                best_lap,
-                statue_lower
+                statue_lower,
+                best_lap
             )
         except Exception as e:
             logger.exception("Erreur pendant l'enregistrement du prono")
@@ -91,61 +93,6 @@ async def submit(interaction: discord.Interaction,
             await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
     else:
         await embed.Error(interaction, "Il y a une heure pour tout faire, et celle-ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
-
-# _______________________________________________________________________________________________________________________________
-
-
-@tree.command(name="pronos_qualif", description="Enregistre tes pronos ou modifie les si tu l'a déja fait par le passé(max 1 fois)")
-@app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième")
-async def submit_qualif(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str):
-    await interaction.response.defer(ephemeral=True)
-
-    if command_enabled:
-        try:
-            success = pr.pronos_qualif(
-                interaction.user.id,
-                str(interaction.user),
-                premier, deuxieme, troisieme
-            )
-        except Exception as e:
-            logger.exception("Erreur pendant l'enregistrement du prono qualif")
-            await embed.Error(interaction, f"❌ Erreur pendant l'enregistrement du prono : `{e}`")
-            return
-
-        if success:
-            await interaction.followup.send("✅ Ton prono qualif a bien été pris en compte !", ephemeral=True)
-            logger.info(f'{interaction.user} à fais son pronos qualif')
-        else:
-            await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
-    else:
-        await embed.Error(interaction, "Il y a une heure pour tout faire, et celle ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
-
-# _______________________________________________________________________________________________________________________________
-
-
-@tree.command(name="pronos_sprint", description="Enregistre tes pronos ou modifie les si tu l'a déja fait par le passé(max 1 fois)")
-@app_commands.describe(premier="Le premier", deuxieme="Le deuxième", troisieme="Le troisième", best_lap="Meilleur Tour")
-async def submit_sprint(interaction: discord.Interaction, premier: str, deuxieme: str, troisieme: str, best_lap: str):
-    await interaction.response.defer(ephemeral=True)
-    if command_enabled:
-        try:
-            success = pr.pronos_sprint(
-                interaction.user.id,
-                str(interaction.user),
-                premier, deuxieme, troisieme, best_lap
-            )
-        except Exception as e:
-            logger.exception("Erreur pendant l'enregistrement du prono sprint")
-            await embed.Error(interaction, f"❌ Erreur pendant l'enregistrement du prono : `{e}`")
-            return
-
-        if success:
-            await interaction.followup.send("✅ Ton prono sprint a bien été pris en compte !", ephemeral=True)
-            logger.info(f'{interaction.user} à fais son pronos course sprint')
-        else:
-            await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
-    else:
-        await embed.Error(interaction, "Il y a une heure pour tout faire, et celle ci n'est pas pour les pronos. Par conséquent ton prono n'a pas pu être enregistré. Si tu veux être notifié des prochaines sessions, utilise /role")
 
 # _______________________________________________________________________________________________________________________________
 

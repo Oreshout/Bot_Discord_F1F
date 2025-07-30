@@ -454,3 +454,145 @@ TypeError: pronos() missing 1 required positional argument: 'bt'
 2025-07-29 11:14:16,799 - INFO - matt_karting a demandé son salaire journalié
 2025-07-29 11:14:21,247 - INFO - matt_karting a demandé son salaire journalié
 2025-07-29 11:14:40,193 - INFO - matt_karting a regardé son solde
+2025-07-29 16:05:07,527 - INFO - BOT LANCER
+2025-07-29 16:05:18,347 - INFO - matt_karting à visualisé ses pronos.
+2025-07-29 16:12:05,119 - INFO - matt_karting à fais son pronos qualif
+2025-07-29 16:12:27,155 - INFO - matt_karting à visualisé ses pronos.
+2025-07-29 16:13:00,781 - INFO - matt_karting à visualisé ses pronos.
+2025-07-29 16:15:03,749 - INFO - matt_karting à regarder le leaderbord
+2025-07-29 16:16:24,683 - INFO - matt_karting à visualisé ses pronos.
+2025-07-29 16:16:30,227 - INFO - matt_karting à regarder le leaderbord
+2025-07-29 16:16:52,433 - INFO - Résultats sauvegardés dans data/Results_Qualif_belgium.json
+2025-07-29 16:17:05,856 - INFO - matt_karting à regarder le leaderbord
+2025-07-30 09:51:48,270 - INFO - BOT LANCER
+2025-07-30 11:08:08,592 - INFO - BOT LANCER
+2025-07-30 11:08:22,771 - INFO - Résultats sauvegardés dans data/Results_Qualif_belgium.json
+2025-07-30 11:12:29,882 - INFO - BOT LANCER
+2025-07-30 11:17:11,110 - INFO - BOT LANCER
+2025-07-30 11:50:35,144 - INFO - matt_karting a demandé son salaire journalié
+2025-07-30 11:50:50,534 - INFO - whisper9741 a demandé son salaire journalié
+2025-07-30 11:51:06,940 - INFO - matt_karting a regardé son solde
+2025-07-30 11:55:51,944 - INFO - BOT LANCER
+2025-07-30 11:56:00,004 - INFO - [Bahrain] Pas de date pour la session 'R'
+2025-07-30 11:56:00,004 - INFO - [Bahrain] Pas de date pour la session 'Q'
+2025-07-30 12:02:54,416 - INFO - BOT LANCER
+2025-07-30 12:05:48,583 - INFO - BOT LANCER
+2025-07-30 12:05:53,992 - INFO - [Bahrain] Session 'P' déjà passée
+2025-07-30 12:05:53,992 - INFO - [Bahrain] Session 'P' déjà passée
+2025-07-30 12:05:53,992 - INFO - [Bahrain] Session 'P' déjà passée
+2025-07-30 12:05:53,992 - INFO - [Australia] Session 'P' déjà passée
+2025-07-30 12:05:53,992 - INFO - [Australia] Session 'P' déjà passée
+2025-07-30 12:05:53,992 - INFO - [Australia] Session 'P' déjà passée
+2025-07-30 12:05:53,992 - INFO - [Australia] Session 'Q' déjà passée
+2025-07-30 12:05:53,992 - INFO - [Australia] Session 'R' déjà passée
+2025-07-30 12:05:53,992 - INFO - [China] Session 'P' déjà passée
+2025-07-30 12:05:53,993 - INFO - [China] Session 'S' déjà passée
+2025-07-30 12:05:53,993 - INFO - [China] Session 'S' déjà passée
+2025-07-30 12:05:53,993 - INFO - [China] Session 'Q' déjà passée
+2025-07-30 12:05:53,993 - INFO - [China] Session 'R' déjà passée
+2025-07-30 12:05:53,993 - INFO - [Japan] Session 'P' déjà passée
+2025-07-30 12:05:53,993 - INFO - [Japan] Session 'P' déjà passée
+2025-07-30 12:05:53,993 - INFO - [Japan] Session 'P' déjà passée
+2025-07-30 12:05:53,993 - INFO - [Japan] Session 'Q' déjà passée
+2025-07-30 12:05:53,993 - INFO - [Japan] Session 'R' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Bahrain] Session 'P' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Bahrain] Session 'P' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Bahrain] Session 'P' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Bahrain] Session 'Q' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Bahrain] Session 'R' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Saudi Arabia] Session 'Q' déjà passée
+2025-07-30 12:05:53,994 - INFO - [Saudi Arabia] Session 'R' déjà passée
+2025-07-30 12:05:53,995 - INFO - [United States] Session 'P' déjà passée
+2025-07-30 12:05:53,995 - INFO - [United States] Session 'S' déjà passée
+2025-07-30 12:05:53,995 - INFO - [United States] Session 'S' déjà passée
+2025-07-30 12:05:53,995 - INFO - [United States] Session 'Q' déjà passée
+2025-07-30 12:05:53,995 - INFO - [United States] Session 'R' déjà passée
+2025-07-30 12:05:53,995 - INFO - [Italy] Session 'P' déjà passée
+2025-07-30 12:05:53,995 - INFO - [Italy] Session 'P' déjà passée
+2025-07-30 12:05:53,995 - INFO - [Italy] Session 'P' déjà passée
+2025-07-30 12:05:53,996 - INFO - [Italy] Session 'Q' déjà passée
+2025-07-30 12:05:53,996 - INFO - [Italy] Session 'R' déjà passée
+2025-07-30 12:05:53,996 - INFO - [Monaco] Session 'P' déjà passée
+2025-07-30 12:05:53,996 - INFO - [Monaco] Session 'P' déjà passée
+2025-07-30 12:05:53,996 - INFO - [Monaco] Session 'P' déjà passée
+2025-07-30 12:05:53,996 - INFO - [Monaco] Session 'Q' déjà passée
+2025-07-30 12:05:53,996 - INFO - [Monaco] Session 'R' déjà passée
+2025-07-30 12:05:53,996 - INFO - [Spain] Session 'P' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Spain] Session 'P' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Spain] Session 'P' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Spain] Session 'Q' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Spain] Session 'R' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Canada] Session 'P' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Canada] Session 'P' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Canada] Session 'P' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Canada] Session 'Q' déjà passée
+2025-07-30 12:05:53,997 - INFO - [Canada] Session 'R' déjà passée
+2025-07-30 12:05:53,998 - INFO - [Austria] Session 'P' déjà passée
+2025-07-30 12:05:53,998 - INFO - [Austria] Session 'P' déjà passée
+2025-07-30 12:05:53,998 - INFO - [Austria] Session 'P' déjà passée
+2025-07-30 12:05:53,998 - INFO - [Austria] Session 'Q' déjà passée
+2025-07-30 12:05:53,998 - INFO - [Austria] Session 'R' déjà passée
+2025-07-30 12:05:53,998 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-07-30 12:05:53,998 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-07-30 12:05:53,998 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-07-30 12:05:53,998 - INFO - [United Kingdom] Session 'Q' déjà passée
+2025-07-30 12:05:53,999 - INFO - [United Kingdom] Session 'R' déjà passée
+2025-07-30 12:05:53,999 - INFO - [Belgium] Session 'P' déjà passée
+2025-07-30 12:05:53,999 - INFO - [Belgium] Session 'S' déjà passée
+2025-07-30 12:05:53,999 - INFO - [Belgium] Session 'S' déjà passée
+2025-07-30 12:05:53,999 - INFO - [Belgium] Session 'Q' déjà passée
+2025-07-30 12:05:53,999 - INFO - [Belgium] Session 'R' déjà passée
+2025-07-30 12:05:54,001 - INFO - [Hungary] Prochaine session trouvée : P à Budapest
+2025-07-30 12:27:47,774 - INFO - BOT LANCER
+2025-07-30 12:28:11,701 - ERROR - Erreur pendant l'enregistrement du prono
+Traceback (most recent call last):
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\_app.py", line 76, in submit
+    success = pr.pronos_race(
+              ^^^^^^^^^^^^^^
+AttributeError: module 'pronos' has no attribute 'pronos_race'
+2025-07-30 12:31:45,982 - INFO - BOT LANCER
+2025-07-30 12:32:09,732 - ERROR - Erreur pendant l'enregistrement du prono
+Traceback (most recent call last):
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\_app.py", line 76, in submit
+    success = pr.pronos_generic(
+        interaction.user.id,
+    ...<5 lines>...
+        statue_lower
+    )
+TypeError: pronos_generic() takes from 5 to 6 positional arguments but 7 were given
+2025-07-30 12:32:47,808 - ERROR - Erreur pendant l'enregistrement du prono
+Traceback (most recent call last):
+  File "C:\Users\mdepe\OneDrive - Groupe ESIEA\Bureau\ESIEABOT\code\Private_Bot_Discord_F1F\app\_app.py", line 76, in submit
+    success = pr.pronos_generic(
+        interaction.user.id,
+    ...<5 lines>...
+        statue_lower
+    )
+TypeError: pronos_generic() takes from 5 to 6 positional arguments but 7 were given
+2025-07-30 12:33:30,908 - INFO - BOT LANCER
+2025-07-30 12:33:53,267 - INFO - matt_karting a fait son pronostic course
+2025-07-30 12:34:41,537 - INFO - matt_karting a fait son pronostic qualif
+2025-07-30 12:35:05,980 - INFO - matt_karting a fait son pronostic qualif
+2025-07-30 12:35:37,176 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:36:01,704 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:36:14,485 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:36:21,404 - INFO - matt_karting a fait son pronostic qualif
+2025-07-30 12:36:25,422 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:41:58,993 - INFO - BOT LANCER
+2025-07-30 12:42:10,227 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:45:24,274 - INFO - BOT LANCER
+2025-07-30 12:45:31,860 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:48:11,262 - INFO - matt_karting à clear 5 lignes dans 🙋・présentation-du-pilote
+2025-07-30 12:51:38,641 - INFO - matt_karting a fait son pronostic course
+2025-07-30 12:51:43,344 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:51:57,328 - INFO - matt_karting a fait son pronostic course
+2025-07-30 12:52:01,700 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:58:04,610 - INFO - BOT LANCER
+2025-07-30 12:58:26,963 - INFO - matt_karting a fait son pronostic qualif
+2025-07-30 12:58:44,495 - INFO - matt_karting à visualisé ses pronos.
+2025-07-30 12:59:29,876 - INFO - BOT LANCER
+2025-07-30 13:03:33,981 - INFO - matt_karting a fait son pronostic course
+2025-07-30 13:03:41,010 - INFO - matt_karting à visualisé ses pronos.

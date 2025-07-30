@@ -3,74 +3,89 @@ from datetime import datetime, timezone
 import pandas as pd
 import json
 from config import logger
+import os
 
+os.makedirs('cache_fastf1', exist_ok=True)
+f1.Cache.enable_cache('cache_fastf1')
 
 def getNextEvent():
     year = datetime.now(timezone.utc).year
     calendar = f1.get_event_schedule(year)
-    time = datetime.now(timezone.utc)
+    now = datetime.now(timezone.utc)
+    
+    print("Colonnes du calendrier :", calendar.columns)  # print des colonnes pour vérifier
+
     for row in calendar.itertuples():
-        if (pd.isna(row.Session4DateUtc)):
-            logger.info("Pas de Date pour la qualif à "+row.Location)
-        elif (time > row.Session4Date):
-            logger.info(row.Location + " est passé (Qualif)")
-        else:
-            logger.info("Prochaine Session Qualif à "+row.Location)
-            session = {
-                "Round": str(row.Index),
-                "Country": row.Country,
-                "Location": row.Location,
-                "Session": 'Q',
-                "Date": row.Session4DateUtc.strftime("%d/%m/%Y,%H:%M:%S"),
-                "Saison": datetime.now(timezone.utc).year
-            }
-            with open('data/Session.json', 'w', encoding='utf-8') as f:
-                json.dump(session, f, ensure_ascii=False, indent=4)
-            break
-        if (pd.isna(row.Session5DateUtc)):
-            logger.info("Pas de Date pour la course à "+row.Location)
-        elif (time > row.Session5Date):
-            logger.info(row.Location + " est passé (Course)")
-        else:
-            logger.info("Prochaine Course à "+row.Location)
-            session = {
-                "Round": row.Index,
-                "Country": row.Country,
-                "Location": row.Location,
-                "Session": 'R',
-                "Date": row.Session5DateUtc.strftime("%d/%m/%Y,%H:%M:%S"),
-                "Saison": datetime.now(timezone.utc).year
-            }
-            with open('data/Session.json', 'w', encoding='utf-8') as f:
-                json.dump(session, f, ensure_ascii=False, indent=4)
-            break
-        if (pd.isna(row.Session6DateUtc)):
-            logger.info("Pas de Date pour la course Sprint à "+row.Location)
-        elif (time > row.Session6Date):
-            logger.info(row.Location + " est passé (Course)")
-        else:
-            logger.info("Prochaine Course Sprint à "+row.Location)
-            session = {
-                "Round": row.Index,
-                "Country": row.Country,
-                "Location": row.Location,
-                "Session": 'S',
-                "Date": row.Session5DateUtc.strftime("%d/%m/%Y,%H:%M:%S"),
-                "Saison": datetime.now(timezone.utc).year
-            }
-            with open('data/Session.json', 'w', encoding='utf-8') as f:
-                json.dump(session, f, ensure_ascii=False, indent=4)
-            break
+        round_number = row.Index
+        country = row.Country
+        location = row.Location
 
+        # On parcourt toutes les sessions et on cherche leur nom pour savoir laquelle est le sprint, qualif, etc.
+        sessions = []
+        for i in range(1, 6):  # Session1 à Session5
+            session_name = getattr(row, f'Session{i}', None)
+            session_date = getattr(row, f'Session{i}DateUtc', None)
 
+            if session_name is None or session_date is None:
+                continue
+
+            # On associe les codes aux noms des sessions
+            code = None
+            if "Race" in session_name:
+                code = "R"
+            elif "Sprint" in session_name:
+                code = "S"
+            elif "Qualifying" in session_name:
+                code = "Q"
+            elif "Practice" in session_name:
+                code = "P"
+
+            if code:
+                sessions.append((code, session_date))
+
+        for session_code, session_date in sessions:
+            if pd.isna(session_date):
+                logger.info(f"[{country}] Pas de date pour la session '{session_code}'")
+                continue
+
+            # ✅ Correction ici : forcer la timezone si manquante
+            if session_date.tzinfo is None:
+                session_date = session_date.replace(tzinfo=timezone.utc)
+
+            if now > session_date:
+                logger.info(f"[{country}] Session '{session_code}' déjà passée")
+                continue
+
+            session_data = {
+                "Round": round_number,
+                "Country": country,
+                "Location": location,
+                "Session": session_code,
+                "Date": session_date.strftime("%d/%m/%Y,%H:%M:%S"),
+                "Saison": year
+            }
+
+            os.makedirs('data', exist_ok=True)
+            with open('data/Session.json', 'w', encoding='utf-8') as f:
+                json.dump(session_data, f, ensure_ascii=False, indent=4)
+
+            logger.info(f"[{country}] Prochaine session trouvée : {session_code} à {location}")
+            return
+
+    logger.warning("Aucune session future trouvée dans le calendrier.")
+    
 def getResults():
     with open('data/Session.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     country = data.get('Country', 'unknown').lower()
-    session_type = data.get("Session", "")  # garder la casse telle quelle
+    session_type = data.get("Session", "")  # garder la casse
 
-    session = f1.get_session(data['Saison'], data["Location"], data["Session"])
+    try:
+        session = f1.get_session(data['Saison'], data["Round"], session_type)
+    except Exception as e:
+        logger.error(f"Erreur lors de la récupération de la session : {e}")
+        return 5
 
     if not session.f1_api_support:
         logger.info("L'API FastF1 n'est pas disponible pour cette session.")
@@ -86,23 +101,27 @@ def getResults():
         logger.warning("Les résultats ne sont pas encore disponibles.")
         return 1
 
+    if len(session.results) < 3:
+        logger.warning("Pas assez de résultats pour un top 3.")
+        return 1
+
     try:
         number = session.laps.pick_fastest().DriverNumber
-        row = session.results.loc[session.results.DriverNumber == str(number)]
-        driver = row.FullName.values[0]
+        row = session.results[session.results.DriverNumber == str(number)]
+        driver = row.FullName.values[0] if not row.empty else "Inconnu"
 
         result = {
             "1": session.results.FullName.iloc[0],
             "2": session.results.FullName.iloc[1],
             "3": session.results.FullName.iloc[2],
-            "Best Lap": driver
+            "Best Lap": driver,
+            "timestamp": datetime.now().isoformat()
         }
 
-    except (ValueError, IndexError) as e:
+    except Exception as e:
         logger.warning(f"Erreur dans le traitement des résultats : {e}")
         return 1
 
-    # Choix du fichier selon le type exact de session
     if session_type == "Q":
         filename = f'data/Results_Qualif_{country}.json'
     elif session_type == "S":
