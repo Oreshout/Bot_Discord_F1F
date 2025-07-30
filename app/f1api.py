@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 import pandas as pd
 import json
 from config import logger
+from pronos import country_fonction, get_session_name
 import os
 
 os.makedirs('cache_fastf1', exist_ok=True)
@@ -75,7 +76,10 @@ def getNextEvent():
     logger.warning("Aucune session future trouvée dans le calendrier.")
     
 def getResults():
-    with open('data/Session.json', 'r', encoding='utf-8') as f:
+    
+    country = country_fonction()
+    session_name = get_session_name()
+    with open(f'data/Session_{country}_{session_name}.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     country = data.get('Country', 'unknown').lower()

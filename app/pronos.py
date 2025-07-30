@@ -4,11 +4,28 @@ import os
 import re
 import discord
 import fastf1 as f1
+from fastf1 import get_session
 from datetime import datetime, timezone
 import pandas as pd
 from config import logger, EMBED_COLOR_RED, EMBED_IMAGE, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT
 import tools as tool
 
+def get_session_name():
+    # Lecture des infos de session depuis le fichier JSON
+    with open('data/Session.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    saison = data['Saison']
+    location = data['Location']
+    statue = data['Session']  # ex: "Qualifying", "Race", etc.
+
+    try:
+        session = get_session(saison, location, statue)
+        session.load()  # Nécessaire pour avoir SessionName
+        return session.session_name  # ex: "QUALIFYING", "RACE", "SPRINT"
+    except Exception as e:
+        print(f"Erreur lors du chargement de la session : {e}")
+        return "Session inconnue"
 
 def sanitize_filename(name):
     return re.sub(r'[^\w\-]', '_', name)
@@ -131,7 +148,7 @@ async def visualisation(interaction: discord.Interaction):
             "Best Lap", "Non renseigné"), inline=False)
 
         modif_text = "❌ Tu as déjà modifié ton pronostic par le passé" if prono.get(
-            "Modif", True) else "✅ Tu peux modifier ton pronostic en relançant /pronos_course"
+            "Modif", True) else "✅ Tu peux modifier ton pronostic en relançant /pronos"
         embed.add_field(name="Droit de modification :",
                         value=modif_text, inline=False)
         
@@ -155,7 +172,7 @@ async def visualisation(interaction: discord.Interaction):
             "3", "Non renseigné"), inline=False)
 
         modif_text = "❌ Tu as déjà modifié ton pronostic par le passé" if prono.get(
-            "Modif", True) else "✅ Tu peux modifier ton pronostic en relançant /pronos_qualif"
+            "Modif", True) else "✅ Tu peux modifier ton pronostic en relançant /pronos"
         embed.add_field(name="Droit de modification :",
                         value=modif_text, inline=False)
         
@@ -191,9 +208,9 @@ async def visualisation(interaction: discord.Interaction):
                         value=pr_course.get("Best Lap", "Non renseigné"), inline=False)
 
         modif_q = "❌ Qualif déjà modifié" if pr_qualif.get(
-            "Modif", True) else "✅ Tu peux modifier ton prono Qualif (/pronos_qualif)"
+            "Modif", True) else "✅ Tu peux modifier ton prono Qualif (/pronos)"
         modif_c = "❌ Course déjà modifié" if pr_course.get(
-            "Modif", True) else "✅ Tu peux modifier ton prono Course (/pronos_course)"
+            "Modif", True) else "✅ Tu peux modifier ton prono Course (/pronos)"
         embed.add_field(name="Droits de modification :",
                         value=f"{modif_q}\n{modif_c}", inline=False)
         
