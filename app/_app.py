@@ -13,7 +13,6 @@ from typing import Literal
 import economie as eco
 
 
-
 @bot.event
 async def on_ready():
     global command_enabled
@@ -49,7 +48,7 @@ async def helping_tools(interaction: discord.Interaction):
     best_lap="Meilleur tour (uniquement pour Course et Sprint, optionnel pour Qualif)"
 )
 async def submit(interaction: discord.Interaction,
-                  statue: Literal["Course", "Qualif", "Sprint", "Sprint_Qualif"],
+                 statue: Literal["Course", "Qualif", "Sprint", "Sprint_Qualif"],
                  premier: str,
                  deuxieme: str,
                  troisieme: str,
@@ -88,7 +87,8 @@ async def submit(interaction: discord.Interaction,
 
         if success:
             await interaction.followup.send("✅ Ton prono a bien été pris en compte !", ephemeral=True)
-            logger.info(f'{interaction.user} a fait son pronostic {statue_lower}')
+            logger.info(
+                f'{interaction.user} a fait son pronostic {statue_lower}')
         else:
             await embed.Error(interaction, "❌ Tu ne peux modifier ton pronostic qu'une seule fois.")
     else:
@@ -138,7 +138,8 @@ async def create(interaction: discord.Interaction, duration: float, statue: Lite
             await interaction.response.defer()
             current_session = statue
             command_enabled = True
-            task = asyncio.create_task(tool.start_Session(interaction, duration))
+            task = asyncio.create_task(
+                tool.start_Session(interaction, duration))
             await task
             command_enabled = False
             current_session = None  # reset à la fin de la session
@@ -357,7 +358,7 @@ async def reglement(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
     await embed.rules(interaction)
     logger.info(f"{interaction.user} a demandé les règles du BOT.")
-    
+
 # _______________________________________________________________________________________________________________________________
 
 
@@ -375,31 +376,32 @@ async def music(interaction: discord.Interaction, title: str):
 @bot.tree.command(name="next_event", description="Affiche le prochain événement F1")
 async def next_event(interaction: discord.Interaction):
     await interaction.response.defer()
-    
+
     try:
         # Appelle ta fonction qui met à jour data/Session.json
         f1api.getNextEvent()
-        
+
         # Lecture du fichier JSON avec les infos du prochain event
         with open('data/Session.json', 'r', encoding='utf-8') as f:
             session = json.load(f)
-        
+
         embed = discord.Embed(title="🏁 Prochain Événement F1",
-                      description=f"Session: {session.get('Session')}\n"
-                                  f"Round: {session.get('Round')}\n"
-                                  f"Pays: {session.get('Country')}\n"
-                                  f"Circuit: {session.get('Location')}\n"
-                                  f"Saison: {session.get('Saison')}",
-                      color=0x0099ff)
-        
-        embed.add_field(name="Date / Heure (UTC)", value=session.get('Date'), inline=False)
+                              description=f"Session: {session.get('Session')}\n"
+                              f"Round: {session.get('Round')}\n"
+                              f"Pays: {session.get('Country')}\n"
+                              f"Circuit: {session.get('Location')}\n"
+                              f"Saison: {session.get('Saison')}",
+                              color=0x0099ff)
+
+        embed.add_field(name="Date / Heure (UTC)",
+                        value=session.get('Date'), inline=False)
         embed.set_footer(text="Données via FastF1 API")
-        
+
         await interaction.followup.send(embed=embed)
-    
+
     except Exception as e:
         await interaction.followup.send(f"❌ Une erreur est survenue : {e}")
-        
+
 # _______________________________________________________________________________________________________________________________
 
 
@@ -412,10 +414,71 @@ async def paye(interaction: discord.Interaction):
 
 # _______________________________________________________________________________________________________________________________
 
+
 @tree.command(name="solde", description="Te permet de voir ton solde actuelle")
 async def solding(interaction: discord.Interaction):
     await interaction.response.defer()
     await eco.voir_solde(interaction)
     logger.info(f"{interaction.user} a regardé son solde")
+
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="virement", description="Fais un virement de X argent sur le compte de la personnes que tu choisis.")
+@app_commands.describe(somme_a_retirer="L'argent que tu veux envoyé à la personne", member="La personne que a qui tu veux envoyer de l'argent.")
+async def vir(interaction: discord.Interaction, somme_a_retirer: int, member: discord.Member):
+    await interaction.response.defer()
+    await eco.virement(interaction, somme_a_retirer, member)
+    logger.info(f"{interaction.user} a fais un virement à {member}")
+
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="admin_retrait", description="Fais un retrait de X argent sur le compte de la personnes que tu choisis.")
+@app_commands.describe(somme_a_retirer="L'argent que tu veux retirer à la personne", member="La personne que a qui tu veux retirer de l'argent.")
+async def ret(interaction: discord.Interaction, somme_a_retirer: int, member: discord.Member):
+    if interaction.user.guild_permissions.administrator:
+        await interaction.response.defer()
+        await eco.retrait(interaction, somme_a_retirer, member)
+        logger.info(f"{interaction.user} a fais un retrait à {member}")
+    else:
+        await interaction.response.defer(ephemeral=True)
+        await interaction.followup.send(embed=await embed.permError(interaction), ephemeral=True)
+
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="top", description="Montre les 10 plus grandes richesse du serveur")
+async def toop(interaction: discord.Interaction):
+    await interaction.response.defer()
+    await eco.top(interaction)
+    logger.info(f"{interaction.user} à visionné le top 10 du serv")
+
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="deposit",  description="Déplace ton argent de ton compte courant au compte bancaire sécurisé")
+@app_commands.describe(somme_a_verser="Argent que tu veux viré")
+async def depo(interaction: discord.Interaction, somme_a_verser: int):
+    await interaction.response.defer()
+    await eco.virement_compte_courant_to_protect(interaction, somme_a_verser)
+    logger.info(f"{interaction.user} a verser **{somme_a_verser}** sur son compte sécurisé.")
+    
+# _______________________________________________________________________________________________________________________________
+
+@tree.command(name="solde_proteger", description="T'affiche ton solde sur ton compte protéger")
+async def show(interaction: discord.Interaction):
+    await interaction.response.defer()
+    await eco.voir_solde_proteger(interaction) 
+    logger.info(f"{interaction.user} a regardé son solde protegé")
+   
+@tree.command(name="withdraw",  description="Déplace ton argent de ton compte protegé au compte courant")
+@app_commands.describe(somme_a_verser="Argent que tu veux viré")
+async def dwith(interaction: discord.Interaction, somme_a_verser: int):
+    await interaction.response.defer()
+    await eco.virement_compte_protege_to_courant(interaction, somme_a_verser)
+    logger.info(f"{interaction.user} a verser **{somme_a_verser}** sur son compte courant.")
+    
+
 
 bot.run(TOKEN)
