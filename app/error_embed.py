@@ -1,4 +1,4 @@
-from config import logger, EMBED_COLOR_RED, EMBED_IMAGE, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, PRONOS_ID
+from config import logger, EMBED_COLOR_RED, EMBED_IMAGE, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT
 import discord
 
 

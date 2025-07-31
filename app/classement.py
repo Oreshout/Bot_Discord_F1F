@@ -1,9 +1,28 @@
 import json
 import os
+from fastf1 import get_session
 from thefuzz import fuzz
 import discord
 from config import logger, EMBED_COLOR_RED, EMBED_THUMBNAIL, EMBED_FOOTER_TEXT, EMBED_IMAGE
 import pronos as pr
+
+def get_session_name():
+    # Lecture des infos de session depuis le fichier JSON
+    with open('data/Session.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    saison = data['Saison']
+    location = data['Location']
+    statue = data['Session']  # ex: "Qualifying", "Race", etc.
+
+    try:
+        session = get_session(saison, location, statue)
+        session.load()  # Nécessaire pour avoir SessionName
+        return session.session_name  # ex: "QUALIFYING", "RACE", "SPRINT"
+    except Exception as e:
+        print(f"Erreur lors du chargement de la session : {e}")
+        return "Session inconnue"
+
 
 
 def load_json_file(path):
@@ -37,27 +56,35 @@ def match_position(entry: str, target: str, threshold: int) -> bool:
             fuzz.ratio(target_nom.lower(), nom.lower()) >= threshold)
 
 
-def save_results(race_type):
-    """
-    race_type doit être une des chaînes : 'Qualif', 'CourseSprint', 'Course'
-    """
+def save_results():
+    race_type = get_session_name()
+
+    if race_type == "Inconnu":
+        logger.error("Session inconnue. Impossible de continuer.")
+        return
 
     logger.info(f"save_results appelée avec race_type = {race_type}")
 
     country = pr.country_fonction()
 
-    results = load_json_file('data/Results.json')
-    pronos = load_json_file(f'data/pronos_{country}.json')
+    # Chemin dynamique du fichier Results
+    if race_type == "Qualif":
+        results_path = f'data/result/Results_Qualif_{country}.json'
+    elif race_type == "CourseSprint":
+        results_path = f'data/result/Results_Sprint_{country}.json'
+    else:
+        results_path = f'data/result/Results_Course_{country}.json'
+
+    results = load_json_file(results_path)
+    pronos = load_json_file(f'data/pronos/pronos_{country}.json')
     barem = load_json_file('data/Barem.json')
 
     if not results or not pronos or not barem:
-        logger.info(
-            "Fichiers nécessaires absents ou invalides, arrêt de la fonction.")
+        logger.info("Fichiers nécessaires absents ou invalides, arrêt de la fonction.")
         return
 
     if race_type not in barem:
-        logger.error(
-            f"Type de course '{race_type}' non supporté dans le barème.")
+        logger.error(f"Type de course '{race_type}' non supporté dans le barème.")
         return
 
     bar = barem[race_type]
@@ -74,65 +101,52 @@ def save_results(race_type):
 
         logger.info(f"Calcul des points pour l'utilisateur {key} ({pseudo})")
 
-        premier_in_top3 = premier in [user_pronos.get(
-            '1', ''), user_pronos.get('2', ''), user_pronos.get('3', '')]
-        second_in_top3 = second in [user_pronos.get(
-            '1', ''), user_pronos.get('2', ''), user_pronos.get('3', '')]
-        troisieme_in_top3 = troisieme in [user_pronos.get(
-            '1', ''), user_pronos.get('2', ''), user_pronos.get('3', '')]
+        premier_in_top3 = premier in [user_pronos.get('1', ''), user_pronos.get('2', ''), user_pronos.get('3', '')]
+        second_in_top3 = second in [user_pronos.get('1', ''), user_pronos.get('2', ''), user_pronos.get('3', '')]
+        troisieme_in_top3 = troisieme in [user_pronos.get('1', ''), user_pronos.get('2', ''), user_pronos.get('3', '')]
 
         premier_correct = match_position(user_pronos.get('1', ''), premier, 90)
         second_correct = match_position(user_pronos.get('2', ''), second, 90)
-        troisieme_correct = match_position(
-            user_pronos.get('3', ''), troisieme, 90)
+        troisieme_correct = match_position(user_pronos.get('3', ''), troisieme, 90)
 
         all_correct = premier_correct and second_correct and troisieme_correct
 
         if all_correct:
             points += bar.get('allCorrect', 0)
-            logger.info(
-                f"Tout juste pour {pseudo}, +{bar.get('allCorrect', 0)} pts")
+            logger.info(f"Tout juste pour {pseudo}, +{bar.get('allCorrect', 0)} pts")
         else:
             if premier_correct:
                 points += bar.get('correctPosition', 0)
-                logger.info(
-                    f"Premier à la bonne place pour {pseudo}, +{bar.get('correctPosition', 0)} pts")
+                logger.info(f"Premier à la bonne place pour {pseudo}, +{bar.get('correctPosition', 0)} pts")
             elif premier_in_top3:
                 points += bar.get('inTop3', 0)
-                logger.info(
-                    f"Premier dans le top 3 pour {pseudo}, +{bar.get('inTop3', 0)} pts")
+                logger.info(f"Premier dans le top 3 pour {pseudo}, +{bar.get('inTop3', 0)} pts")
 
             if second_correct:
                 points += bar.get('correctPosition', 0)
-                logger.info(
-                    f"Deuxième à la bonne place pour {pseudo}, +{bar.get('correctPosition', 0)} pts")
+                logger.info(f"Deuxième à la bonne place pour {pseudo}, +{bar.get('correctPosition', 0)} pts")
             elif second_in_top3:
                 points += bar.get('inTop3', 0)
-                logger.info(
-                    f"Deuxième dans le top 3 pour {pseudo}, +{bar.get('inTop3', 0)} pts")
+                logger.info(f"Deuxième dans le top 3 pour {pseudo}, +{bar.get('inTop3', 0)} pts")
 
             if troisieme_correct:
                 points += bar.get('correctPosition', 0)
-                logger.info(
-                    f"Troisième à la bonne place pour {pseudo}, +{bar.get('correctPosition', 0)} pts")
+                logger.info(f"Troisième à la bonne place pour {pseudo}, +{bar.get('correctPosition', 0)} pts")
             elif troisieme_in_top3:
                 points += bar.get('inTop3', 0)
-                logger.info(
-                    f"Troisième dans le top 3 pour {pseudo}, +{bar.get('inTop3', 0)} pts")
+                logger.info(f"Troisième dans le top 3 pour {pseudo}, +{bar.get('inTop3', 0)} pts")
 
-    if key not in leaderboard:
-        leaderboard[key] = {"Pseudo": pseudo, "Points": points}
-    else:
-        leaderboard[key]["Points"] += points
+        if key not in leaderboard:
+            leaderboard[key] = {"Pseudo": pseudo, "Points": points}
+        else:
+            leaderboard[key]["Points"] += points
 
     try:
         with open(leaderboard_path, 'w', encoding='utf-8') as f:
             json.dump(leaderboard, f, ensure_ascii=False, indent=4)
-        logger.info(
-            f"Leaderboard mis à jour avec {len(leaderboard)} utilisateurs.")
+        logger.info(f"Leaderboard mis à jour avec {len(leaderboard)} utilisateurs.")
     except Exception as e:
         logger.error(f"Erreur lors de la sauvegarde du leaderboard: {e}")
-
 
 def Leaderboard():
     try:

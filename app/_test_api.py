@@ -1,6 +1,5 @@
 import fastf1 as f1
 from datetime import datetime, timezone
-import pandas as pd
 
 year = datetime.now(timezone.utc).year
 calendar = f1.get_event_schedule(year)
