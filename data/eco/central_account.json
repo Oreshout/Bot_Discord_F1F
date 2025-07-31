@@ -1,12 +1,17 @@
 {
+    "F1FACCOUNT": {
+        "Pseudo": "F1F",
+        "Solde": 420000,
+        "last_claim": "2025-07-31"
+    },
     "1200489866165747722": {
         "Pseudo": "matt_karting",
-        "Solde": 1000,
+        "Solde": 9999998502500,
         "last_claim": "2025-07-31"
     },
     "674627381683552256": {
         "Pseudo": "whisper9741",
-        "Solde": 15099999999999999999990000,
+        "Solde": 15099999998999899997606000,
         "last_claim": "2025-07-30"
     },
     "427103316028162048": {
@@ -22,6 +27,16 @@
     "944143066716045322": {
         "Pseudo": "la_bagguette",
         "Solde": 100000000000000000,
+        "last_claim": "2025-07-31"
+    },
+    "matt_karting": {
+        "Pseudo": "Inconnu",
+        "Solde": -400000,
+        "last_claim": ""
+    },
+    "663321201766039572": {
+        "Pseudo": "cy16.lmb",
+        "Solde": 100,
         "last_claim": "2025-07-31"
     }
 }

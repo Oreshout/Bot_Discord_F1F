@@ -11,6 +11,7 @@ import f1api
 from datetime import timedelta
 from typing import Literal
 import economie as eco
+import boutique as shop
 
 
 @bot.event
@@ -479,6 +480,13 @@ async def dwith(interaction: discord.Interaction, somme_a_verser: int):
     await eco.virement_compte_protege_to_courant(interaction, somme_a_verser)
     logger.info(f"{interaction.user} a verser **{somme_a_verser}** sur son compte courant.")
     
+# _______________________________________________________________________________________________________________________________
+
+@tree.command(name="boutique", description="Ouvre la boutique")
+async def boutic(interaction: discord.Interaction):
+    await interaction.response.defer()
+    await shop.boutique(interaction)
+    logger.info(f"{interaction.user} a ouvert la boutique.")
 
 
 bot.run(TOKEN)

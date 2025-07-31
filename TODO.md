@@ -28,6 +28,8 @@
 - [ ] création de la banque centrale avec la gestion des données
 - [ ] capacité d'utiliser sont argent + récompense
 - [ ] commande de management de l'économie du serveur
+- [ ] Système bancaire
+- [ ] Systeme écurie et abonnement
 
 ## 🧹 Nettoyage & Sécurité
 
