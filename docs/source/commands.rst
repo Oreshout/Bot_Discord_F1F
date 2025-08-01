@@ -1,5 +1,5 @@
-📚 Bot Documentation
-====================
+Commands
+========
 
 🔧 General Commands
 -------------------
@@ -8,19 +8,20 @@
 
    /help
 
-📖 Affiche la liste complète des commandes disponibles avec une explication pour chacune.
+📖 Displays a complete list of available commands with explanations for each.
 
 .. code:: slash
 
    /presentation
 
-🤖 Présente le bot dans le serveur, puis permet à l’utilisateur de suggérer un nom en message privé. Toutes les suggestions sont sauvegardées dans un fichier.
+🤖 Introduces the bot in the server and invites users to suggest a name via DM.  
+All suggestions are saved to a file.
 
 .. code:: slash
 
    /rules
 
-📏 Affiche les règles d’utilisation du bot.
+📏 Displays the bot usage rules.
 
 🎯 Prediction Commands
 ----------------------
@@ -29,27 +30,27 @@
 
    /pronos_course premier: str deuxieme: str troisieme: str best_lap: str
 
-🏁 Envoie ou modifie tes pronostics pour la **course** (top 3 + meilleur tour).  
-➡️ Une seule modification possible, **uniquement lorsque la session est ouverte**.
+🏁 Submit or update your **race predictions** (top 3 + fastest lap).  
+➡️ Can only be changed **once**, and **only while the session is open**.
 
 .. code:: slash
 
    /pronos_qualif premier: str deuxieme: str troisieme: str
 
-⏱️ Envoie ou modifie tes pronostics pour les **qualifications** (top 3 uniquement).  
-➡️ Une seule modification possible, **uniquement lorsque la session est ouverte**.
+⏱️ Submit or update your **qualifying predictions** (top 3 only).  
+➡️ Can only be changed **once**, and **only while the session is open**.
 
 .. code:: slash
 
    /visualisation
 
-🔍 Affiche tes pronostics actuels, à la fois pour la course et les qualifications si disponibles.
+🔍 Displays your current predictions (race and qualifying if available).
 
 .. code:: slash
 
    /leaderboard
 
-🏆 Affiche le **classement général** basé sur la précision des pronostics de tous les membres.
+🏆 Displays the **overall leaderboard** based on prediction accuracy.
 
 🛡️ Admin Commands
 ------------------
@@ -58,60 +59,60 @@
 
    /clear nombre: int
 
-🧹 Supprime un nombre défini de messages dans le salon actuel.  
-🔒 **Réservé aux administrateurs.**
+🧹 Deletes a specific number of messages in the current channel.  
+🔒 **Admins only.**
 
 .. code:: slash
 
-   /admin_ban member: @membre reason: str article: str
+   /admin_ban member: @member reason: str article: str
 
-🔨 Bannit un membre en précisant la raison et l’article du règlement violé.  
-🔒 **Réservé aux administrateurs.**
+🔨 Bans a member, specifying the reason and rule/article violated.  
+🔒 **Admins only.**
 
 .. code:: slash
 
    /admin_open duration: float
 
-🟢 Ouvre manuellement une session de pronostics pendant une durée définie (en heures).  
-⚠️ Disponible uniquement en **mode manuel**.
+🟢 Manually opens a prediction session for a given duration (in hours).  
+⚠️ Available in **manual mode only**.
 
 .. code:: slash
 
    /admin_close
 
-🔴 Ferme la session de pronostics actuelle.  
-⚠️ Disponible uniquement en **mode manuel**.
+🔴 Manually closes the current prediction session.  
+⚠️ Available in **manual mode only**.
 
 .. code:: slash
 
    /admin_status
 
-📊 Affiche le mode actuel du bot : **manuel** ou **automatique**.
+📊 Displays the current bot mode: **manual** or **automatic**.
 
 .. code:: slash
 
    /admin_stop
 
-⛔ Interrompt le mode automatique et repasse en **mode manuel**.  
-🔒 **Réservé aux administrateurs.**
+⛔ Stops automatic mode and switches to **manual mode**.  
+🔒 **Admins only.**
 
 .. code:: slash
 
    /admin_launch
 
-🚀 Active le **mode automatique** : les sessions seront ouvertes et fermées selon le calendrier F1.
+🚀 Starts the bot in **automatic mode**: sessions will open and close based on the F1 calendar.
 
 .. code:: slash
 
    /admin_getresult
 
-🔄 Récupère manuellement les résultats d’une session via l’API FastF1 et met à jour le leaderboard.
+🔄 Manually fetches results from the FastF1 API and updates the leaderboard.
 
 .. code:: slash
 
    /session saison: int location: str type: str
 
-🗂️ Configure manuellement une session de pronostics (`type = Q` ou `R`) puis met à jour le classement.
+🗂️ Manually configures a prediction session (`type = Q` for qualifying or `R` for race) and updates the leaderboard.
 
 🛠️ Developer / System Commands
 ------------------------------
@@ -120,13 +121,13 @@
 
    !sync
 
-🧩 Commande **non-slash** réservée aux développeurs (`owners_id`).  
-Synchronise toutes les commandes slash avec Discord.
+🧩 **Non-slash command** reserved for developers (`owners_id`).  
+Synchronizes all slash commands with Discord.
 
 📌 Notes
 --------
 
-- 🔐 **Les commandes admin nécessitent les permissions adéquates** (ex. : administrateur, bannir des membres…).
-- ⏱️ Le système de pronostics fonctionne en **mode manuel** ou **automatique**.
-- 🕒 Les sessions sont limitées dans le temps, selon le mode sélectionné.
-- ⚙️ Le bot utilise des `try/except` pour capturer les erreurs et génère des logs pour chaque action importante.
+- 🔐 **Admin commands require appropriate permissions** (e.g., administrator, ban members...).
+- ⏱️ The prediction system works in both **manual** and **automatic** modes.
+- 🕒 Sessions are time-limited depending on the selected mode.
+- ⚙️ Errors are handled using `try/except`, and logs are generated accordingly.
