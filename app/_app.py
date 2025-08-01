@@ -26,7 +26,7 @@ async def on_ready():
 # _______________________________________________________________________________________________________________________________
 
 
-@tree.command(name="clear", description="Supprime des messages (admin uniquement)")
+@tree.command(name="admin_clear", description="Supprime des messages (admin uniquement)")
 @app_commands.describe(nombre="Nombre de messages à supprimer")
 async def clearing_tool(interaction: discord.Interaction, nombre: int):
     await tool.clear_slash(interaction, nombre)

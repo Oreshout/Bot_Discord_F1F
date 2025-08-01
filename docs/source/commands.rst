@@ -8,126 +8,172 @@ Commands
 
    /help
 
-📖 Displays a complete list of available commands with explanations for each.
+🆘 Displays all available commands with a short explanation.
 
 .. code:: slash
 
    /presentation
 
-🤖 Introduces the bot in the server and invites users to suggest a name via DM.  
-All suggestions are saved to a file.
+🤖 Introduces the bot in the server and allows users to suggest a name via DM. Suggestions are saved in a file.
 
 .. code:: slash
 
    /rules
 
-📏 Displays the bot usage rules.
+📏 Shows the bot usage rules.
+
+.. code:: slash
+
+   /next_event
+
+📅 Displays the date and name of the next F1 event.
 
 🎯 Prediction Commands
 ----------------------
 
 .. code:: slash
 
-   /pronos_course premier: str deuxieme: str troisieme: str best_lap: str
+   /pronos statue: str premier: str deuxieme: str troisieme: str best_lap: str
 
-🏁 Submit or update your **race predictions** (top 3 + fastest lap).  
-➡️ Can only be changed **once**, and **only while the session is open**.
-
-.. code:: slash
-
-   /pronos_qualif premier: str deuxieme: str troisieme: str
-
-⏱️ Submit or update your **qualifying predictions** (top 3 only).  
-➡️ Can only be changed **once**, and **only while the session is open**.
+📋 Submit or modify your prediction. Only one edit is allowed while the session is open.
 
 .. code:: slash
 
    /visualisation
 
-🔍 Displays your current predictions (race and qualifying if available).
+🔍 Displays your current predictions.
 
 .. code:: slash
 
    /leaderboard
 
-🏆 Displays the **overall leaderboard** based on prediction accuracy.
+🏆 Shows the general ranking of all users based on their predictions.
 
 🛡️ Admin Commands
 ------------------
 
 .. code:: slash
 
-   /clear nombre: int
+   /admin_help
 
-🧹 Deletes a specific number of messages in the current channel.  
-🔒 **Admins only.**
+🆘 Displays all available admins commands with a short explanation.
+
+.. code:: slash
+
+   /admin_clear nombre: int
+
+🧹 Deletes the specified number of messages from the current channel.
 
 .. code:: slash
 
    /admin_ban member: @member reason: str article: str
 
-🔨 Bans a member, specifying the reason and rule/article violated.  
-🔒 **Admins only.**
+🚫 Bans a member with a reason and the rule(s) violated.
 
 .. code:: slash
 
-   /admin_open duration: float
+   /admin_open duration: float statue: str
 
-🟢 Manually opens a prediction session for a given duration (in hours).  
-⚠️ Available in **manual mode only**.
+🟢 Opens a prediction session for a set amount of time (in hours).
 
 .. code:: slash
 
    /admin_close
 
-🔴 Manually closes the current prediction session.  
-⚠️ Available in **manual mode only**.
+🔴 Closes the current prediction session.
 
 .. code:: slash
 
    /admin_status
 
-📊 Displays the current bot mode: **manual** or **automatic**.
+📊 Shows the bot's current mode (manual or automatic).
 
 .. code:: slash
 
    /admin_stop
 
-⛔ Stops automatic mode and switches to **manual mode**.  
-🔒 **Admins only.**
+⛔ Disables automatic mode and switches back to manual.
 
 .. code:: slash
 
    /admin_launch
 
-🚀 Starts the bot in **automatic mode**: sessions will open and close based on the F1 calendar.
+🚀 Starts automatic mode: sessions open/close according to the F1 calendar.
 
 .. code:: slash
 
    /admin_getresult
 
-🔄 Manually fetches results from the FastF1 API and updates the leaderboard.
+🔄 Manually fetches session results from the FastF1 API and updates the leaderboard.
 
 .. code:: slash
 
    /session saison: int location: str type: str
 
-🗂️ Manually configures a prediction session (`type = Q` for qualifying or `R` for race) and updates the leaderboard.
+⚙️ Manually configures a session and updates the leaderboard.
 
-🛠️ Developer / System Commands
-------------------------------
+💰 Economy Commands
+--------------------
 
-.. code:: text
+.. code:: slash
 
-   !sync
+   /salaire
 
-🧩 **Non-slash command** reserved for developers (`owners_id`).  
-Synchronizes all slash commands with Discord.
+💵 Collect your daily salary.
 
-📌 Notes
---------
+.. code:: slash
 
-- 🔐 **Admin commands require appropriate permissions** (e.g., administrator, ban members...).
-- ⏱️ The prediction system works in both **manual** and **automatic** modes.
-- 🕒 Sessions are time-limited depending on the selected mode.
-- ⚙️ Errors are handled using `try/except`, and logs are generated accordingly.
+   /solde
+
+💳 Displays your current balance.
+
+.. code:: slash
+
+   /solde_proteger
+
+🛡️ Displays your secure bank balance.
+
+.. code:: slash
+
+   /virement somme_a_retirer: float member: @member
+
+💸 Transfer money to another user.
+
+.. code:: slash
+
+   /admin_retrait somme_a_retirer: float member: @member
+
+🏦 Withdraw money from a user's account.
+
+.. code:: slash
+
+   /deposit somme_a_verser: float
+
+📥 Transfer money from your wallet to your bank.
+
+.. code:: slash
+
+   /withdraw somme_a_verser: float
+
+📤 Transfer money from your bank to your wallet.
+
+.. code:: slash
+
+   /top
+
+👑 Shows the top 10 richest users on the server.
+
+.. code:: slash
+
+   /boutique
+
+🛍️ Opens the shop.
+
+🎵 Music Command
+----------------
+
+.. code:: slash
+
+   /play_song title: str
+
+🎶 Plays a requested song.

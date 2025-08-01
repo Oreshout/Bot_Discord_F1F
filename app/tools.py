@@ -22,7 +22,7 @@ async def help_admin(interaction: discord.Interaction):
     )
 
     # Modération
-    embed.add_field(name="/clear", value="🧹 Supprime un nombre défini de messages", inline=False)
+    embed.add_field(name="/admin_clear", value="🧹 Supprime un nombre défini de messages", inline=False)
     embed.add_field(name="/admin_ban", value="🔨 Bannir un membre avec raison et article", inline=False)
 
     # Gestion des pronostics
