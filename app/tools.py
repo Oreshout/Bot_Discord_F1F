@@ -12,6 +12,41 @@ def ensure_file_exists(path):
     if not os.path.exists(path):
         with open(path, 'w', encoding='utf-8') as f:
             json.dump({}, f)
+            
+            
+async def help_admin(interaction: discord.Interaction):
+    embed = discord.Embed(
+        title="🔐 Help Admin - Commandes réservées aux admins",
+        description=f"Bonjour {interaction.user.mention}, voici les commandes **admin** disponibles :",
+        color=discord.Color.red()
+    )
+
+    # Modération
+    embed.add_field(name="/clear", value="🧹 Supprime un nombre défini de messages", inline=False)
+    embed.add_field(name="/admin_ban", value="🔨 Bannir un membre avec raison et article", inline=False)
+
+    # Gestion des pronostics
+    embed.add_field(name="/admin_open", value="🟢 Ouvre une session de pronos pour une durée donnée", inline=False)
+    embed.add_field(name="/admin_close", value="🔴 Ferme la session de pronos en cours", inline=False)
+    embed.add_field(name="/session", value="🗂️ Configure manuellement une session + update leaderboard", inline=False)
+    embed.add_field(name="/admin_getresult", value="🔄 Force la mise à jour des résultats via l’API", inline=False)
+
+    # Gestion du bot
+    embed.add_field(name="/admin_status", value="📊 Affiche le mode actuel du bot : manuel ou auto", inline=False)
+    embed.add_field(name="/admin_stop", value="⛔ Stoppe le mode automatique du bot", inline=False)
+    embed.add_field(name="/admin_launch", value="🚀 Lance le mode automatique du bot", inline=False)
+
+    # Économie (admin)
+    embed.add_field(name="/admin_retrait", value="💼 Retire de l'argent d’un membre", inline=False)
+
+    embed.set_thumbnail(url=interaction.user.display_avatar.url)
+    embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
+    embed.set_image(url=EMBED_IMAGE)
+
+    await interaction.response.send_message(embed=embed, ephemeral=True)
+
+    logger.info(f"{interaction.user.name} a demandé /help_admin dans {interaction.channel.name}")
+
 
 
 async def help(interaction: discord.Interaction):
@@ -21,43 +56,29 @@ async def help(interaction: discord.Interaction):
         color=EMBED_COLOR_RED
     )
 
-    # Commandes utilisateurs
-    embed.add_field(name="/help",
-                    value="📖 Affiche cette liste d’aide", inline=False)
-    embed.add_field(name="/pronos_course",
-                    value="🏁 Enregistre ou modifie ton pronostic pour la **course**", inline=False)
-    embed.add_field(name="/pronos_qualif",
-                    value="⏱️ Enregistre ou modifie ton pronostic pour les **qualifications**", inline=False)
-    embed.add_field(name="/visualisation",
-                    value="🔍 Affiche tes pronos actuels", inline=False)
-    embed.add_field(name="/leaderboard",
-                    value="🏆 Affiche le classement général", inline=False)
-    embed.add_field(name="/presentation",
-                    value="🤖 Laisse le bot se présenter et choisis-lui un nom", inline=False)
-    embed.add_field(name="/rules",
-                    value="📏 Affiche le règlement d’utilisation du bot", inline=False)
-    embed.add_field(name="/play_music",
-                    value="🎶 Joue une chanson demander (Reservé au Booster)", inline=False)
+    # Commandes générales
+    embed.add_field(name="/help", value="📖 Affiche cette liste d’aide", inline=False)
+    embed.add_field(name="/presentation", value="🤖 Laisse le bot se présenter et choisis-lui un nom", inline=False)
+    embed.add_field(name="/rules", value="📏 Affiche le règlement d’utilisation du bot", inline=False)
 
-    # Commandes admin
-    embed.add_field(
-        name="/clear", value="🧹 Supprime un nombre de messages (admin uniquement)", inline=False)
-    embed.add_field(name="/admin_ban",
-                    value="🔨 Bannir un membre avec raison et article (admin)", inline=False)
-    embed.add_field(name="/admin_open",
-                    value="🟢 Ouvre une session de pronos pour une durée définie (admin)", inline=False)
-    embed.add_field(name="/admin_close",
-                    value="🔴 Ferme la session de pronos en cours (admin)", inline=False)
-    embed.add_field(name="/admin_status",
-                    value="📊 Affiche le mode actuel du bot : manuel ou auto (admin)", inline=False)
-    embed.add_field(name="/admin_getresult",
-                    value="🔄 Met à jour les résultats via l’API (admin)", inline=False)
-    embed.add_field(name="/admin_stop",
-                    value="⛔ Stoppe le mode automatique du bot (admin)", inline=False)
-    embed.add_field(name="/admin_launch",
-                    value="🚀 Lance le mode automatique du bot (admin)", inline=False)
-    embed.add_field(
-        name="/session", value="🗂️ Configure manuellement une session + update leaderboard (admin)", inline=False)
+    # F1 – Pronos
+    embed.add_field(name="/pronos", value="🏁 Enregistre ou modifie tes pronostics", inline=False)
+    embed.add_field(name="/visualisation", value="🔍 Affiche tes pronos actuels", inline=False)
+    embed.add_field(name="/leaderboard", value="🏆 Affiche le classement général", inline=False)
+    embed.add_field(name="/next_event", value="📅 Affiche le prochain événement F1", inline=False)
+
+    # Musique
+    embed.add_field(name="/play_song", value="🎶 Joue une chanson demandée", inline=False)
+
+    # Économie virtuelle
+    embed.add_field(name="/salaire", value="💸 Récupère ton salaire quotidien", inline=False)
+    embed.add_field(name="/solde", value="💰 Affiche ton solde actuel", inline=False)
+    embed.add_field(name="/virement", value="🏦 Transfère de l’argent à un autre membre", inline=False)
+    embed.add_field(name="/top", value="📊 Classement des plus riches du serveur", inline=False)
+    embed.add_field(name="/deposit", value="🔒 Dépose de l'argent sur ton compte protégé", inline=False)
+    embed.add_field(name="/withdraw", value="🔓 Retire de l'argent de ton compte protégé", inline=False)
+    embed.add_field(name="/solde_proteger", value="🧾 Affiche ton solde protégé", inline=False)
+    embed.add_field(name="/boutique", value="🛍️ Ouvre la boutique", inline=False)
 
     embed.set_thumbnail(url=interaction.user.display_avatar.url)
     embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
@@ -65,8 +86,7 @@ async def help(interaction: discord.Interaction):
 
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
-    logger.info(
-        f"{interaction.user.name} a demandé /help dans {interaction.channel.name}")
+    logger.info(f"{interaction.user.name} a demandé /help dans {interaction.channel.name}")
 
 
 async def clear_slash(interaction: discord.Interaction, nombre: int):

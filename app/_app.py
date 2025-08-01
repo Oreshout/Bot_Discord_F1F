@@ -40,6 +40,16 @@ async def helping_tools(interaction: discord.Interaction):
 # _______________________________________________________________________________________________________________________________
 
 
+@tree.command(name="admin_help", description="Gives you all the commands you can use with this bot")
+async def admin_helping_tools(interaction: discord.Interaction):
+    if interaction.user.guild_permissions.administrator:
+        await tool.help_admin(interaction)
+    else:
+        await embed.chat_you_dont_have_perm(interaction)
+
+# _______________________________________________________________________________________________________________________________
+
+
 @tree.command(name="pronos", description="Enregistre tes pronos ou modifie les si tu l'as déjà fait")
 @app_commands.describe(
     statue="Type de session (Qualif, Course, Sprint, Sprint_Qualif)",
@@ -463,24 +473,31 @@ async def toop(interaction: discord.Interaction):
 async def depo(interaction: discord.Interaction, somme_a_verser: int):
     await interaction.response.defer()
     await eco.virement_compte_courant_to_protect(interaction, somme_a_verser)
-    logger.info(f"{interaction.user} a verser **{somme_a_verser}** sur son compte sécurisé.")
-    
+    logger.info(
+        f"{interaction.user} a verser **{somme_a_verser}** sur son compte sécurisé.")
+
 # _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="solde_proteger", description="T'affiche ton solde sur ton compte protéger")
 async def show(interaction: discord.Interaction):
     await interaction.response.defer()
-    await eco.voir_solde_proteger(interaction) 
+    await eco.voir_solde_proteger(interaction)
     logger.info(f"{interaction.user} a regardé son solde protegé")
-   
+
+# _______________________________________________________________________________________________________________________________
+
+
 @tree.command(name="withdraw",  description="Déplace ton argent de ton compte protegé au compte courant")
 @app_commands.describe(somme_a_verser="Argent que tu veux viré")
 async def dwith(interaction: discord.Interaction, somme_a_verser: int):
     await interaction.response.defer()
     await eco.virement_compte_protege_to_courant(interaction, somme_a_verser)
-    logger.info(f"{interaction.user} a verser **{somme_a_verser}** sur son compte courant.")
-    
+    logger.info(
+        f"{interaction.user} a verser **{somme_a_verser}** sur son compte courant.")
+
 # _______________________________________________________________________________________________________________________________
+
 
 @tree.command(name="boutique", description="Ouvre la boutique")
 async def boutic(interaction: discord.Interaction):
