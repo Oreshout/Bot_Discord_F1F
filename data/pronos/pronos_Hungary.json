@@ -6,5 +6,189 @@
         "3": "a",
         "Modif": true,
         "Best Lap": "a"
+    },
+    "lyonduchereenn1": {
+        "Pseudo": "lyonduchereenn1",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Leclerc",
+        "Modif": true,
+        "Best Lap": null
+    },
+    "leahf1": {
+        "Pseudo": "leahf1",
+        "1": "lando",
+        "2": "oscar",
+        "3": "charles",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "gats18": {
+        "Pseudo": "gats18",
+        "1": "Leclerc",
+        "2": "Lando",
+        "3": "Piastri",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "la_bagguette": {
+        "Pseudo": "la_bagguette",
+        "1": "Piastri",
+        "2": "Leclerc",
+        "3": "Norris",
+        "Modif": false,
+        "Best Lap": "Piastri"
+    },
+    "bsqviat": {
+        "Pseudo": "bsqviat",
+        "1": "leclerc",
+        "2": "hamilton",
+        "3": "isack",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "bliss_9_": {
+        "Pseudo": "bliss_9_",
+        "1": "Piastri",
+        "2": "Leclerc",
+        "3": "Norris",
+        "Modif": false,
+        "Best Lap": "Norris"
+    },
+    "kaeyruu": {
+        "Pseudo": "kaeyruu",
+        "1": "Leclerc",
+        "2": "Norris",
+        "3": "Piastri",
+        "Modif": false,
+        "Best Lap": "Leclerc"
+    },
+    "palmer_jrr": {
+        "Pseudo": "palmer_jrr",
+        "1": "Oscar Piastri",
+        "2": "Lando Norris",
+        "3": "Charles Leclerc",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "legamerduberry": {
+        "Pseudo": "legamerduberry",
+        "1": "Piastri",
+        "2": "Leclerc",
+        "3": "Norris",
+        "Modif": true,
+        "Best Lap": null
+    },
+    "lepingouin_1": {
+        "Pseudo": "lepingouin_1",
+        "1": "Norris",
+        "2": "Leclerc",
+        "3": "Piastri",
+        "Modif": false,
+        "Best Lap": "Verstapen"
+    },
+    "nollywyn": {
+        "Pseudo": "nollywyn",
+        "1": "Charles Leclerc",
+        "2": "Lando Norris",
+        "3": "Oscar Piastri",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "angerebelle": {
+        "Pseudo": "angerebelle",
+        "1": "Charles Leclerc",
+        "2": "Lando Norris",
+        "3": "Oscar Piastri",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "whisper9741": {
+        "Pseudo": "whisper9741",
+        "1": "Charles Leclerc",
+        "2": "Oscar Piastri",
+        "3": "Lando Norris",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "maiwcat33": {
+        "Pseudo": "maiwcat33",
+        "1": "Piastrie",
+        "2": "Leclerc",
+        "3": "Alonso",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "roxane_bcn": {
+        "Pseudo": "roxane_bcn",
+        "1": "Leclerc",
+        "2": "Norris",
+        "3": "Piastri",
+        "Modif": false,
+        "Best Lap": "Norris"
+    },
+    "nono9516": {
+        "Pseudo": "nono9516",
+        "1": "Lando Norris",
+        "2": "Charle Leclerc",
+        "3": "Oscar Piastri",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "holo6": {
+        "Pseudo": "holo6",
+        "1": "piastrie",
+        "2": "norris",
+        "3": "leclerc",
+        "Modif": false,
+        "Best Lap": "norris"
+    },
+    "baby_driverr": {
+        "Pseudo": "baby_driverr",
+        "1": "Norris",
+        "2": "Piastri",
+        "3": "Leclerc",
+        "Modif": false,
+        "Best Lap": "Norris"
+    },
+    "elgingembre": {
+        "Pseudo": "elgingembre",
+        "1": "Piastri",
+        "2": "Leclerc",
+        "3": "Norris",
+        "Modif": false,
+        "Best Lap": "Hamilton"
+    },
+    "sunjaylali": {
+        "Pseudo": "sunjaylali",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Leclerc",
+        "Modif": false,
+        "Best Lap": "Piastri"
+    },
+    "maren4540": {
+        "Pseudo": "maren4540",
+        "1": "[Leclerc]",
+        "2": "[Piastri]",
+        "3": "[Norris]",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "tinad19tin": {
+        "Pseudo": "tinad19tin",
+        "1": "Piastr",
+        "2": "Norris",
+        "3": "Leclerc",
+        "Modif": false,
+        "Best Lap": null
+    },
+    "goldy.exe": {
+        "Pseudo": "goldy.exe",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Leclerc",
+        "Modif": false,
+        "Best Lap": null
     }
 }

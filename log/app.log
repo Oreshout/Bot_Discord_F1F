@@ -899,3 +899,389 @@ TypeError: pronos_generic() takes from 5 to 6 positional arguments but 7 were gi
 2025-08-01 14:44:41,159 - INFO - matt_karting a demandé /help dans 🤖・commandes-bots
 2025-08-01 14:47:49,633 - INFO - BOT LANCER
 2025-08-01 14:48:22,333 - INFO - matt_karting a demandé /help_admin dans 🤖・commandes-bots
+2025-08-01 15:02:14,935 - INFO - palmer_jrr a demandé /help dans 💬・staff-paddock-vip
+2025-08-01 15:02:24,666 - INFO - BOT LANCER
+2025-08-01 18:11:59,612 - INFO - BOT LANCER
+2025-08-01 18:32:33,459 - INFO - matt_karting a fait son pronostic qualif
+2025-08-01 18:39:52,933 - INFO - la_bagguette a fait son pronostic qualif
+2025-08-01 18:42:13,680 - INFO - lyonduchereenn1 a fait son pronostic course
+2025-08-01 18:53:20,406 - INFO - lepingouin_1 a fait son pronostic qualif
+2025-08-01 18:59:55,964 - INFO - nono9516 a fait son pronostic qualif
+2025-08-01 19:03:45,943 - INFO - bliss_9_ a fait son pronostic qualif
+2025-08-01 19:08:26,294 - INFO - legamerduberry a fait son pronostic qualif
+2025-08-01 20:02:37,620 - INFO - matt_karting a fait son pronostic qualif
+2025-08-01 20:02:39,394 - INFO - holo6 a fait son pronostic qualif
+2025-08-01 20:04:52,022 - INFO - matt_karting a demandé /help_admin dans 🤖・commandes-bots
+2025-08-01 20:06:50,371 - INFO - matt_karting a demandé /help dans 🤖・commandes-bots
+2025-08-01 20:07:32,025 - INFO - Présentation par matt_karting dans 🤖・commandes-bots sur Formula 1 France
+2025-08-01 20:07:32,025 - INFO - matt_karting a demandé la présentation du BOT
+2025-08-01 20:08:12,192 - INFO - matt_karting a demandé les règles du BOT.
+2025-08-01 20:08:32,649 - INFO - matt_karting à visualisé ses pronos.
+2025-08-01 20:09:06,002 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Australia] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Australia] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Australia] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Australia] Session 'Q' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Australia] Session 'R' déjà passée
+2025-08-01 20:09:06,002 - INFO - [China] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [China] Session 'S' déjà passée
+2025-08-01 20:09:06,002 - INFO - [China] Session 'S' déjà passée
+2025-08-01 20:09:06,002 - INFO - [China] Session 'Q' déjà passée
+2025-08-01 20:09:06,002 - INFO - [China] Session 'R' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Japan] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Japan] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Japan] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Japan] Session 'Q' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Japan] Session 'R' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-01 20:09:06,002 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Bahrain] Session 'Q' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Bahrain] Session 'R' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Saudi Arabia] Session 'Q' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Saudi Arabia] Session 'R' déjà passée
+2025-08-01 20:09:06,003 - INFO - [United States] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [United States] Session 'S' déjà passée
+2025-08-01 20:09:06,003 - INFO - [United States] Session 'S' déjà passée
+2025-08-01 20:09:06,003 - INFO - [United States] Session 'Q' déjà passée
+2025-08-01 20:09:06,003 - INFO - [United States] Session 'R' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Italy] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Italy] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Italy] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Italy] Session 'Q' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Italy] Session 'R' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Monaco] Session 'Q' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Monaco] Session 'R' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Spain] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Spain] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Spain] Session 'P' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Spain] Session 'Q' déjà passée
+2025-08-01 20:09:06,003 - INFO - [Spain] Session 'R' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Canada] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Canada] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Canada] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Canada] Session 'Q' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Canada] Session 'R' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Austria] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Austria] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Austria] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Austria] Session 'Q' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Austria] Session 'R' déjà passée
+2025-08-01 20:09:06,004 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [United Kingdom] Session 'Q' déjà passée
+2025-08-01 20:09:06,004 - INFO - [United Kingdom] Session 'R' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Belgium] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Belgium] Session 'S' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Belgium] Session 'S' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Belgium] Session 'Q' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Belgium] Session 'R' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Hungary] Session 'P' déjà passée
+2025-08-01 20:09:06,004 - INFO - [Hungary] Session 'P' déjà passée
+2025-08-01 20:09:06,005 - INFO - [Hungary] Prochaine session trouvée : P à Budapest
+2025-08-01 20:09:48,246 - INFO - matt_karting a demandé son salaire journalié
+2025-08-01 20:09:56,658 - INFO - matt_karting a regardé son solde
+2025-08-01 20:10:22,546 - INFO - matt_karting à visionné le top 10 du serv
+2025-08-01 20:11:07,615 - INFO - matt_karting a ouvert la boutique.
+2025-08-01 22:16:11,043 - INFO - BOT LANCER
+2025-08-01 22:17:17,576 - INFO - BOT LANCER
+2025-08-01 22:18:14,780 - INFO - BOT LANCER
+2025-08-01 22:18:40,106 - INFO - BOT LANCER
+2025-08-01 22:19:35,120 - INFO - BOT LANCER
+2025-08-01 22:20:06,445 - INFO - matt_karting a envoyé un message via le bot.
+2025-08-01 22:21:39,216 - INFO - BOT LANCER
+2025-08-01 22:22:12,707 - INFO - matt_karting a envoyé un message via le bot.
+2025-08-02 07:30:13,543 - INFO - BOT LANCER
+2025-08-02 07:44:33,885 - INFO - BOT LANCER
+2025-08-02 07:44:57,941 - INFO - matt_karting a envoyé un message via le bot.
+2025-08-02 07:47:21,360 - INFO - BOT LANCER
+2025-08-02 07:47:46,447 - INFO - matt_karting a envoyé un message via le bot.
+2025-08-02 07:49:24,973 - INFO - BOT LANCER
+2025-08-02 07:49:53,264 - INFO - matt_karting a envoyé un message via le bot.
+2025-08-02 07:50:40,448 - INFO - BOT LANCER
+2025-08-02 08:51:05,609 - INFO - BOT LANCER
+2025-08-02 08:51:44,011 - INFO - matt_karting a envoyé un message via le bot.
+2025-08-02 08:52:59,908 - INFO - la_bagguette à visualisé ses pronos.
+2025-08-02 09:46:13,480 - INFO - maiwcat33 a fait son pronostic qualif
+2025-08-02 09:47:01,473 - INFO - maiwcat33 à visualisé ses pronos.
+2025-08-02 11:44:49,368 - INFO - tinad19tin a fait son pronostic qualif
+2025-08-02 11:56:04,762 - INFO - tagatel8 a fait son pronostic qualif
+2025-08-02 12:22:07,275 - INFO - matt_karting a demandé son salaire journalié
+2025-08-02 13:55:28,210 - INFO - nono9516 a fait son pronostic sprint
+2025-08-02 13:55:37,067 - INFO - matt_karting a regardé son solde
+2025-08-02 13:55:46,225 - INFO - matt_karting à visionné le top 10 du serv
+2025-08-02 13:56:10,534 - INFO - matt_karting a ouvert la boutique.
+2025-08-02 13:56:46,467 - INFO - matt_karting a demandé son salaire journalié
+2025-08-02 13:57:27,336 - INFO - matt_karting a ouvert la boutique.
+2025-08-02 13:58:31,471 - INFO - matt_karting a regardé son solde protegé
+2025-08-02 13:58:40,988 - INFO - baby_driverr a fait son pronostic qualif
+2025-08-02 13:59:20,859 - INFO - palmer_jrr a fait son pronostic qualif
+2025-08-02 13:59:47,767 - INFO - matt_karting a verser **1** sur son compte sécurisé.
+2025-08-02 13:59:52,674 - INFO - matt_karting a regardé son solde protegé
+2025-08-02 13:59:58,860 - INFO - matt_karting a regardé son solde
+2025-08-02 14:00:07,245 - INFO - matt_karting a verser **1** sur son compte courant.
+2025-08-02 14:00:11,627 - INFO - matt_karting a regardé son solde
+2025-08-02 14:00:53,880 - INFO - matt_karting à visionné le top 10 du serv
+2025-08-02 14:05:21,142 - INFO - tigerone4980 a fait son pronostic qualif
+2025-08-02 14:12:11,818 - INFO - matt_karting a ouvert la boutique.
+2025-08-02 14:15:17,217 - INFO - matt_karting a ouvert la boutique.
+2025-08-02 14:15:27,551 - INFO - ✅ Rôle 'Le GOAT des GOATs' ajouté à Matt
+2025-08-02 14:36:15,682 - INFO - whisper9741 a fait son pronostic qualif
+2025-08-02 15:01:27,572 - INFO - goldy.exe a fait son pronostic qualif
+2025-08-02 15:01:48,687 - INFO - legamerduberry à visualisé ses pronos.
+2025-08-02 15:02:17,755 - INFO - angerebelle a fait son pronostic qualif
+2025-08-02 15:09:05,960 - INFO - leahf1 a fait son pronostic course
+2025-08-02 17:07:43,876 - INFO - whisper9741 a ouvert la boutique.
+2025-08-02 17:10:38,762 - INFO - whisper9741 a envoyé un message via le bot.
+2025-08-02 17:11:04,586 - INFO - lyonduchereenn1 a fait son pronostic course
+2025-08-02 17:14:55,394 - INFO - gats18 a fait son pronostic course
+2025-08-02 17:18:41,734 - INFO - la_bagguette a fait son pronostic course
+2025-08-02 17:20:53,027 - INFO - bsqviat a fait son pronostic course
+2025-08-02 18:50:48,671 - INFO - bliss_9_ a fait son pronostic course
+2025-08-02 19:17:10,663 - INFO - kaeyruu a fait son pronostic course
+2025-08-02 19:25:33,234 - INFO - palmer_jrr a fait son pronostic course
+2025-08-02 19:43:34,120 - INFO - legamerduberry a fait son pronostic course
+2025-08-02 19:43:52,444 - INFO - legamerduberry a fait son pronostic course
+2025-08-02 19:44:28,504 - INFO - legamerduberry à visualisé ses pronos.
+2025-08-02 20:16:56,583 - INFO - lepingouin_1 a fait son pronostic course
+2025-08-02 20:17:21,534 - INFO - nollywyn a fait son pronostic course
+2025-08-02 20:18:16,009 - INFO - lepingouin_1 a demandé son salaire journalié
+2025-08-02 20:18:21,086 - INFO - lepingouin_1 a demandé son salaire journalié
+2025-08-02 20:27:26,252 - INFO - BOT LANCER
+2025-08-02 20:29:00,319 - INFO - matt_karting a envoyé un message via le bot.
+2025-08-02 21:04:07,424 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 21:04:07,424 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Australia] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Australia] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Australia] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Australia] Session 'Q' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Australia] Session 'R' déjà passée
+2025-08-02 21:04:07,425 - INFO - [China] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [China] Session 'S' déjà passée
+2025-08-02 21:04:07,425 - INFO - [China] Session 'S' déjà passée
+2025-08-02 21:04:07,425 - INFO - [China] Session 'Q' déjà passée
+2025-08-02 21:04:07,425 - INFO - [China] Session 'R' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Japan] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Japan] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Japan] Session 'P' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Japan] Session 'Q' déjà passée
+2025-08-02 21:04:07,425 - INFO - [Japan] Session 'R' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Bahrain] Session 'Q' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Bahrain] Session 'R' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Saudi Arabia] Session 'Q' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Saudi Arabia] Session 'R' déjà passée
+2025-08-02 21:04:07,426 - INFO - [United States] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [United States] Session 'S' déjà passée
+2025-08-02 21:04:07,426 - INFO - [United States] Session 'S' déjà passée
+2025-08-02 21:04:07,426 - INFO - [United States] Session 'Q' déjà passée
+2025-08-02 21:04:07,426 - INFO - [United States] Session 'R' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Italy] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Italy] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Italy] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Italy] Session 'Q' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Italy] Session 'R' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Monaco] Session 'Q' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Monaco] Session 'R' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Spain] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Spain] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Spain] Session 'P' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Spain] Session 'Q' déjà passée
+2025-08-02 21:04:07,426 - INFO - [Spain] Session 'R' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Canada] Session 'P' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Canada] Session 'P' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Canada] Session 'P' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Canada] Session 'Q' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Canada] Session 'R' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Austria] Session 'P' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Austria] Session 'P' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Austria] Session 'P' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Austria] Session 'Q' déjà passée
+2025-08-02 21:04:07,427 - INFO - [Austria] Session 'R' déjà passée
+2025-08-02 21:04:07,427 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-02 21:04:07,427 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-02 21:04:07,428 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-02 21:04:07,428 - INFO - [United Kingdom] Session 'Q' déjà passée
+2025-08-02 21:04:07,428 - INFO - [United Kingdom] Session 'R' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Belgium] Session 'P' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Belgium] Session 'S' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Belgium] Session 'S' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Belgium] Session 'Q' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Belgium] Session 'R' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Hungary] Session 'P' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Hungary] Session 'P' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Hungary] Session 'P' déjà passée
+2025-08-02 21:04:07,428 - INFO - [Hungary] Session 'Q' déjà passée
+2025-08-02 21:04:07,431 - INFO - [Hungary] Prochaine session trouvée : R à Budapest
+2025-08-02 21:08:58,790 - INFO - BOT LANCER
+2025-08-02 21:11:59,108 - INFO - BOT LANCER
+2025-08-02 21:12:13,577 - ERROR - Fichier de session introuvable pour Hungary Session inconnue
+2025-08-02 21:16:06,085 - INFO - BOT LANCER
+2025-08-02 21:16:15,074 - ERROR - Fichier de session introuvable pour Hungary Session inconnue
+2025-08-02 21:18:23,966 - ERROR - Fichier de session introuvable pour Hungary Session inconnue
+2025-08-02 21:21:48,840 - INFO - BOT LANCER
+2025-08-02 21:22:32,410 - ERROR - Fichier de session introuvable pour Hungary inconnu
+2025-08-02 21:22:33,508 - INFO - save_results appelée avec race_type = Session inconnue
+2025-08-02 21:22:33,518 - WARNING - Fichier data/result/Results_Course_Hungary.json non trouvé, création d'un dict vide.
+2025-08-02 21:22:33,520 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-08-02 21:25:07,727 - INFO - BOT LANCER
+2025-08-02 21:25:20,976 - ERROR - Fichier de session introuvable pour Hungary inconnu
+2025-08-02 21:25:20,993 - INFO - save_results appelée avec race_type = Session inconnue
+2025-08-02 21:25:21,012 - WARNING - Fichier data/result/Results_Course_Hungary.json non trouvé, création d'un dict vide.
+2025-08-02 21:25:21,012 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-08-02 21:25:58,197 - ERROR - Fichier de session introuvable pour Hungary inconnu
+2025-08-02 21:25:58,221 - INFO - save_results appelée avec race_type = Session inconnue
+2025-08-02 21:25:58,248 - WARNING - Fichier data/result/Results_Course_Hungary.json non trouvé, création d'un dict vide.
+2025-08-02 21:25:58,248 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-08-02 21:26:07,505 - INFO - matt_karting à regarder le leaderbord
+2025-08-02 21:26:56,951 - ERROR - Fichier de session introuvable pour Hungary inconnu
+2025-08-02 21:28:30,042 - ERROR - Fichier de session introuvable pour Hungary inconnu
+2025-08-02 21:28:31,235 - INFO - save_results appelée avec race_type = Session inconnue
+2025-08-02 21:28:31,253 - WARNING - Fichier data/result/Results_Course_Hungary.json non trouvé, création d'un dict vide.
+2025-08-02 21:28:31,253 - INFO - Fichiers nécessaires absents ou invalides, arrêt de la fonction.
+2025-08-02 21:28:41,998 - ERROR - Fichier de session introuvable pour Hungary inconnu
+2025-08-02 22:46:40,445 - INFO - matt_karting a regardé son solde protegé
+2025-08-02 22:47:13,098 - INFO - whisper9741 a regardé son solde
+2025-08-02 22:53:02,357 - ERROR - Fichier de session introuvable pour Hungary inconnu
+2025-08-02 23:13:50,721 - INFO - whisper9741 a demandé les règles du BOT.
+2025-08-02 23:14:01,440 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Australia] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Australia] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Australia] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Australia] Session 'Q' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Australia] Session 'R' déjà passée
+2025-08-02 23:14:01,440 - INFO - [China] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [China] Session 'S' déjà passée
+2025-08-02 23:14:01,440 - INFO - [China] Session 'S' déjà passée
+2025-08-02 23:14:01,440 - INFO - [China] Session 'Q' déjà passée
+2025-08-02 23:14:01,440 - INFO - [China] Session 'R' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Japan] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Japan] Session 'P' déjà passée
+2025-08-02 23:14:01,440 - INFO - [Japan] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Japan] Session 'Q' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Japan] Session 'R' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Bahrain] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Bahrain] Session 'Q' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Bahrain] Session 'R' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Saudi Arabia] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Saudi Arabia] Session 'Q' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Saudi Arabia] Session 'R' déjà passée
+2025-08-02 23:14:01,441 - INFO - [United States] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [United States] Session 'S' déjà passée
+2025-08-02 23:14:01,441 - INFO - [United States] Session 'S' déjà passée
+2025-08-02 23:14:01,441 - INFO - [United States] Session 'Q' déjà passée
+2025-08-02 23:14:01,441 - INFO - [United States] Session 'R' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Italy] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Italy] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Italy] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Italy] Session 'Q' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Italy] Session 'R' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Monaco] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Monaco] Session 'Q' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Monaco] Session 'R' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Spain] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Spain] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Spain] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Spain] Session 'Q' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Spain] Session 'R' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Canada] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Canada] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Canada] Session 'P' déjà passée
+2025-08-02 23:14:01,441 - INFO - [Canada] Session 'Q' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Canada] Session 'R' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Austria] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Austria] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Austria] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Austria] Session 'Q' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Austria] Session 'R' déjà passée
+2025-08-02 23:14:01,442 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [United Kingdom] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [United Kingdom] Session 'Q' déjà passée
+2025-08-02 23:14:01,442 - INFO - [United Kingdom] Session 'R' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Belgium] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Belgium] Session 'S' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Belgium] Session 'S' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Belgium] Session 'Q' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Belgium] Session 'R' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Hungary] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Hungary] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Hungary] Session 'P' déjà passée
+2025-08-02 23:14:01,442 - INFO - [Hungary] Session 'Q' déjà passée
+2025-08-02 23:14:01,443 - INFO - [Hungary] Prochaine session trouvée : R à Budapest
+2025-08-02 23:25:26,003 - INFO - whisper9741 a demandé /help dans 🤖・commandes-bots
+2025-08-02 23:25:52,293 - INFO - whisper9741 a demandé /help_admin dans 🤖・commandes-bots
+2025-08-03 04:18:00,867 - INFO - BOT LANCER
+2025-08-03 04:23:49,281 - INFO - BOT LANCER
+2025-08-03 06:41:38,945 - INFO - BOT LANCER
+2025-08-03 06:46:56,194 - INFO - BOT LANCER
+2025-08-03 10:12:21,502 - INFO - BOT LANCER
+2025-08-03 10:50:40,380 - INFO - la_bagguette à visualisé ses pronos.
+2025-08-03 11:00:54,718 - INFO - angerebelle a fait son pronostic course
+2025-08-03 11:01:25,419 - INFO - angerebelle à visualisé ses pronos.
+2025-08-03 11:08:21,466 - INFO - whisper9741 a fait son pronostic course
+2025-08-03 11:53:13,116 - INFO - maiwcat33 a fait son pronostic course
+2025-08-03 12:33:58,142 - INFO - roxane_bcn a fait son pronostic course
+2025-08-03 14:12:23,268 - INFO - nono9516 a fait son pronostic course
+2025-08-03 14:12:31,734 - INFO - holo6 a fait son pronostic course
+2025-08-03 14:13:09,201 - INFO - baby_driverr a fait son pronostic course
+2025-08-03 14:13:36,691 - INFO - elgingembre a fait son pronostic course
+2025-08-03 14:14:15,044 - INFO - sunjaylali a fait son pronostic course
+2025-08-03 14:17:01,506 - INFO - maren4540 a fait son pronostic qualif
+2025-08-03 14:18:02,640 - INFO - maren4540 a fait son pronostic course
+2025-08-03 14:22:40,303 - INFO - legamerduberry à visualisé ses pronos.
+2025-08-03 14:41:05,284 - INFO - elgingembre à visualisé ses pronos.
+2025-08-03 14:43:43,322 - INFO - tinad19tin a fait son pronostic course
+2025-08-03 14:46:24,122 - INFO - goldy.exe a fait son pronostic course
+2025-08-03 23:13:58,300 - INFO - BOT LANCER
+2025-08-04 11:06:42,960 - INFO - BOT LANCER
+2025-08-04 11:39:58,147 - INFO - BOT LANCER
+2025-08-04 11:48:25,278 - INFO - BOT LANCER
+2025-08-04 16:48:11,606 - INFO - BOT LANCER
+2025-08-04 16:56:09,514 - INFO - BOT LANCER
+2025-08-04 16:56:57,231 - INFO - avis par matt_karting dans 🤖・commandes-bots sur Formula 1 France
+2025-08-04 16:56:57,231 - INFO - matt_karting a donné son avis du BOT
+2025-08-04 16:57:47,783 - INFO - BOT LANCER
+2025-08-04 17:26:28,405 - INFO - BOT LANCER
+2025-08-04 17:26:38,450 - INFO - matt_karting a ouvert la boutique.
+2025-08-04 17:33:00,642 - INFO - BOT LANCER
+2025-08-04 17:33:15,143 - INFO - matt_karting a ouvert la boutique.
+2025-08-04 17:35:50,633 - INFO - BOT LANCER
+2025-08-04 17:36:15,050 - INFO - matt_karting a ouvert la boutique.
+2025-08-04 17:45:03,944 - INFO - BOT LANCER
+2025-08-04 17:45:13,086 - INFO - matt_karting a ouvert la boutique.
+2025-08-04 17:46:53,656 - INFO - BOT LANCER
+2025-08-04 17:47:12,417 - INFO - matt_karting a ouvert la boutique.
+2025-08-04 17:48:38,652 - INFO - sf211921 a regardé son solde
+2025-08-04 17:48:44,828 - INFO - sf211921 a ouvert la boutique.
+2025-08-04 17:51:35,760 - INFO - BOT LANCER
+2025-08-04 17:51:54,430 - INFO - matt_karting a ouvert la boutique.
+2025-08-04 17:52:20,335 - INFO - matt_karting a demandé son salaire journalié
+2025-08-04 18:05:02,689 - INFO - BOT LANCER
+2025-08-04 18:05:28,373 - INFO - matt_karting a ouvert la boutique.

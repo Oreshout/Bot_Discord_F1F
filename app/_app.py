@@ -1,6 +1,7 @@
 from discord import app_commands
 import asyncio
 from config import os, bot, tree, logger, discord, TOKEN, ROLE_ID_F1PADDOCKCLUB
+import config as conf
 import tools as tool
 import error_embed as embed
 import classement as ldb
@@ -208,8 +209,7 @@ async def session(interaction: discord.Interaction, saison: int, location: str, 
         except Exception as e:
             await interaction.followup.send(f" Erreur : {str(e)}")
             return
-        ldb.saveResults()
-        os.remove('data/Pronos.json')
+        ldb.save_results()
         await interaction.followup.send("Le Leaderboard est à jour")
     else:
         await interaction.followup.send(embed=await embed.permError(interaction))
@@ -219,9 +219,9 @@ async def session(interaction: discord.Interaction, saison: int, location: str, 
 
 @tree.command(name="admin_getresult", description="Mettre à jour l'api")
 async def maj_api(interaction: discord.Interaction):
-    interaction.response.defer()
+    await interaction.response.defer()
     if interaction.user.guild_permissions.administrator:
-        await interaction.response.send_message("⏳ Mise à jour en cours...")
+        await interaction.followup.send("⏳ Mise à jour en cours...")
 
         try:
             result = f1api.getResults()
@@ -360,6 +360,17 @@ async def presentation(interaction: discord.Interaction):
     await interaction.followup.send(f"{interaction.user.mention}, va voir tes MP !", ephemeral=False)
     await tool.presentation_bot(interaction)
     logger.info(f"{interaction.user} a demandé la présentation du BOT")
+
+
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="avis", description="Laisse nous un avis sur le bot !")
+async def review(interaction: discord.Interaction):
+    await interaction.response.defer(ephemeral=True)
+    await interaction.followup.send(f"{interaction.user.mention}, va voir tes MP !", ephemeral=False)
+    await tool.avis(interaction)
+    logger.info(f"{interaction.user} a donné son avis du BOT")
 
 # _______________________________________________________________________________________________________________________________
 
@@ -504,6 +515,15 @@ async def boutic(interaction: discord.Interaction):
     await interaction.response.defer()
     await shop.boutique(interaction)
     logger.info(f"{interaction.user} a ouvert la boutique.")
+
+# _______________________________________________________________________________________________________________________________
+
+@tree.command(name="admin_send_mess", description="Le bot envoi le message de ton choix")
+async def send_mess(interaction: discord.Interaction):
+    await interaction.response.defer()
+    await tool.envoie_de_message(interaction, conf.PRONOS)
+    logger.info(f"{interaction.user} a envoyé un message via le bot.")
+
 
 
 bot.run(TOKEN)

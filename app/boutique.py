@@ -139,6 +139,130 @@ async def pub(interaction: discord.Interaction, channel_id):
         await interaction.user.send("⏳ Temps écoulé ! Tu n’as pas envoyé ton message dans les 30 minutes. Achat annulé.")
 
 
+
+async def citation(interaction: discord.Interaction, channel_id):
+    embed = discord.Embed(
+    title="🗣️ Ta citation personnalisée sur le serveur",
+        description=(
+            "Merci pour ton achat dans la boutique **F1F** ! 🏁\n\n"
+            "Tu viens de débloquer la possibilité d’ajouter une **citation personnalisée** dans le salon dédié aux citations de la communauté. 🎉\n\n"
+            "📌 __Comment ça fonctionne ?__\n"
+            "Il te suffit de **répondre à ce message** avec ta citation (maximum 200 caractères).\n\n"
+            "🔒 Une fois validée, elle sera affichée fièrement dans le salon <#ID_DU_SALON_CITATIONS> aux côtés des autres légendes du serveur.\n\n"
+            "⚠️ Attention :\n"
+            "- Une seule citation par achat.\n"
+            "- Pas de contenu offensant, inapproprié ou hors-charte.\n"
+            "- Pas de mentions de membres/serveurs/rôles Discord.\n\n"
+            "🖋️ Sois créatif, inspire les autres ou fais-les rire !"
+        ),        
+        color=param.EMBED_COLOR_GOLD
+    )
+
+    embed.set_author(name="F1F Boutique — Citation")
+    embed.set_thumbnail(url=interaction.user.display_avatar.url)
+    embed.set_footer(
+        text="Merci pour ton soutien à la communauté Formula 1 France 🚀")
+    embed.set_image(url=param.EMBED_BOUTIQUE_OFFICEL)
+
+    try:
+        # 📬 Envoi du MP
+        await interaction.user.send(embed=embed)
+
+        # ⏳ Attente de la réponse en DM (30 minutes max)
+        msg = await bot.wait_for(
+            "message",
+            timeout=1800,  # 30 minutes en secondes
+            check=lambda m: m.author == interaction.user and isinstance(
+                m.channel, discord.DMChannel)
+        )
+
+        # 📤 Envoi dans le salon de pub
+        channel = bot.get_channel(channel_id)
+        if channel:
+            await channel.send(f'📢 __**Citation proposer par {interaction.user.mention}**__\n\n"{msg.content}"')
+            await interaction.user.send("✅ Ta citation a bien été publié !")
+        else:
+            await interaction.user.send("❌ Salon introuvable, ton message n’a pas pu être publié.")
+    except discord.Forbidden:
+        await interaction.channel.send("❌ Je n'ai pas pu envoyer de message privé à cet utilisateur.")
+    except asyncio.TimeoutError:
+        await interaction.user.send("⏳ Temps écoulé ! Tu n’as pas envoyé ton message dans les 30 minutes. Achat annulé.")
+
+
+async def create_role_couleur(interaction: discord.Interaction, role_color: str):
+    try:
+        # Convertit la couleur hexadécimale en int
+        color = discord.Color(int(role_color.strip("#"), 16))
+        
+        # Crée le rôle avec la couleur demandée
+        role = await interaction.guild.create_role(name=f'🎨 Couleur de {interaction.user.name}', color=color)
+
+        # Trouve le rôle de référence "Couleurs"
+        reference_role = discord.utils.get(interaction.guild.roles, name="Couleurs")
+        if reference_role is None:
+            await interaction.followup.send("❌ Le rôle 'Couleurs' n'existe pas !", ephemeral=True)
+            return None
+
+        # Repositionne le rôle juste sous "Couleurs"
+        await interaction.guild.edit_role_positions(positions={
+            role: reference_role.position - 1
+        })
+        return role  # <-- Ajouté ici
+    except Exception as e:
+        await interaction.followup.send(f"❌ Une erreur est survenue : {e}", ephemeral=True)
+        return None
+        
+async def role_color(interaction: discord.Interaction):
+    embed = discord.Embed(
+        title="🎨 Modification de ta couleur personnalisée",
+        description=(
+            "Félicitations pour ton achat dans la boutique F1F ! 🏁\n\n"
+            "Tu viens de débloquer la possibilité de **changer ta couleur sur le serveur** grâce à un rôle spécial ! 🔥\n\n"
+
+            "🔧 __Comment ça marche ?__\n"
+            "Il te suffit maintenant de **répondre à ce message privé** avec la couleur de ton choix au **format hexadécimal** (ex : `#ff0000` pour rouge, `#00ffff` pour cyan...)\n\n"
+
+            "❗️ Ton rôle sera automatiquement créé avec cette couleur et placé correctement dans la hiérarchie des rôles.\n\n"
+            "🧠 Besoin d’aide pour choisir une couleur ? Tu peux utiliser ce site : https://htmlcolorcodes.com/fr/\n\n"
+            "⚠️ Attention :\n"
+            "- Une **seule couleur par achat**.\n"
+            "- Vérifie bien ton code **avant d’envoyer** (aucune modification possible ensuite).\n\n"
+            "🖍️ Hâte de voir ta nouvelle couleur briller sur le serveur ! ✨"
+        ),
+        color=discord.Color.blue()
+    )
+    embed.set_author(name="F1F Boutique — Couleur personnalisée")
+    embed.set_thumbnail(url=interaction.user.display_avatar.url)
+    embed.set_footer(text="Réponds à ce message avec ta couleur au format #RRGGBB.")
+    embed.set_image(url=param.EMBED_BOUTIQUE_OFFICEL)
+
+    try:
+        # 📬 Envoi du MP
+        await interaction.user.send(embed=embed)
+
+        # ⏳ Attente de la réponse en DM (30 minutes max)
+        msg = await bot.wait_for(
+            "message",
+            timeout=1800,  # 30 minutes en secondes
+            check=lambda m: m.author == interaction.user and isinstance(
+                m.channel, discord.DMChannel)
+        )
+        
+        role = await create_role_couleur(interaction, msg.content)
+
+        await interaction.user.send("✅ Ta couleur a bien été appliquée !")
+        await interaction.user.send("🎨 Tu peux maintenant briller avec cette couleur sur le serveur !")
+
+        # ✅ Ajoute le rôle à l’utilisateur sur le serveur
+        member = interaction.guild.get_member(interaction.user.id)
+        await member.add_roles(role)
+        
+    except discord.Forbidden:
+                await interaction.channel.send("❌ Je n'ai pas pu envoyer de message privé à cet utilisateur.")
+    except asyncio.TimeoutError:
+            await interaction.user.send("⏳ Temps écoulé ! Tu n’as pas envoyé ton message dans les 30 minutes. Achat annulé.")
+
+
 # --------- Messages personnalisés ---------
 def get_item_message(valeur):
     messages = {
@@ -165,6 +289,14 @@ def get_item_message(valeur):
         "PUB": {
             "confirmation": "Veux tu vraiment acheter un publicité pour **30 000 pièces**?",
             "success": "Merci pour ton achat va voir tes **mp** pour pour envoyé ton message !"
+        },
+        "RC": {
+            "confirmation": "Veux tu vraiment acheter une couleur pour ton role pour **250 000 pièces** ?",
+            "success": "Merci pour ton achat va voir tes **mp** pour setup ta couleur de role !"
+        },
+        "CT": {
+            "confirmation": "Veux-tu vraiment payer **3 000 pièces** pour ta citation ?",
+            "success": "Merci pour ton achat vas voir dans tes **mp** pour nous envoyer ta citation!"
         }
 
     }
@@ -224,6 +356,18 @@ class ConfirmView(discord.ui.View):
             else:
                 # ✅ On lance l’envoi du MP de pub en arrière-plan (non bloquant)
                 asyncio.create_task(pub(interaction, param.COMMANDE_BOTS))
+        
+        if self.valeur == "RC":
+            if retirer_argent(interaction.user.id, 250000):
+                erreur = "❌ Tu n'as pas assez d'argent sur ton compte."
+            else:
+                asyncio.create_task(role_color(interaction))
+        
+        if self.valeur == "CT":
+            if retirer_argent(interaction.user.id, 3000):
+                erreur = "❌ Tu n'as pas assez d'argent sur ton compte."
+            else:
+                asyncio.create_task(citation(interaction, param.COMMANDE_BOTS))         
 
         # Une seule réponse à l'interaction
         if erreur:
@@ -271,7 +415,13 @@ class BoutiqueMenu(discord.ui.Select):
                 label="🔮 Boost 24H", description="Reçois un rôle qui boost ton xp pendant 24h pour 35 000", value="boost24h"),
             discord.SelectOption(label="=== Visibilité ==="),
             discord.SelectOption(
-                label="📰 Publicité", description="Envoi ta pub dans le salon", value="PUB")
+                label="📰 Publicité", description="Envoi ta pub dans le salon", value="PUB"),
+            discord.SelectOption(
+                label="Citation", description="Envoi ta citation dans le salon sitation pour 3 000", value="CT"),
+            discord.SelectOption(label="=== Cosmétique ==="),
+            discord.SelectOption(label="🖍️ Couleur de role", description="Tu veux changer de couleur ? Seulement 250 000", value="RC"),
+
+
 
         ]
         super().__init__(placeholder="Choisis un article...",

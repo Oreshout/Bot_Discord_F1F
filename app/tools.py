@@ -6,6 +6,7 @@ from config import os
 import yt_dlp
 import json
 from error_embed import info_embed
+import config as param
 
 
 def ensure_file_exists(path):
@@ -241,3 +242,99 @@ async def music_play(interaction: discord.Interaction, song_name: str):
     voice.play(audio_source, after=after_playing)
 
     await interaction.followup.send(f"🎶 Lecture : **{found_title}**")
+
+
+async def envoie_de_message(interaction: discord.Interaction, channel_id):
+        
+    embed = discord.Embed(
+        title="ADMIN - envoi un message",
+        description=(
+            "Met en dessous le message que tu veux envoyé"
+        ),
+        color=param.EMBED_COLOR_GREEN
+    )
+
+    try:
+        # 📬 Envoi du MP
+        await interaction.user.send(embed=embed)
+
+        # ⏳ Attente de la réponse en DM (30 minutes max)
+        msg = await bot.wait_for(
+            "message",
+            timeout=1800,  # 30 minutes en secondes
+            check=lambda m: m.author == interaction.user and isinstance(
+                m.channel, discord.DMChannel)
+        )
+
+        # 📤 Envoi dans le salon de pub
+        channel = bot.get_channel(channel_id)
+        if channel:
+            await channel.send(f"{msg.content}")
+            await interaction.user.send("✅ Ton message publicitaire a bien été publié !")
+        else:
+            await interaction.user.send("❌ Salon introuvable, ton message n’a pas pu être publié.")
+    except discord.Forbidden:
+        await interaction.channel.send("❌ Je n'ai pas pu envoyer de message privé à cet utilisateur.")
+    except asyncio.TimeoutError:
+        await interaction.user.send("⏳ Temps écoulé ! Tu n’as pas envoyé ton message dans les 30 minutes. Achat annulé.")
+
+async def avis(interaction: discord.Interaction):
+
+    file_path = 'data/avisbot.json'
+
+    embed = discord.Embed(
+        title="🗣️ Donne ton avis sur le bot Formula 1 France !",
+        description=(
+            "👋 **Salut à toi, membre de la communauté F1F !**\n\n"
+            "Tu viens d'utiliser la commande `/avis`, et je t'en remercie !\n\n"
+            "🚀 Le bot est encore en **développement**, et ton avis est super important pour nous permettre de l'améliorer jour après jour.\n\n"
+            "💬 __Comment participer ?__\n"
+            "C'est très simple : **réponds directement à ce message privé** avec ton avis sur le bot.\n"
+            "Tu peux nous dire ce que tu aimes, ce qui te manque, ou ce qui pourrait être amélioré !\n\n"
+            "📌 __Quelques idées pour t'inspirer :__\n"
+            "- Est-ce que le bot est facile à utiliser ?\n"
+            "- Tu as rencontré des bugs ?\n"
+            "- Tu voudrais voir de nouvelles fonctionnalités ?\n"
+            "- Tu trouves que le design ou les réponses sont claires ?\n\n"
+            "🧠 Tous les retours sont les bienvenus, même les plus courts !\n\n"
+            "Merci beaucoup pour ton aide 🙏 et à très vite sur le serveur Formula 1 France 🏁"
+        ),
+        color=EMBED_COLOR_RED
+    )
+
+    embed.set_footer(text=EMBED_FOOTER_TEXT, icon_url=EMBED_THUMBNAIL)
+    embed.set_thumbnail(url=interaction.user.display_avatar.url)
+    embed.set_image(url=EMBED_IMAGE)
+
+    try:
+        await interaction.user.send(embed=embed)
+
+        msg = await bot.wait_for(
+            "message",
+            check=lambda m: m.author == interaction.user and isinstance(
+                m.channel, discord.DMChannel)
+        )
+
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read().strip()
+                data = json.loads(content) if content else {}
+        except (FileNotFoundError, json.JSONDecodeError):
+            data = {}
+
+        data[str(msg.author.name)] = msg.content
+
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=4, ensure_ascii=True)
+
+        await interaction.user.send("Merci pour ton avis il nous sera très utile !")
+
+    except discord.Forbidden:
+        await interaction.channel.send("Je n'ai pas pu envoyer le message")
+
+    if interaction.guild is None:
+        logger.info(f"avis par {interaction.user.name} en MP")
+    else:
+        logger.info(
+            f"avis par {interaction.user.name} dans {interaction.channel.name} sur {interaction.guild.name}")
+

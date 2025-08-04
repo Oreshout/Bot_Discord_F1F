@@ -21,11 +21,24 @@ def get_session_name():
 
     try:
         session = get_session(saison, location, statue)
-        session.load()  # Nécessaire pour avoir SessionName
-        return session.session_name  # ex: "QUALIFYING", "RACE", "SPRINT"
+        session.load()
+
+        session_type = session.session_type.upper()  # ex: "QUALIFYING", "RACE", etc.
+        print(f"Session détectée : {session_type}")
+
+        # Mapping vers lettre unique
+        if session_type == "QUALIFYING":
+            return "Q"
+        elif session_type == "RACE":
+            return "R"
+        elif session_type == "SPRINT":
+            return "S"
+        else:
+            return "inconnu"
+
     except Exception as e:
         print(f"Erreur lors du chargement de la session : {e}")
-        return "Session inconnue"
+        return "inconnu"
 
 def sanitize_filename(name):
     return re.sub(r'[^\w\-]', '_', name)

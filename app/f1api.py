@@ -76,11 +76,16 @@ def getNextEvent():
     logger.warning("Aucune session future trouvée dans le calendrier.")
     
 def getResults():
-    
     country = country_fonction()
     session_name = get_session_name()
-    with open(f'data/session/Session_{country}_{session_name}.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    print(f"{session_name}!!!!!!!!!")
+
+    try:
+        with open(f'data/session/Session_{country}_{session_name}.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        logger.error(f"Fichier de session introuvable pour {country} {session_name}")
+        return 5
 
     country = data.get('Country', 'unknown').lower()
     session_type = data.get("Session", "")  # garder la casse
@@ -101,8 +106,9 @@ def getResults():
         logger.error(f"Erreur lors du chargement de la session : {e}")
         return 3
 
-    if session.results is None or session.results.empty:
-        logger.warning("Les résultats ne sont pas encore disponibles.")
+    # ✅ Protection contre l’attribut manquant
+    if not hasattr(session, 'results') or session.results is None or session.results.empty:
+        logger.warning("Les résultats ne sont pas encore disponibles ou incomplets.")
         return 1
 
     if len(session.results) < 3:
@@ -126,6 +132,7 @@ def getResults():
         logger.warning(f"Erreur dans le traitement des résultats : {e}")
         return 1
 
+    # ✅ Génération du bon nom de fichier
     if session_type == "Q":
         filename = f'data/result/Results_Qualif_{country}.json'
     elif session_type == "S":

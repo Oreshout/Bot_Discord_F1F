@@ -1,9 +1,121 @@
 {
     "matt_karting": {
         "Pseudo": "matt_karting",
-        "1": "b",
-        "2": "b",
-        "3": "b",
+        "1": "Leclerc",
+        "2": "Oscar",
+        "3": "Norris",
         "Modif": true
+    },
+    "la_bagguette": {
+        "Pseudo": "la_bagguette",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Hamilton",
+        "Modif": false
+    },
+    "lepingouin_1": {
+        "Pseudo": "lepingouin_1",
+        "1": "Norris",
+        "2": "Piastri",
+        "3": "Verstapen",
+        "Modif": false
+    },
+    "nono9516": {
+        "Pseudo": "nono9516",
+        "1": "Lando Norris",
+        "2": "Oscar Piastri",
+        "3": "Kimi Antonelli",
+        "Modif": false
+    },
+    "bliss_9_": {
+        "Pseudo": "bliss_9_",
+        "1": "Norris",
+        "2": "Piastri",
+        "3": "Russell",
+        "Modif": false
+    },
+    "legamerduberry": {
+        "Pseudo": "legamerduberry",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Leclerc",
+        "Modif": false
+    },
+    "holo6": {
+        "Pseudo": "holo6",
+        "1": "Norris",
+        "2": "Piastri",
+        "3": "Leclerc",
+        "Modif": false
+    },
+    "maiwcat33": {
+        "Pseudo": "maiwcat33",
+        "1": "Norris",
+        "2": "Piastrie",
+        "3": "Leclerc",
+        "Modif": false
+    },
+    "tinad19tin": {
+        "Pseudo": "tinad19tin",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Leclerc",
+        "Modif": false
+    },
+    "tagatel8": {
+        "Pseudo": "tagatel8",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Russell",
+        "Modif": false
+    },
+    "baby_driverr": {
+        "Pseudo": "baby_driverr",
+        "1": "Norris",
+        "2": "Piastri",
+        "3": "Leclerc",
+        "Modif": false
+    },
+    "palmer_jrr": {
+        "Pseudo": "palmer_jrr",
+        "1": "Lando Norris",
+        "2": "Oscar Piastri",
+        "3": "Charles Leclerc",
+        "Modif": false
+    },
+    "tigerone4980": {
+        "Pseudo": "tigerone4980",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "Leclerc",
+        "Modif": false
+    },
+    "whisper9741": {
+        "Pseudo": "whisper9741",
+        "1": "Oscar Piastri",
+        "2": "Lando Norris",
+        "3": "Charles Leclerc",
+        "Modif": false
+    },
+    "goldy.exe": {
+        "Pseudo": "goldy.exe",
+        "1": "Piastri",
+        "2": "Norris",
+        "3": "leclerc",
+        "Modif": false
+    },
+    "angerebelle": {
+        "Pseudo": "angerebelle",
+        "1": "Lando Norris",
+        "2": "Oscar Piastri",
+        "3": "Charles Leclerc",
+        "Modif": false
+    },
+    "maren4540": {
+        "Pseudo": "maren4540",
+        "1": "[Leclerc]",
+        "2": "[Piastri]",
+        "3": "[Norris]",
+        "Modif": false
     }
 }
