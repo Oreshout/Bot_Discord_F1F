@@ -85,3 +85,13 @@ BOOST_JOUR = 1400473431782330528
 COMMANDE_BOTS = 928612687263444992
 PRONOS = 1346557436730937436
 
+# === 🏆 Récompense ===
+
+PIECE_CHEVRE_EN_OR = "https://media.discordapp.net/attachments/1093252067407188110/1401164466468688022/ChatGPT_Image_18_avr._2025__12_29_46-removebg-preview.png?ex=68988219&is=68973099&hm=4e84cc42e6f019e6a39353e88afc7901c81d9652b0c3efe5ae381648037a2fcc&=&format=webp&quality=lossless&width=789&height=789"
+
+
+# === 🃏 Carte ===
+
+CHARLES_LECLERC = "https://cdn.discordapp.com/attachments/1212852209491116113/1402020719881097257/Carte_Pilote_Charles_Leclerc.png?ex=6892650b&is=6891138b&hm=129d62c31192041704bc064fd468e5d9f87e8a30a1912a0fd730677bf5a9e258&"
+JACK_DOOHAN = "https://media.discordapp.net/attachments/1212854217069428797/1401492321572360202/Carte_pilote_Doohan.png?ex=6891ca6f&is=689078ef&hm=945c4c66f2590c86cdb9e9b0f877a4f851b1a301d6867dfa9b718042793dfda8&=&format=webp&quality=lossless&width=444&height=789"
+OSCAR_PIASTRI = "https://media.discordapp.net/attachments/1212854217069428797/1401492322000306187/Carte_pilote_Piastri.png?ex=6891ca70&is=689078f0&hm=16d641e62880015cad811065d337ea8302ab84518e4180b6d03839f36dfae1a5&=&format=webp&quality=lossless&width=444&height=789"

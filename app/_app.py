@@ -13,6 +13,8 @@ from datetime import timedelta
 from typing import Literal
 import economie as eco
 import boutique as shop
+import inventaire as card
+import bvn as bvn
 
 
 @bot.event
@@ -518,12 +520,50 @@ async def boutic(interaction: discord.Interaction):
 
 # _______________________________________________________________________________________________________________________________
 
+
 @tree.command(name="admin_send_mess", description="Le bot envoi le message de ton choix")
 async def send_mess(interaction: discord.Interaction):
     await interaction.response.defer()
     await tool.envoie_de_message(interaction, conf.PRONOS)
     logger.info(f"{interaction.user} a envoyé un message via le bot.")
 
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="boutique_carte", description="Ouvre la boutique")
+async def boutic_carte(interaction: discord.Interaction):
+    await interaction.response.defer()
+    await card.boutique_carte(interaction)
+    logger.info(f"{interaction.user} a ouvert la boutique de carte.")
+
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="show_inventaire", description="Affiche ton inventaire")
+async def show_invent(interaction: discord.Interaction):
+    await card.afficher_cartes_inventaire(interaction)
+    logger.info(f"{interaction.user} a ouvert son inventaire")
+    
+@bot.event
+async def on_member_join(member: discord.Member):
+    # Générer l'image
+    image_path = bvn.generate_welcome_image(member)
+
+    # Trouver le salon où envoyer le message
+    channel = discord.utils.get(member.guild.text_channels, name="🤖・commandes-bots")
+    if channel is None:
+        logger.warning("Salon 🤖・commandes-bots introuvable")
+        return
+
+    # Créer le fichier à envoyer
+    file = discord.File(image_path, filename="welcome.png")
+
+    # Créer l'embed avec l'image en attachment
+    embed = discord.Embed(title=f"Bienvenue {member.display_name} !", color=conf.EMBED_COLOR_GOLD)
+    embed.set_image(url="attachment://welcome.png")
+
+    # Envoyer le message avec fichier et embed
+    await channel.send(file=file, embed=embed)
 
 
 bot.run(TOKEN)

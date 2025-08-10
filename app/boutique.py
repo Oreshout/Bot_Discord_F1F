@@ -417,12 +417,9 @@ class BoutiqueMenu(discord.ui.Select):
             discord.SelectOption(
                 label="📰 Publicité", description="Envoi ta pub dans le salon", value="PUB"),
             discord.SelectOption(
-                label="Citation", description="Envoi ta citation dans le salon sitation pour 3 000", value="CT"),
+                label="📜 Citation", description="Envoi ta citation dans le salon sitation pour 3 000", value="CT"),
             discord.SelectOption(label="=== Cosmétique ==="),
             discord.SelectOption(label="🖍️ Couleur de role", description="Tu veux changer de couleur ? Seulement 250 000", value="RC"),
-
-
-
         ]
         super().__init__(placeholder="Choisis un article...",
                          options=options, min_values=1, max_values=1)
