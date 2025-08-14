@@ -1,0 +1,61 @@
+{
+    "offres": {
+        "1405310561691893901": {
+            "type": "emploi",
+            "createur": "whisper9741",
+            "createur_id": 674627381683552256,
+            "salaire": 100,
+            "description": "Test je propose que Matt soit le GOAT SUPREME",
+            "date_creation": "2025-08-13T22:02:27.801049+00:00",
+            "expiration": "2025-09-12T22:02:27.801059+00:00",
+            "candidats": [
+                "matt_karting"
+            ],
+            "candidats_id": [
+                1200489866165747722
+            ],
+            "selectionne": null,
+            "valide_createur": false,
+            "valide_postulant": false,
+            "etat": "en_cours"
+        },
+        "1405491693209391204": {
+            "type": "emploi",
+            "createur": "matt_karting",
+            "createur_id": 1200489866165747722,
+            "salaire": 2,
+            "description": "BAGUETTE POSTULE",
+            "date_creation": "2025-08-14T10:02:12.797654+00:00",
+            "expiration": "2025-09-13T10:02:12.797670+00:00",
+            "candidats": [
+                "la_bagguette",
+                "la_bagguette"
+            ],
+            "candidats_id": [
+                944143066716045322,
+                944143066716045322
+            ],
+            "selectionne": 944143066716045322,
+            "valide_createur": false,
+            "valide_postulant": true,
+            "etat": "valide"
+        }
+    },
+    "engagements": {
+        "674627381683552256": {
+            "createur_name": "whisper9741",
+            "offre_id": "1405310561691893901",
+            "role": "createur"
+        },
+        "1200489866165747722": {
+            "createur_name": "matt_karting",
+            "offre_id": "1405491693209391204",
+            "role": "createur"
+        },
+        "944143066716045322": {
+            "createur_name": "matt_karting",
+            "offre_id": "1405491693209391204",
+            "role": "postulant"
+        }
+    }
+}

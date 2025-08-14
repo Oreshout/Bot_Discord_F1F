@@ -15,6 +15,7 @@ import economie as eco
 import boutique as shop
 import inventaire as card
 import bvn as bvn
+import work as wk
 
 
 @bot.event
@@ -543,14 +544,16 @@ async def boutic_carte(interaction: discord.Interaction):
 async def show_invent(interaction: discord.Interaction):
     await card.afficher_cartes_inventaire(interaction)
     logger.info(f"{interaction.user} a ouvert son inventaire")
-    
+
+
 @bot.event
 async def on_member_join(member: discord.Member):
     # Générer l'image
     image_path = bvn.generate_welcome_image(member)
 
     # Trouver le salon où envoyer le message
-    channel = discord.utils.get(member.guild.text_channels, name="🤖・commandes-bots")
+    channel = discord.utils.get(
+        member.guild.text_channels, name="🤖・commandes-bots")
     if channel is None:
         logger.warning("Salon 🤖・commandes-bots introuvable")
         return
@@ -559,11 +562,39 @@ async def on_member_join(member: discord.Member):
     file = discord.File(image_path, filename="welcome.png")
 
     # Créer l'embed avec l'image en attachment
-    embed = discord.Embed(title=f"Bienvenue {member.display_name} !", color=conf.EMBED_COLOR_GOLD)
+    embed = discord.Embed(
+        title=f"Bienvenue {member.display_name} !", color=conf.EMBED_COLOR_GOLD)
     embed.set_image(url="attachment://welcome.png")
 
     # Envoyer le message avec fichier et embed
     await channel.send(file=file, embed=embed)
+
+# _______________________________________________________________________________________________________________________________
+
+
+@tree.command(name="work", description="Publie une offre d'emploi rémunérée")
+@app_commands.describe(salaire="Montant de la rémunération")
+async def working(interaction: discord.Interaction, salaire: int):
+    await wk.work(interaction, salaire)
+    logger.info(f"{interaction.user} a crée un offre d'emploi")
+
+    
+@tree.command(name="validation_work", description="Valider la mission pour paiement")
+async def valid(interaction: discord.Interaction):
+    await wk.validation_work(interaction)
+    logger.info(f"{interaction.user} a valider son offre d'emploi")
+
+@tree.command(name="contrat", description="Crée un contrat entre 2 membres")
+@app_commands.describe(candidat= "Le candidat que l'on choisi pour le contrat")
+async def licence(interaction: discord.Interaction, candidat: discord.Member):
+    await wk.contrat(interaction, candidat)
+    logger.info(f"{interaction.user} a crée un contrat avec {candidat}")
+    
+@tree.command(name="supprimer_offre", description="Supprimer une offre que vous avez créée")
+async def supp_offer(interaction: discord.Interaction):
+    await wk.supprimer_offre(interaction)
+    logger.info(f"{interaction.user} a supprimé son offre.")
+
 
 
 bot.run(TOKEN)
